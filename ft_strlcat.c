@@ -1,34 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
+/*   ft_strlcat.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yguaye <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/11/09 11:38:20 by yguaye            #+#    #+#             */
-/*   Updated: 2017/11/09 16:52:05 by yguaye           ###   ########.fr       */
+/*   Created: 2017/11/09 17:50:23 by yguaye            #+#    #+#             */
+/*   Updated: 2017/11/09 17:58:35 by yguaye           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_putnbr_fd(int n, int fd)
+size_t	ft_strlcat(char *restrict dst, const char *restrict src, size_t size)
 {
-	if (n == -2147483648)
-	{
-		ft_putstr_fd("-2147483648", fd);
-		return ;
-	}
-	else if (n < 0)
-	{
-		ft_putchar_fd('-', fd);
-		n = -n;
-	}
-	if (n < 10)
-		ft_putchar_fd('0' + n % 10, fd);
+	size_t	i;
+	size_t	j;
+	size_t	res;
+
+	i = ft_strlen(dst);
+	res = 0;
+	while (src[res])
+		++res;
+	if (size <= i)
+		res += size;
 	else
+		res += i;
+	j = 0;
+	while (src[j] != '\0' && i + 1 < size)
 	{
-		ft_putnbr_fd(n / 10, fd);
-		ft_putchar_fd('0' + n % 10, fd);
+		dst[i] = src[j];
+		i++;
+		j++;
 	}
+	dst[i] = '\0';
+	return (res);
 }

@@ -1,34 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
+/*   ft_strcat.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yguaye <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/11/09 11:38:20 by yguaye            #+#    #+#             */
-/*   Updated: 2017/11/09 16:52:05 by yguaye           ###   ########.fr       */
+/*   Created: 2017/11/09 17:15:05 by yguaye            #+#    #+#             */
+/*   Updated: 2017/11/09 17:22:06 by yguaye           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_putnbr_fd(int n, int fd)
+char	*ft_strcat(char *restrict s1, const char *restrict s2)
 {
-	if (n == -2147483648)
+	int i;
+	int l;
+
+	i = 0;
+	l = ft_strlen(s1);
+	while (s2[i])
 	{
-		ft_putstr_fd("-2147483648", fd);
-		return ;
+		s1[l + i] = s2[i];
+		++i;
 	}
-	else if (n < 0)
-	{
-		ft_putchar_fd('-', fd);
-		n = -n;
-	}
-	if (n < 10)
-		ft_putchar_fd('0' + n % 10, fd);
-	else
-	{
-		ft_putnbr_fd(n / 10, fd);
-		ft_putchar_fd('0' + n % 10, fd);
-	}
+	s1[l + i] = 0;
+	return (s1);
 }

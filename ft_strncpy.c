@@ -1,34 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
+/*   ft_strncpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yguaye <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/11/09 11:38:20 by yguaye            #+#    #+#             */
-/*   Updated: 2017/11/09 16:52:05 by yguaye           ###   ########.fr       */
+/*   Created: 2017/11/09 16:02:03 by yguaye            #+#    #+#             */
+/*   Updated: 2017/11/09 16:36:21 by yguaye           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_putnbr_fd(int n, int fd)
+char	*ft_strncpy(char *dst, const char *src, size_t len)
 {
-	if (n == -2147483648)
+	size_t i;
+
+	i = 0;
+	while (i < len)
 	{
-		ft_putstr_fd("-2147483648", fd);
-		return ;
+		if (src[i])
+			dst[i] = src[i];
+		else
+			dst[i] = 0;
+		++i;
 	}
-	else if (n < 0)
-	{
-		ft_putchar_fd('-', fd);
-		n = -n;
-	}
-	if (n < 10)
-		ft_putchar_fd('0' + n % 10, fd);
-	else
-	{
-		ft_putnbr_fd(n / 10, fd);
-		ft_putchar_fd('0' + n % 10, fd);
-	}
+	return (dst);
 }
