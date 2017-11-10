@@ -1,29 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strncat.c                                       :+:      :+:    :+:   */
+/*   ft_memcmp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yguaye <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/11/09 17:20:15 by yguaye            #+#    #+#             */
-/*   Updated: 2017/11/10 13:13:32 by yguaye           ###   ########.fr       */
+/*   Created: 2017/11/10 11:10:09 by yguaye            #+#    #+#             */
+/*   Updated: 2017/11/10 13:14:47 by yguaye           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strncat(char *restrict s1, const char *restrict s2, size_t n)
+int		ft_memcmp(const void *s1, const void *s2, size_t n)
 {
-	size_t	i;
-	int		l;
+	unsigned char	*str1;
+	unsigned char	*str2;
+	size_t			i;
 
+	str1 = (unsigned char *)s1;
+	str2 = (unsigned char *)s2;
 	i = 0;
-	l = ft_strlen(s1);
-	while (i <= n)
-	{
-		s1[l + i] = s2[i];
+	while (str1[i] == str2[i] && i < n)
 		++i;
-	}
-	s1[l + i] = 0;
-	return (s1);
+	return (str1[i] - str2[i]);
 }

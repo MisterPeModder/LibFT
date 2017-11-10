@@ -1,29 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strncat.c                                       :+:      :+:    :+:   */
+/*   ft_strnstr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yguaye <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/11/09 17:20:15 by yguaye            #+#    #+#             */
-/*   Updated: 2017/11/10 13:13:32 by yguaye           ###   ########.fr       */
+/*   Created: 2017/11/10 17:43:50 by yguaye            #+#    #+#             */
+/*   Updated: 2017/11/10 17:52:11 by yguaye           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strncat(char *restrict s1, const char *restrict s2, size_t n)
+char	*ft_strnstr(const char *haystack, const char *needle, size_t len)
 {
 	size_t	i;
-	int		l;
+	size_t	j;
+	size_t	lneedle;
+	char	*hs;
+	char	*ne;
 
+	hs = (char *)haystack;
+	ne = (char *)needle;
+	if (!ne)
+		return (hs);
 	i = 0;
-	l = ft_strlen(s1);
-	while (i <= n)
+	lneedle = ft_strlen(needle);
+	i = 0;
+	while (i <= len && hs[i])
 	{
-		s1[l + i] = s2[i];
+		j = 0;
+		while (ne[j] && *(hs + i + j) == ne[j])
+			++i;
+		if (j == lneedle)
+			return (hs + i);
 		++i;
 	}
-	s1[l + i] = 0;
-	return (s1);
+	return (NULL);
 }

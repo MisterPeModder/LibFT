@@ -1,29 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strncat.c                                       :+:      :+:    :+:   */
+/*   ft_memmove.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yguaye <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/11/09 17:20:15 by yguaye            #+#    #+#             */
-/*   Updated: 2017/11/10 13:13:32 by yguaye           ###   ########.fr       */
+/*   Created: 2017/11/10 10:18:05 by yguaye            #+#    #+#             */
+/*   Updated: 2017/11/10 10:47:32 by yguaye           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <stdlib.h>
 
-char	*ft_strncat(char *restrict s1, const char *restrict s2, size_t n)
+void	*ft_memmove(void *d, const void *s, size_t n)
 {
-	size_t	i;
-	int		l;
+	void	*tmp;
 
-	i = 0;
-	l = ft_strlen(s1);
-	while (i <= n)
-	{
-		s1[l + i] = s2[i];
-		++i;
-	}
-	s1[l + i] = 0;
-	return (s1);
+	tmp = malloc(sizeof(unsigned char) * n);
+	if (!tmp)
+		return (d);
+	ft_memcpy(tmp, s, n);
+	ft_memcpy(d, tmp, n);
+	free(tmp);
+	return (d);
 }
