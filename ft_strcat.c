@@ -6,13 +6,13 @@
 /*   By: yguaye <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/09 17:15:05 by yguaye            #+#    #+#             */
-/*   Updated: 2017/11/09 17:22:06 by yguaye           ###   ########.fr       */
+/*   Updated: 2017/11/11 22:27:00 by yguaye           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strcat(char *restrict s1, const char *restrict s2)
+char	*ft_strcat(char *s1, const char *s2)
 {
 	int i;
 	int l;

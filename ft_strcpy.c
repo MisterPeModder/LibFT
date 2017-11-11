@@ -6,20 +6,19 @@
 /*   By: yguaye <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/09 15:55:39 by yguaye            #+#    #+#             */
-/*   Updated: 2017/11/09 16:15:57 by yguaye           ###   ########.fr       */
+/*   Updated: 2017/11/11 22:49:51 by yguaye           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 char	*ft_strcpy(char *dst, const char *src)
 {
-	int i;
+	char	*d;
+	char	*s;
 
-	i = 0;
-	while (src[i])
-	{
-		dst[i] = src[i];
-		++i;
-	}
-	dst[i] = 0;
+	d = (char *)dst;
+	s = (char *)src;
+	while (*s)
+		*d++ = *s++;
+	*d = 0;
 	return (dst);
 }

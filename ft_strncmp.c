@@ -6,7 +6,7 @@
 /*   By: yguaye <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/11 12:34:28 by yguaye            #+#    #+#             */
-/*   Updated: 2017/11/11 12:39:11 by yguaye           ###   ########.fr       */
+/*   Updated: 2017/11/11 22:43:23 by yguaye           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ int		ft_strncmp(const char *s1, const char *s2, size_t n)
 {
 	char	*str1;
 	char	*str2;
-	size_t		i;
+	size_t	i;
 
 	str1 = (char *)s1;
 	str2 = (char *)s2;
