@@ -6,7 +6,7 @@
 /*   By: yguaye <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/08 17:19:30 by yguaye            #+#    #+#             */
-/*   Updated: 2017/11/11 12:39:32 by yguaye           ###   ########.fr       */
+/*   Updated: 2017/11/11 14:28:55 by yguaye           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,8 @@
 # define LIBFT_H
 
 # include <string.h>
+
+# define ISSPACE(c) (c == ' ' || (c >= '\t' && c <= '\r'))
 
 void	*ft_memset(void *b, int c, size_t len);
 void	ft_bzero(void *s, size_t n);
@@ -35,6 +37,7 @@ char	*ft_strstr(const char *haystack, const char *needle);
 char	*ft_strnstr(const char *haystack, const char *needle, size_t len);
 int		ft_strcmp(const char *s1, const char *s2);
 int		ft_strncmp(const char *s1, const char *s2, size_t n);
+int		ft_atoi(const char *str);
 
 void	ft_putchar(char c);
 void	ft_putchar_fd(char c, int fd);
