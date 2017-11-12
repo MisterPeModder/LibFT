@@ -1,29 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strncpy.c                                       :+:      :+:    :+:   */
+/*   ft_strsub.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yguaye <yguaye@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/11/09 16:02:03 by yguaye            #+#    #+#             */
-/*   Updated: 2017/11/12 19:54:41 by yguaye           ###   ########.fr       */
+/*   Created: 2017/11/12 20:36:45 by yguaye            #+#    #+#             */
+/*   Updated: 2017/11/12 20:40:41 by yguaye           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strncpy(char *dst, const char *src, size_t len)
+char	*ft_strsub(char const *s, unsigned int start, size_t len)
 {
-	size_t i;
+	char			*res;
+	unsigned int	i;
 
+	if (!(res = ft_strnew(len)))
+		return (NULL);
 	i = 0;
-	while (i < len)
+	while (s[start + i] && i < len)
 	{
-		if (src[i])
-			dst[i] = src[i];
-		else
-			dst[i] = 0;
+		res[i] = s[start + i];
 		++i;
 	}
-	return (dst);
+	return (res);
 }

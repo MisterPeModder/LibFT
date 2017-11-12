@@ -1,34 +1,64 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
+/*   ft_itoa.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yguaye <yguaye@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/11/09 11:38:20 by yguaye            #+#    #+#             */
-/*   Updated: 2017/11/12 19:50:21 by yguaye           ###   ########.fr       */
+/*   Created: 2017/11/12 21:26:50 by yguaye            #+#    #+#             */
+/*   Updated: 2017/11/12 22:12:00 by yguaye           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_putnbr_fd(int n, int fd)
+static char	*create_str(int n)
+{
+	size_t	len;
+
+	len = n < 0 ? 2 : 1;
+	while (n > 10 || n < -10)
+	{
+		n /= 10;
+		++len;
+	}
+	return (ft_strnew(len));
+}
+
+static void	append(char *buf, char c)
+{
+	while (*buf)
+		++buf;
+	*buf = c;
+}
+
+static void	putnum(char *buf, int n)
 {
 	if (n == -2147483648)
 	{
-		ft_putstr_fd("-2147483648", fd);
+		ft_strcpy(buf, "-2147483648");
 		return ;
 	}
 	else if (n < 0)
 	{
-		ft_putchar_fd('-', fd);
+		append(buf, '-');
 		n = -n;
 	}
 	if (n < 10)
-		ft_putchar_fd('0' + n % 10, fd);
+		append(buf, '0' + n % 10);
 	else
 	{
-		ft_putnbr_fd(n / 10, fd);
-		ft_putchar_fd('0' + n % 10, fd);
+		putnum(buf, n / 10);
+		append(buf, '0' + n % 10);
 	}
+}
+
+char		*ft_itoa(int n)
+{
+	char	*buf;
+
+	if (!(buf = create_str(n)))
+		return (NULL);
+	putnum(buf, n);
+	return (buf);
 }

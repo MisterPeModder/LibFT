@@ -1,29 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strncpy.c                                       :+:      :+:    :+:   */
+/*   ft_strjoin.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yguaye <yguaye@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/11/09 16:02:03 by yguaye            #+#    #+#             */
-/*   Updated: 2017/11/12 19:54:41 by yguaye           ###   ########.fr       */
+/*   Created: 2017/11/12 21:02:38 by yguaye            #+#    #+#             */
+/*   Updated: 2017/11/12 21:09:13 by yguaye           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strncpy(char *dst, const char *src, size_t len)
+char	*ft_strjoin(char const *s1, char const *s2)
 {
-	size_t i;
+	char	*res;
+	size_t	ls1;
 
-	i = 0;
-	while (i < len)
-	{
-		if (src[i])
-			dst[i] = src[i];
-		else
-			dst[i] = 0;
-		++i;
-	}
-	return (dst);
+	ls1 = ft_strlen(s1);
+	if (!(res = ft_strnew(ls1 + ft_strlen(s2))))
+		return (NULL);
+	ft_strcpy(res, s1);
+	ft_strcpy(res + ls1, s2);
+	return (res);
 }

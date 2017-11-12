@@ -1,29 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strncpy.c                                       :+:      :+:    :+:   */
+/*   ft_strmap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yguaye <yguaye@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/11/09 16:02:03 by yguaye            #+#    #+#             */
-/*   Updated: 2017/11/12 19:54:41 by yguaye           ###   ########.fr       */
+/*   Created: 2017/11/12 19:58:30 by yguaye            #+#    #+#             */
+/*   Updated: 2017/11/12 21:00:29 by yguaye           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strncpy(char *dst, const char *src, size_t len)
+char	*ft_strmap(char const *s, char (*f)(char))
 {
-	size_t i;
+	char			*res;
+	unsigned int	i;
 
+	if (!(res = ft_strnew(ft_strlen(s))))
+		return (NULL);
 	i = 0;
-	while (i < len)
+	while (s[i])
 	{
-		if (src[i])
-			dst[i] = src[i];
-		else
-			dst[i] = 0;
+		res[i] = (*f)((char)s[i]);
 		++i;
 	}
-	return (dst);
+	return (res);
 }
