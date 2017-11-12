@@ -1,24 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strdup.c                                        :+:      :+:    :+:   */
+/*   ft_memalloc.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yguaye <marvin@42.fr>                      +#+  +:+       +#+        */
+/*   By: yguaye <yguaye@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/11/09 14:15:57 by yguaye            #+#    #+#             */
-/*   Updated: 2017/11/12 14:03:03 by yguaye           ###   ########.fr       */
+/*   Created: 2017/11/12 13:20:19 by yguaye            #+#    #+#             */
+/*   Updated: 2017/11/12 14:00:53 by yguaye           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 #include <stdlib.h>
 
-char	*ft_strdup(const char *src)
+void	*ft_memalloc(size_t size)
 {
-	char	*s;
+	unsigned char	*tab;
+	size_t			i;
 
-	if(!(s = ft_strnew(ft_strlen(src))))
+	if (!(tab = (unsigned char *)malloc(size)))
 		return (NULL);
-	ft_strcpy(s, src);
-	return (s);
+	i = 0;
+	while (i < size)
+		tab[i++] = (unsigned char)0;
+	return ((void *)tab);
 }

@@ -1,24 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strdup.c                                        :+:      :+:    :+:   */
+/*   ft_memdel.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yguaye <marvin@42.fr>                      +#+  +:+       +#+        */
+/*   By: yguaye <yguaye@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/11/09 14:15:57 by yguaye            #+#    #+#             */
-/*   Updated: 2017/11/12 14:03:03 by yguaye           ###   ########.fr       */
+/*   Created: 2017/11/12 13:54:32 by yguaye            #+#    #+#             */
+/*   Updated: 2017/11/12 13:56:20 by yguaye           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
 #include <stdlib.h>
 
-char	*ft_strdup(const char *src)
+void	ft_memdel(void **ap)
 {
-	char	*s;
-
-	if(!(s = ft_strnew(ft_strlen(src))))
-		return (NULL);
-	ft_strcpy(s, src);
-	return (s);
+	free(*ap);
+	*ap = NULL;
 }

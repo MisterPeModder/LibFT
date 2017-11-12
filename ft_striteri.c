@@ -1,24 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strdup.c                                        :+:      :+:    :+:   */
+/*   ft_striteri.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yguaye <marvin@42.fr>                      +#+  +:+       +#+        */
+/*   By: yguaye <yguaye@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/11/09 14:15:57 by yguaye            #+#    #+#             */
-/*   Updated: 2017/11/12 14:03:03 by yguaye           ###   ########.fr       */
+/*   Created: 2017/11/12 18:47:48 by yguaye            #+#    #+#             */
+/*   Updated: 2017/11/12 18:55:42 by yguaye           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-#include <stdlib.h>
-
-char	*ft_strdup(const char *src)
+void	ft_striteri(char *s, void (*f)(unsigned int, char *))
 {
-	char	*s;
+	unsigned int	i;
 
-	if(!(s = ft_strnew(ft_strlen(src))))
-		return (NULL);
-	ft_strcpy(s, src);
-	return (s);
+	i = 0;
+	while (s[i])
+	{
+		(*f)(i, s + i);
+		++i;
+	}
 }

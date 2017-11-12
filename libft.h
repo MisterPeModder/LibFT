@@ -6,7 +6,7 @@
 /*   By: yguaye <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/08 17:19:30 by yguaye            #+#    #+#             */
-/*   Updated: 2017/11/12 12:40:13 by yguaye           ###   ########.fr       */
+/*   Updated: 2017/11/12 18:54:27 by yguaye           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,13 @@ int		ft_isprint(int c);
 int		ft_isspace(int c);
 int		ft_toupper(int c);
 int		ft_tolower(int c);
+void	*ft_memalloc(size_t size);
+void	ft_memdel(void **ap);
+char	*ft_strnew(size_t size);
+void	ft_strdel(char **as);
+void	ft_strclr(char *s);
+void	ft_striter(char *s, void (*f)(char *));
+void	ft_striteri(char *s, void (*f)(unsigned int, char *));
 
 void	ft_putchar(char c);
 void	ft_putchar_fd(char c, int fd);
