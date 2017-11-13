@@ -6,7 +6,7 @@
 /*   By: yguaye <yguaye@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/12 20:07:48 by yguaye            #+#    #+#             */
-/*   Updated: 2017/11/12 21:00:50 by yguaye           ###   ########.fr       */
+/*   Updated: 2017/11/13 14:38:12 by yguaye           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 	char			*res;
 	unsigned int	i;
 
-	if (!(res = ft_strnew(ft_strlen(s))))
+	if (!s || !(res = ft_strnew(ft_strlen(s))))
 		return (NULL);
 	i = 0;
 	while (s[i])

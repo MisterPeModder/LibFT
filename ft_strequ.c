@@ -6,7 +6,7 @@
 /*   By: yguaye <yguaye@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/12 20:11:23 by yguaye            #+#    #+#             */
-/*   Updated: 2017/11/12 20:13:49 by yguaye           ###   ########.fr       */
+/*   Updated: 2017/11/13 14:41:08 by yguaye           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,5 +14,7 @@
 
 int		ft_strequ(char const *s1, char const *s2)
 {
+	if (!s1)
+		return (!s2 ? 1 : 0);
 	return (ft_strcmp(s1, s2) == 0 ? 1 : 0);
 }

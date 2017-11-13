@@ -6,13 +6,13 @@
 /*   By: yguaye <yguaye@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/12 12:44:46 by yguaye            #+#    #+#             */
-/*   Updated: 2017/11/12 12:45:41 by yguaye           ###   ########.fr       */
+/*   Updated: 2017/11/13 10:32:58 by yguaye           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int		ft_toupper(int c)
+int		ft_tolower(int c)
 {
 	if (c >= 65 && c <= 90)
 		return (c + 32);

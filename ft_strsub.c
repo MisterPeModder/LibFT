@@ -6,7 +6,7 @@
 /*   By: yguaye <yguaye@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/12 20:36:45 by yguaye            #+#    #+#             */
-/*   Updated: 2017/11/12 20:40:41 by yguaye           ###   ########.fr       */
+/*   Updated: 2017/11/13 14:42:43 by yguaye           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ char	*ft_strsub(char const *s, unsigned int start, size_t len)
 	char			*res;
 	unsigned int	i;
 
-	if (!(res = ft_strnew(len)))
+	if (!s || !(res = ft_strnew(len)))
 		return (NULL);
 	i = 0;
 	while (s[start + i] && i < len)

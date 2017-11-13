@@ -6,12 +6,14 @@
 /*   By: yguaye <yguaye@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/12 14:10:04 by yguaye            #+#    #+#             */
-/*   Updated: 2017/11/12 19:35:19 by yguaye           ###   ########.fr       */
+/*   Updated: 2017/11/13 14:37:08 by yguaye           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 void	ft_striter(char *s, void (*f)(char *))
 {
+	if (!s)
+		return ;
 	while (*s)
 		(*f)(s++);
 }

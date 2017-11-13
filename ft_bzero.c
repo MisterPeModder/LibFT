@@ -6,7 +6,7 @@
 /*   By: yguaye <yguaye@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/09 09:36:38 by yguaye            #+#    #+#             */
-/*   Updated: 2017/11/12 19:46:41 by yguaye           ###   ########.fr       */
+/*   Updated: 2017/11/13 13:06:31 by yguaye           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,5 @@
 
 void	ft_bzero(void *s, size_t n)
 {
-	size_t			i;
-	unsigned int	*str;
-
-	i = 0;
-	str = (unsigned int *)s;
-	while (n > 0 && i < n)
-		str[i++] = 0;
+	ft_memset(s, 0, n);
 }
