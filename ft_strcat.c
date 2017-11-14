@@ -6,24 +6,24 @@
 /*   By: yguaye <yguaye@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/09 17:15:05 by yguaye            #+#    #+#             */
-/*   Updated: 2017/11/12 19:51:14 by yguaye           ###   ########.fr       */
+/*   Updated: 2017/11/14 17:05:54 by yguaye           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strcat(char *s1, const char *s2)
+char	*ft_strcat(char *dest, const char *src)
 {
-	int i;
-	int l;
+	size_t	i;
+	size_t	dlen;
 
 	i = 0;
-	l = ft_strlen(s1);
-	while (s2[i])
+	dlen = ft_strlen(dest);
+	while (src[i])
 	{
-		s1[l + i] = s2[i];
+		dest[dlen + i] = src[i];
 		++i;
 	}
-	s1[l + i] = 0;
-	return (s1);
+	dest[dlen + i] = 0;
+	return (dest);
 }

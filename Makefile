@@ -18,8 +18,8 @@ SRCS = ft_memset.c ft_bzero.c ft_memcpy.c \
 	   ft_putnbr.c ft_putnbr_fd.c \
 	   ft_lstnew.c ft_lstdelone.c ft_lstdel.c \
 	   ft_lstadd.c ft_lstiter.c ft_lstmap.c \
-	   ft_strtoupper.c ft_strtolower.c ft_lstlen.c \
-	   ft_array_to_lst.c ft_lst_to_array.c \
+	   ft_strupcase.c ft_strlowcase.c ft_lstlen.c \
+	   ft_lst_pushback.c ft_array_to_lst.c ft_lst_to_array.c \
 
 OBJS = $(SRCS:.c=.o)
 

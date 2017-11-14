@@ -6,7 +6,7 @@
 /*   By: yguaye <yguaye@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/13 22:14:47 by yguaye            #+#    #+#             */
-/*   Updated: 2017/11/13 22:24:58 by yguaye           ###   ########.fr       */
+/*   Updated: 2017/11/14 16:40:48 by yguaye           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,15 +14,14 @@
 
 void		ft_lstadd(t_list **alst, t_list *nlst)
 {
-	t_list	*curr;
+	t_list	*tmp;
 
 	if (!*alst)
 		*alst = nlst;
 	else
 	{
-		curr = *alst;
-		while (curr->next)
-			curr = curr->next;
-		curr->next = nlst;
+		tmp = *alst;
+		*alst = nlst;
+		nlst->next = tmp;
 	}
 }

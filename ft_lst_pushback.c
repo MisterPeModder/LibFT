@@ -1,23 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strcpy.c                                        :+:      :+:    :+:   */
+/*   ft_lst_pushback.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yguaye <yguaye@student.42.fr>              +#+  +:+       +#+        */
+/*   By: yguaye <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/11/09 15:55:39 by yguaye            #+#    #+#             */
-/*   Updated: 2017/11/14 17:51:57 by yguaye           ###   ########.fr       */
+/*   Created: 2017/11/14 16:42:47 by yguaye            #+#    #+#             */
+/*   Updated: 2017/11/14 16:44:22 by yguaye           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strcpy(char *dst, const char *src)
+void		ft_lst_pushback(t_list *begin_list, t_list *nl)
 {
-	size_t	i;
-
-	i = 0;
-	while ((dst[i] = src[i]))
-		++i;
-	return (dst);
+	if (!begin_list)
+		return ;
+	while (begin_list->next)
+		begin_list = begin_list->next;
+	begin_list->next = nl;
 }

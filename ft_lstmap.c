@@ -6,7 +6,7 @@
 /*   By: yguaye <yguaye@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/13 22:29:09 by yguaye            #+#    #+#             */
-/*   Updated: 2017/11/13 23:06:02 by yguaye           ###   ########.fr       */
+/*   Updated: 2017/11/14 16:35:46 by yguaye           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,8 @@ t_list			*ft_lstmap(t_list *lst, t_list *(*f)(t_list *elem))
 {
 	t_list	*nl;
 
+	if (!lst)
+		return (NULL);
 	nl = (t_list *)NULL;
 	return (add_map(&nl, lst, f));
 }

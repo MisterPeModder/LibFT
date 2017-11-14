@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strtolower.c                                    :+:      :+:    :+:   */
+/*   ft_strlowcase.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yguaye <yguaye@student.42.fr>              +#+  +:+       +#+        */
+/*   By: yguaye <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/11/13 23:18:46 by yguaye            #+#    #+#             */
-/*   Updated: 2017/11/13 23:19:26 by yguaye           ###   ########.fr       */
+/*   Created: 2017/11/14 16:51:34 by yguaye            #+#    #+#             */
+/*   Updated: 2017/11/14 16:51:44 by yguaye           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,8 @@ static void	ft_char_tolower(char *c)
 	*c = ft_tolower(*c);
 }
 
-char		*ft_strtolower(char *str)
+char		*ft_strlowcase(char *str)
 {
 	ft_striter(str, &ft_char_tolower);
+	return (str);
 }

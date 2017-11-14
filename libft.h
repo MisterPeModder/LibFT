@@ -6,7 +6,7 @@
 /*   By: yguaye <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/14 16:28:58 by yguaye            #+#    #+#             */
-/*   Updated: 2017/11/14 16:29:35 by yguaye           ###   ########.fr       */
+/*   Updated: 2017/11/14 17:04:35 by yguaye           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,13 +26,14 @@ size_t				ft_strlen(const char *s);
 char				*ft_strdup(const char *str);
 char				*ft_strcpy(char *dst, const char *src);
 char				*ft_strncpy(char *dst, const char *src, size_t len);
-char				*ft_strcat(char *s1, const char *s2);
-char				*ft_strncat(char *s1, const char *s2, size_t n);
+char				*ft_strcat(char *dest, const char *src);
+char				*ft_strncat(char *dest, const char *src, size_t n);
 size_t				ft_strlcat(char *dst, const char *src, size_t size);
 char				*ft_strchr(const char *s, int ch);
 char				*ft_strrchr(const char *s, int ch);
 char				*ft_strstr(const char *haystack, const char *needle);
-char				*ft_strnstr(const char *haystack, const char *needle, size_t len);
+char				*ft_strnstr(const char *haystack,
+		const char *needle, size_t len);
 int					ft_strcmp(const char *s1, const char *s2);
 int					ft_strncmp(const char *s1, const char *s2, size_t n);
 int					ft_atoi(const char *str);
@@ -84,9 +85,10 @@ void				ft_lstadd(t_list **alst, t_list *nlst);
 void				ft_lstiter(t_list *lst, void (*f)(t_list *elem));
 t_list				*ft_lstmap(t_list *lst, t_list *(*f)(t_list *elem));
 
-char				*ft_strtoupper(char *str);
-char				*ft_strtolower(char *str);
+char				*ft_strupcase(char *str);
+char				*ft_strlowcase(char *str);
 size_t				ft_lstlen(t_list *lst);
+void				ft_lst_pushback(t_list *begin_list, t_list *nl);
 t_list				*ft_array_to_lst(void **array, size_t len, size_t val_size);
 void				**ft_lst_to_array(t_list *lst);
 
