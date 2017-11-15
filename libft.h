@@ -6,7 +6,7 @@
 /*   By: yguaye <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/14 16:28:58 by yguaye            #+#    #+#             */
-/*   Updated: 2017/11/14 17:04:35 by yguaye           ###   ########.fr       */
+/*   Updated: 2017/11/15 15:38:32 by yguaye           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,7 @@ char				*ft_strsub(char const *s, unsigned int start, size_t len);
 char				*ft_strjoin(char const *s1, char const *s2);
 char				*ft_strtrim(char const *s);
 char				*ft_itoa(int n);
-char				**ft_split(char const *s, char c);
+char				**ft_strsplit(char const *s, char c);
 void				ft_putchar(char c);
 void				ft_putchar_fd(char c, int fd);
 void				ft_putstr(char const *s);
@@ -89,7 +89,8 @@ char				*ft_strupcase(char *str);
 char				*ft_strlowcase(char *str);
 size_t				ft_lstlen(t_list *lst);
 void				ft_lst_pushback(t_list *begin_list, t_list *nl);
-t_list				*ft_array_to_lst(void **array, size_t len, size_t val_size);
-void				**ft_lst_to_array(t_list *lst);
+t_list				*ft_array_to_lst(void *array, size_t len,
+		size_t (*get_size)(void *));
+void				*ft_lst_to_array(t_list *lst);
 
 #endif

@@ -6,22 +6,22 @@
 /*   By: yguaye <yguaye@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/10 09:27:47 by yguaye            #+#    #+#             */
-/*   Updated: 2017/11/12 19:47:58 by yguaye           ###   ########.fr       */
+/*   Updated: 2017/11/15 12:36:35 by yguaye           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memcpy(void *d, const void *s, size_t n)
+void	*ft_memcpy(void *dst, const void *src, size_t n)
 {
-	unsigned char	*dst;
-	unsigned char	*src;
+	unsigned char	*d;
+	unsigned char	*s;
 
-	if (d == s && n == 0)
-		return (d);
-	dst = (unsigned char *)d;
-	src = (unsigned char *)s;
+	if (dst == src && n == 0)
+		return (dst);
+	d = (unsigned char *)dst;
+	s = (unsigned char *)src;
 	while (n--)
-		*dst++ = *src++;
-	return (d);
+		*d++ = *s++;
+	return (dst);
 }

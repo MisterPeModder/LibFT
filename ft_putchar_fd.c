@@ -6,7 +6,7 @@
 /*   By: yguaye <yguaye@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/09 11:22:41 by yguaye            #+#    #+#             */
-/*   Updated: 2017/11/12 19:49:15 by yguaye           ###   ########.fr       */
+/*   Updated: 2017/11/15 09:54:34 by yguaye           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,5 +14,5 @@
 
 void	ft_putchar_fd(char c, int fd)
 {
-	write(fd, &c, 1);
+	write(fd, (void const *)&c, 1);
 }

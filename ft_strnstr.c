@@ -6,7 +6,7 @@
 /*   By: yguaye <yguaye@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/10 17:43:50 by yguaye            #+#    #+#             */
-/*   Updated: 2017/11/12 19:54:55 by yguaye           ###   ########.fr       */
+/*   Updated: 2017/11/15 11:17:43 by yguaye           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,19 +22,18 @@ char	*ft_strnstr(const char *haystack, const char *needle, size_t len)
 
 	hs = (char *)haystack;
 	ne = (char *)needle;
-	if (!ne)
-		return (hs);
-	i = 0;
+	j = 0;
 	lneedle = ft_strlen(needle);
-	i = 0;
-	while (i <= len && hs[i])
+	while (hs[j] && j < len)
 	{
-		j = 0;
-		while (ne[j] && *(hs + i + j) == ne[j])
+		i = 0;
+		while (j + i < len && ne[i] && *(hs + j + i) == ne[i])
 			++i;
-		if (j == lneedle)
-			return (hs + i);
-		++i;
+		if (j + i <= len && i == lneedle)
+			return (hs + j);
+		++j;
 	}
+	if (!*hs && !*ne)
+		return (hs);
 	return (NULL);
 }

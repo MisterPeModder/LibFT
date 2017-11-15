@@ -6,7 +6,7 @@
 /*   By: yguaye <yguaye@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/11 12:34:28 by yguaye            #+#    #+#             */
-/*   Updated: 2017/11/13 15:07:44 by yguaye           ###   ########.fr       */
+/*   Updated: 2017/11/15 12:31:03 by yguaye           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,5 +25,5 @@ int		ft_strncmp(const char *s1, const char *s2, size_t n)
 	i = 0;
 	while (i < n - 1 && str1[i] && str2[i] && str1[i] == str2[i])
 		++i;
-	return (str1[i] - str2[i]);
+	return ((int)(str1[i] - str2[i]));
 }

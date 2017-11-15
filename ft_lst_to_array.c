@@ -6,28 +6,42 @@
 /*   By: yguaye <yguaye@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/13 23:29:42 by yguaye            #+#    #+#             */
-/*   Updated: 2017/11/13 23:48:11 by yguaye           ###   ########.fr       */
+/*   Updated: 2017/11/15 16:26:52 by yguaye           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 #include <stdlib.h>
 
-void		**ft_lst_to_array(t_list *lst)
+static void	*ft_lst_create_tab(t_list *lst)
 {
-	void	**tab;
-	size_t	i;
-	void	*val;
+	size_t	size;
 
-	if (!lst || !(tab = (void **)malloc(sizeof(void *) * ft_lstlen(lst))))
+	size = 0;
+	while (lst)
+	{
+		size += lst->content_size;
+		lst = lst->next;
+	}
+	if (!size)
+		return (NULL);
+	return (malloc(size));
+}
+
+void		*ft_lst_to_array(t_list *lst)
+{
+	void	*tab;
+	size_t	i;
+
+	if (!lst || !(tab = ft_lst_create_tab(lst)))
 		return ((void **)NULL);
 	i = 0;
 	while (lst)
 	{
-		if (!(val = malloc(lst->content_size)))
-			return ((void **)NULL);
-		tab[i] = ft_memcpy(val, lst->content, lst->content_size);
+		ft_memcpy(tab + i, lst->content, lst->content_size);
 		lst = lst->next;
+		if (lst)
+			i += lst->content_size;
 	}
 	return (tab);
 }
