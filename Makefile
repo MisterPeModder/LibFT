@@ -34,7 +34,7 @@ RM = rm -Rf
 
 $(NAME):
 	@echo "Compiling $(NAME) with:\n" $(addsuffix "\n", $(SRCS))
-	@$(CC) $(CFLAGS) -c $(SRCS)
+	@$(CC) $(CFLAGS) -Iincludes/ -c $(SRCS)
 	@$(LC) $(NAME) $(OBJS)
 	@$(RL) $(NAME)
 	@echo "Successfully created $(NAME)!"
