@@ -7,9 +7,26 @@ INC_PATH := includes
 SRCS =
 OBJS =
 
+#verbose mode toggle
+VERBOSE = 1
+
+ifeq ($(VERBOSE), 1)
+define compile_objs_cc
+	@mkdir $(OBJ_PATH) $(addprefix $(OBJ_PATH)/, $(MODULES)) 2> /dev/null || true
+	@tput dl; tput cub 100; printf "\033[90mCreating object files: \033[0m$(notdir $@)"
+	@$(CC) $(CFLAGS) $(CPPFLAGS) -c $< -o $@
+endef
+else
+define compile_objs_cc
+	@mkdir $(OBJ_PATH) $(addprefix $(OBJ_PATH)/, $(MODULES)) 2> /dev/null || true
+	@$(CC) $(CFLAGS) $(CPPFLAGS) -c $< -o $@
+endef
+endif
+
 MODULES =
 
-include srcs/base/base.mk
+#include subdirs here
+-include srcs/base/base.mk
 
 LC = ar rcs
 CC = gcc
@@ -19,8 +36,6 @@ RM = rm -f
 
 NORM_LOG = norm.log
 NORM_FILES =
-
-VERBOSE = 1
 
 all: $(NAME)
 
@@ -36,13 +51,6 @@ ifeq ($(VERBOSE), 1)
 endif
 	@$(LC) $(NAME) $(OBJS)
 	@printf "\033[32mdone!\n"
-
-$(OBJS): $(SRCS)
-	@mkdir $(OBJ_PATH) $(addprefix $(OBJ_PATH)/, $(MODULES)) 2> /dev/null || true
-ifeq ($(VERBOSE), 1)
-	@tput dl; tput cub 100; printf "\033[90mCreating object files: \033[0m$(notdir $@)"
-endif
-	@$(CC) $(CFLAGS) $(CPPFLAGS) -c $< -o $@
 
 clean:
 	@$(RM) $(NORM_LOG)
@@ -65,10 +73,5 @@ norm:
 	@printf "Norm Errors: "
 	@cat $(NORM_LOG) | grep Error | wc -l | bc
 	@printf "See \033[4m$(NORM_LOG)\033[0m for details.\n"
-
-TESTF = srcs/printf/printf.c
-
-test:
-	echo $(notdir $(patsubst %/,%,$(dir $(TESTF))))
 
 .PHONY: all premsg clean fclean re norm
