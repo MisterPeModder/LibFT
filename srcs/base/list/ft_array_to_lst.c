@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "libft_base/base.h"
 #include <stdlib.h>
 
 t_list	*ft_array_to_lst(void *array, size_t len, size_t (*get_size)(void *))
