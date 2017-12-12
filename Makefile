@@ -56,6 +56,7 @@ clean:
 	@$(RM) $(NORM_LOG)
 	@$(RM) $(OBJS)
 	@rmdir $(addprefix $(OBJ_PATH)/, $(MODULES)) $(OBJ_PATH) 2> /dev/null || true
+	@rmdir $(addprefix $(OBJ_PATH)/, $(MODULES)) $(OBJ_PATH) 2> /dev/null || true
 	@printf "\033[33mRemoved \033[93mobject files!\033[0m\n"
 
 fclean: clean
