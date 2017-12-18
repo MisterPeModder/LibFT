@@ -6,7 +6,7 @@
 /*   By: yguaye <yguaye@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/10 12:32:10 by yguaye            #+#    #+#             */
-/*   Updated: 2017/12/18 01:14:21 by yguaye           ###   ########.fr       */
+/*   Updated: 2017/12/18 01:44:17 by yguaye           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,6 @@ char				*ft_strnstr(const char *haystack,
 int					ft_strcmp(const char *s1, const char *s2);
 int					ft_strncmp(const char *s1, const char *s2, size_t n);
 int					ft_atoi(const char *str);
-int					ft_strisnumber(char *str);
 int					ft_isalpha(int c);
 int					ft_isdigit(int c);
 int					ft_isalnum(int c);
@@ -96,6 +95,8 @@ void				ft_lst_pushback(t_list *begin_list, t_list *nl);
 t_list				*ft_array_to_lst(void *array, size_t len,
 		size_t (*get_size)(void *));
 void				*ft_lst_to_array(t_list *lst);
+int					ft_strisnumber(char *str);
 void				ft_strtabdel(char ***tab);
+size_t				ft_strtablen(char **tab);
 
 #endif
