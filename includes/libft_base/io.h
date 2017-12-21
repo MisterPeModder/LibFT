@@ -1,24 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   libft.h                                            :+:      :+:    :+:   */
+/*   io.h                                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yguaye <yguaye@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/12/10 12:32:46 by yguaye            #+#    #+#             */
-/*   Updated: 2017/12/21 14:47:31 by yguaye           ###   ########.fr       */
+/*   Created: 2017/12/21 14:40:27 by yguaye            #+#    #+#             */
+/*   Updated: 2017/12/21 14:52:42 by yguaye           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef LIBFT_H
-# define LIBFT_H
+#ifndef IO_H
+# define IO_H
 
-# include "libft_base/character.h"
-# include "libft_base/io.h"
-# include "libft_base/list.h"
-# include "libft_base/memory.h"
-# include "libft_base/stringft.h"
+void				ft_putchar(char c);
 
-# include "get_next_line.h"
+void				ft_putchar_fd(char c, int fd);
+
+void				ft_putendl(char const *s);
+
+void				ft_putendl_fd(char const *s, int fd);
+
+void				ft_putnbr(int n);
+
+void				ft_putnbr_fd(int n, int fd);
+
+void				ft_putstr(char const *s);
+
+void				ft_putstr_fd(char const *s, int fd);
+
 
 #endif

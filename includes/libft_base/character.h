@@ -1,24 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   libft.h                                            :+:      :+:    :+:   */
+/*   character.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yguaye <yguaye@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/12/10 12:32:46 by yguaye            #+#    #+#             */
-/*   Updated: 2017/12/21 14:47:31 by yguaye           ###   ########.fr       */
+/*   Created: 2017/12/21 14:42:13 by yguaye            #+#    #+#             */
+/*   Updated: 2017/12/21 14:53:24 by yguaye           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef LIBFT_H
-# define LIBFT_H
+#ifndef CHARACTER_H
+# define CHARACTER_H
 
-# include "libft_base/character.h"
-# include "libft_base/io.h"
-# include "libft_base/list.h"
-# include "libft_base/memory.h"
-# include "libft_base/stringft.h"
+int					ft_isalpha(int c);
 
-# include "get_next_line.h"
+int					ft_isalnum(int c);
+
+int					ft_isascii(int c);
+
+int					ft_isdigit(int c);
+
+int					ft_isprint(int c);
+
+int					ft_isspace(int c);
+
+int					ft_tolower(int c);
+
+int					ft_toupper(int c);
 
 #endif
