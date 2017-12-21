@@ -1,4 +1,4 @@
-NAME := libft.a
+NAME := libft.so
 
 SRC_PATH := srcs
 OBJ_PATH := bin
@@ -29,9 +29,9 @@ MODULES =
 -include srcs/base/base.mk
 -include srcs/gnl/gnl.mk
 
-LC = ar rcs
+LC = gcc -shared
 CC = gcc
-CFLAGS = -Wall -Werror -Wextra
+CFLAGS = -fPIC -Wall -Werror -Wextra
 CPPFLAGS = -I$(INC_PATH)
 RM = rm -f
 
@@ -50,7 +50,7 @@ ifeq ($(VERBOSE), 1)
 	@tput dl; tput cub 100; printf "\033[90mCreating object files: \033[32mdone!"
 	@printf "\n\033[90mCompiling \033[0m$(NAME)\033[90m: \033[0m"
 endif
-	@$(LC) $(NAME) $(OBJS)
+	@$(LC) -o $(NAME) $(OBJS)
 	@printf "\033[32mdone!\n"
 
 clean:
