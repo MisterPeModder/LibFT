@@ -33,7 +33,7 @@ MODULES =
 LC = gcc -shared
 CC = gcc
 CFLAGS = -fPIC -Wall -Werror -Wextra
-CPPFLAGS = -I$(INC_PATH)
+CPPFLAGS = -iquote$(INC_PATH)
 RM = rm -f
 
 NORM_LOG = norm.log
@@ -63,7 +63,7 @@ clean:
 
 fclean: clean
 	@$(RM) $(NAME)
-	@printf "\033[33mRemoved \033[93m$(NAME) executable!\033[0m\n\n"
+	@printf "\033[33mRemoved \033[93m$(NAME) library!\033[0m\n\n"
 
 re: fclean all
 
