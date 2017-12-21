@@ -41,12 +41,7 @@ NORM_FILES =
 
 all: $(NAME)
 
-premsg:
-ifneq ($(VERBOSE), 1)
-	@printf "\n\033[90mCompiling \033[0m$(NAME)\033[90m: \033[0m"
-endif
-
-$(NAME): premsg $(OBJS)
+$(NAME): $(OBJS)
 ifeq ($(VERBOSE), 1)
 	@tput dl; tput cub 100; printf "\033[90mCreating object files: \033[32mdone!"
 	@printf "\n\033[90mCompiling \033[0m$(NAME)\033[90m: \033[0m"
