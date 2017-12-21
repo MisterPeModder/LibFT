@@ -6,7 +6,7 @@
 /*   By: yguaye <yguaye@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/10 12:32:10 by yguaye            #+#    #+#             */
-/*   Updated: 2017/12/18 01:44:17 by yguaye           ###   ########.fr       */
+/*   Updated: 2017/12/21 11:42:41 by yguaye           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,5 +98,6 @@ void				*ft_lst_to_array(t_list *lst);
 int					ft_strisnumber(char *str);
 void				ft_strtabdel(char ***tab);
 size_t				ft_strtablen(char **tab);
+void				*ft_memdup(void *src, size_t size);
 
 #endif
