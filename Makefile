@@ -28,6 +28,7 @@ MODULES =
 #include subdirs here
 -include srcs/base/base.mk
 -include srcs/gnl/gnl.mk
+-include srcs/math/math.mk
 
 LC = gcc -shared
 CC = gcc
