@@ -6,7 +6,7 @@
 /*   By: yguaye <yguaye@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/21 14:35:39 by yguaye            #+#    #+#             */
-/*   Updated: 2017/12/21 14:59:54 by yguaye           ###   ########.fr       */
+/*   Updated: 2017/12/21 15:09:35 by yguaye           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +48,12 @@ void				ft_striteri(char *s, void (*f)(unsigned int, char *));
 int					ft_strisnumber(char *str);
 
 char				*ft_strjoin(char const *s1, char const *s2);
+
+char				*ft_strjoinf(char **s1, char **s2);
+
+char				*ft_strjoinf1(char **s1, const char *s2);
+
+char				*ft_strjoinf2(const char *s1, char **s2);
 
 char				*ft_strmap(char const *s, char (*f)(char));
 
