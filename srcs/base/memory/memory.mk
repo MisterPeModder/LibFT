@@ -1,13 +1,14 @@
 MODULES += base/memory
 
-BASE_MEM_SRC_NAMES :=	ft_bzero.c \
-						ft_memalloc.c \
-						ft_memccpy.c \
-						ft_memchr.c \
-						ft_memcmp.c \
-						ft_memcpy.c \
-						ft_memdel.c \
-						ft_memmove.c \
+BASE_MEM_SRC_NAMES :=	ft_bzero.c		\
+						ft_memalloc.c	\
+						ft_memccpy.c	\
+						ft_memchr.c		\
+						ft_memcmp.c		\
+						ft_memcpy.c		\
+						ft_memdel.c		\
+						ft_memdup.c		\
+						ft_memmove.c	\
 						ft_memset.c
 
 BASE_MEM_OBJ_NAMES = $(BASE_MEM_SRC_NAMES:.c=.o)
