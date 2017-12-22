@@ -6,29 +6,29 @@
 /*   By: yguaye <yguaye@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/21 13:14:08 by yguaye            #+#    #+#             */
-/*   Updated: 2017/12/21 13:26:13 by yguaye           ###   ########.fr       */
+/*   Updated: 2017/12/22 08:54:46 by yguaye           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
 #include "libft_math/vectors.h"
 
-void				del_vec2(void **vec2)
+void				del_vec2(t_vec2 **vec2)
 {
 	t_vec2x			*vecx;
 
-	vecx = (t_vec2x *)*vec2;
+	vecx = &(*vec2)->vec2x;
 	free(vecx->x);
 	free(vecx->y);
 	free(vecx);
 	*vec2 = NULL;
 }
 
-void				del_vec3(void **vec3)
+void				del_vec3(t_vec3 **vec3)
 {
 	t_vec3x			*vecx;
 
-	vecx = (t_vec3x *)*vec3;
+	vecx = &(*vec3)->vec3x;
 	free(vecx->x);
 	free(vecx->y);
 	free(vecx->z);
@@ -36,11 +36,11 @@ void				del_vec3(void **vec3)
 	*vec3 = NULL;
 }
 
-void				del_vec4(void **vec4)
+void				del_vec4(t_vec4 **vec4)
 {
 	t_vec4x			*vecx;
 
-	vecx = (t_vec4x *)*vec4;
+	vecx = &(*vec4)->vec4x;
 	free(vecx->x);
 	free(vecx->y);
 	free(vecx->z);

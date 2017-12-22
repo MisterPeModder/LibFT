@@ -6,7 +6,7 @@
 /*   By: yguaye <yguaye@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/21 11:51:05 by yguaye            #+#    #+#             */
-/*   Updated: 2017/12/21 13:43:39 by yguaye           ###   ########.fr       */
+/*   Updated: 2017/12/22 09:35:13 by yguaye           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,6 +61,15 @@ t_vec3i				*new_vec3i(int x, int y, int z);
 t_vec3f				*new_vec3f(float x, float y, float z);
 t_vec3d				*new_vec3d(double x, double y, double z);
 
-void				del_vec3(void **vec3);
+void				del_vec3(t_vec3 **vec3);
+
+t_vec3				*add_vec3(const t_vec3 *lhs, const t_vec3 *rhs);
+t_vec3i				*add_vec3i(const t_vec3i *lhs, const t_vec3i *rhs);
+t_vec3f				*add_vec3f(const t_vec3f *lhs, const t_vec3f *rhs);
+t_vec3d				*add_vec3d(const t_vec3d *lhs, const t_vec3d *rhs);
+
+t_vec3				*addf_vec3(t_vec3 **lhs, t_vec3 **rhs);
+t_vec3				*addf1_vec3(t_vec3 **lhs, const t_vec3 *rhs);
+t_vec3				*addf2_vec3(const t_vec3 *lhs, t_vec3 **rhs);
 
 #endif

@@ -6,13 +6,13 @@
 /*   By: yguaye <yguaye@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/21 13:37:09 by yguaye            #+#    #+#             */
-/*   Updated: 2017/12/21 13:45:43 by yguaye           ###   ########.fr       */
+/*   Updated: 2017/12/22 09:54:45 by yguaye           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
-#include "libft_base/base.h"
 #include "libft_math/vec4.h"
+#include "libft_base/memory.h"
 
 t_vec4			*new_vec4(t_vectype type, const void **xyzw, size_t size)
 {
@@ -49,10 +49,10 @@ t_vec4f			*new_vec4f(float x, float y, float z, float w)
 	xyzw[1] = &y;
 	xyzw[2] = &z;
 	xyzw[3] = &w;
-	return (&new_vec4(VEC_I, (const void **)xyzw, sizeof(float))->vec4f);
+	return (&new_vec4(VEC_F, (const void **)xyzw, sizeof(float))->vec4f);
 }
 
-t_vec4d			*new_vec4d(double x, double y, double z, float w)
+t_vec4d			*new_vec4d(double x, double y, double z, double w)
 {
 	void		*xyzw[4];
 
@@ -60,5 +60,5 @@ t_vec4d			*new_vec4d(double x, double y, double z, float w)
 	xyzw[1] = &y;
 	xyzw[2] = &z;
 	xyzw[3] = &w;
-	return (&new_vec4(VEC_I, (const void **)xyzw, sizeof(double))->vec4d);
+	return (&new_vec4(VEC_D, (const void **)xyzw, sizeof(double))->vec4d);
 }

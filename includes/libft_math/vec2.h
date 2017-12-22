@@ -6,7 +6,7 @@
 /*   By: yguaye <yguaye@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/21 10:30:22 by yguaye            #+#    #+#             */
-/*   Updated: 2017/12/21 14:21:39 by yguaye           ###   ########.fr       */
+/*   Updated: 2017/12/22 08:50:35 by yguaye           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,7 @@ t_vec2i				*new_vec2i(int x, int y);
 t_vec2f				*new_vec2f(float x, float y);
 t_vec2d				*new_vec2d(double x, double y);
 
-void				del_vec2(void **vec2);
+void				del_vec2(t_vec2 **vec2);
 
 t_vec2				*add_vec2(const t_vec2 *lhs, const t_vec2 *rhs);
 t_vec2i				*add_vec2i(const t_vec2i *lhs, const t_vec2i *rhs);

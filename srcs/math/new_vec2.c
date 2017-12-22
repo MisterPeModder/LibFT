@@ -6,13 +6,13 @@
 /*   By: yguaye <yguaye@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/21 11:03:19 by yguaye            #+#    #+#             */
-/*   Updated: 2017/12/21 13:45:03 by yguaye           ###   ########.fr       */
+/*   Updated: 2017/12/22 09:28:45 by yguaye           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
-#include "libft_base/base.h"
 #include "libft_math/vec2.h"
+#include "libft_base/memory.h"
 
 t_vec2			*new_vec2(t_vectype type, const void **xy, size_t size)
 {
@@ -43,7 +43,7 @@ t_vec2f			*new_vec2f(float x, float y)
 
 	xy[0] = &x;
 	xy[1] = &y;
-	return (&new_vec2(VEC_I, (const void **)xy, sizeof(float))->vec2f);
+	return (&new_vec2(VEC_F, (const void **)xy, sizeof(float))->vec2f);
 }
 
 t_vec2d			*new_vec2d(double x, double y)
@@ -52,5 +52,5 @@ t_vec2d			*new_vec2d(double x, double y)
 
 	xy[0] = &x;
 	xy[1] = &y;
-	return (&new_vec2(VEC_I, (const void **)xy, sizeof(double))->vec2d);
+	return (&new_vec2(VEC_D, (const void **)xy, sizeof(double))->vec2d);
 }
