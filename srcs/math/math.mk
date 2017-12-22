@@ -8,7 +8,13 @@ MATH_SRC_NAMES :=	add_vec2.c		\
 					addf_vec3.c		\
 					addf_vec4.c		\
 					del_vec.c		\
+					div_vec2.c		\
+					div_vec3.c		\
+					div_vec4.c		\
 					div_vecnum.c	\
+					divf_vec2.c		\
+					divf_vec3.c		\
+					divf_vec4.c		\
 					mul_vec2.c		\
 					mulf_vec2.c		\
 					mul_vecnum.c	\
