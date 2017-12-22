@@ -9,11 +9,19 @@ MATH_SRC_NAMES :=	add_vec2.c		\
 					addf_vec4.c		\
 					del_vec.c		\
 					div_vecnum.c	\
+					mul_vec2.c		\
+					mulf_vec2.c		\
 					mul_vecnum.c	\
 					new_vec2.c		\
 					new_vec3.c		\
 					new_vec4.c		\
+					sub_vec2.c		\
+					sub_vec3.c		\
+					sub_vec4.c		\
 					sub_vecnum.c	\
+					subf_vec2.c		\
+					subf_vec3.c		\
+					subf_vec4.c		\
 
 MATH_OBJ_NAMES = $(MATH_SRC_NAMES:.c=.o)
 

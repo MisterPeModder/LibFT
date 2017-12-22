@@ -6,7 +6,7 @@
 /*   By: yguaye <yguaye@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/21 11:53:26 by yguaye            #+#    #+#             */
-/*   Updated: 2017/12/22 09:52:01 by yguaye           ###   ########.fr       */
+/*   Updated: 2017/12/22 10:39:10 by yguaye           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,6 +67,13 @@ t_vec4d				*new_vec4d(double x, double y, double z, double w);
 
 void				del_vec4(t_vec4 **vec4);
 
+t_vec4				*neg_vec4(const t_vec4 *vec);
+t_vec4i				*neg_vec4i(const t_vec4i *vec);
+t_vec4f				*neg_vec4f(const t_vec4f *vec);
+t_vec4d				*neg_vec4d(const t_vec4d *vec);
+
+t_vec4				*negf_vec4(t_vec4 **vec);
+
 t_vec4				*add_vec4(const t_vec4 *lhs, const t_vec4 *rhs);
 t_vec4i				*add_vec4i(const t_vec4i *lhs, const t_vec4i *rhs);
 t_vec4f				*add_vec4f(const t_vec4f *lhs, const t_vec4f *rhs);
@@ -75,5 +82,48 @@ t_vec4d				*add_vec4d(const t_vec4d *lhs, const t_vec4d *rhs);
 t_vec4				*addf_vec4(t_vec4 **lhs, t_vec4 **rhs);
 t_vec4				*addf1_vec4(t_vec4 **lhs, const t_vec4 *rhs);
 t_vec4				*addf2_vec4(const t_vec4 *lhs, t_vec4 **rhs);
+
+t_vec4				*sub_vec4(const t_vec4 *lhs, const t_vec4 *rhs);
+t_vec4i				*sub_vec4i(const t_vec4i *lhs, const t_vec4i *rhs);
+t_vec4f				*sub_vec4f(const t_vec4f *lhs, const t_vec4f *rhs);
+t_vec4d				*sub_vec4d(const t_vec4d *lhs, const t_vec4d *rhs);
+
+t_vec4				*subf_vec4(t_vec4 **lhs, t_vec4 **rhs);
+t_vec4				*subf1_vec4(t_vec4 **lhs, const t_vec4 *rhs);
+t_vec4				*subf2_vec4(const t_vec4 *lhs, t_vec4 **rhs);
+
+t_vec4				*mul_vec4(const t_vec4 *lhs, const void *rhs);
+t_vec4i				*mul_vec4i(const t_vec4i *lhs, const int rhs);
+t_vec4f				*mul_vec4f(const t_vec4f *lhs, const float rhs);
+t_vec4d				*mul_vec4d(const t_vec4d *lhs, const double rhs);
+
+t_vec4				*mulf_vec4(t_vec4 **lhs, void **rhs);
+t_vec4				*mulf1_vec4(t_vec4 **lhs, const void *rhs);
+t_vec4				*mulf2_vec4(const t_vec4 *lhs, void **rhs);
+
+t_vec4				*div_vec4(const t_vec4 *lhs, const void *rhs);
+t_vec4i				*div_vec4i(const t_vec4i *lhs, const int rhs);
+t_vec4f				*div_vec4f(const t_vec4f *lhs, const float rhs);
+t_vec4d				*div_vec4d(const t_vec4d *lhs, const double rhs);
+
+t_vec4				*divf_vec4(t_vec4 **lhs, void **rhs);
+t_vec4				*divf1_vec4(t_vec4 **lhs, const void *rhs);
+t_vec4				*divf2_vec4(const t_vec4 *lhs, void **rhs);
+
+t_vec4				*cross_vec4(const t_vec4 *lhs, const t_vec4 *rhs);
+t_vec4i				*cross_vec4i(const t_vec4i *lhs, const t_vec4i *rhs);
+t_vec4f				*cross_vec4f(const t_vec4f *lhs, const t_vec4f *rhs);
+t_vec4d				*cross_vec4d(const t_vec4d *lhs, const t_vec4d *rhs);
+
+t_vec4				*crossf_vec4(t_vec4 **lhs, t_vec4 **rhs);
+t_vec4				*crossf1_vec4(t_vec4 **lhs, const t_vec4 *rhs);
+t_vec4				*crossf2_vec4(const t_vec4 *lhs, t_vec4 **rhs);
+
+t_vec4				*normalize_vec4(const t_vec4 *vec);
+t_vec4i				*normalize_vec4i(const t_vec4i *vec);
+t_vec4f				*normalize_vec4f(const t_vec4f *vec);
+t_vec4d				*normalize_vec4d(const t_vec4d *vec);
+
+t_vec4				*normalizef_vec4(t_vec4 **vec);
 
 #endif
