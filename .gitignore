@@ -1,4 +1,4 @@
 *.o
 libft.so
 norm.log
-*.DSYM
+*.dSYM
