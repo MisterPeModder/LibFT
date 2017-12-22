@@ -7,6 +7,8 @@ MATH_SRC_NAMES :=	add_vec2.c		\
 					addf_vec2.c		\
 					addf_vec3.c		\
 					addf_vec4.c		\
+					cross_product.c	\
+					crossf_product.c\
 					del_vec.c		\
 					div_vec2.c		\
 					div_vec3.c		\
@@ -21,6 +23,9 @@ MATH_SRC_NAMES :=	add_vec2.c		\
 					new_vec2.c		\
 					new_vec3.c		\
 					new_vec4.c		\
+					opf1_vecnum.c	\
+					opf2_vecnum.c	\
+					opf_vecnum.c	\
 					sub_vec2.c		\
 					sub_vec3.c		\
 					sub_vec4.c		\

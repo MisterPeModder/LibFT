@@ -6,7 +6,7 @@
 /*   By: yguaye <yguaye@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/21 10:30:22 by yguaye            #+#    #+#             */
-/*   Updated: 2017/12/22 10:38:25 by yguaye           ###   ########.fr       */
+/*   Updated: 2017/12/22 14:24:35 by yguaye           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -101,15 +101,6 @@ t_vec2d				*div_vec2d(const t_vec2d *lhs, const double rhs);
 t_vec2				*divf_vec2(t_vec2 **lhs, void **rhs);
 t_vec2				*divf1_vec2(t_vec2 **lhs, const void *rhs);
 t_vec2				*divf2_vec2(const t_vec2 *lhs, void **rhs);
-
-t_vec2				*cross_vec2(const t_vec2 *lhs, const t_vec2 *rhs);
-t_vec2i				*cross_vec2i(const t_vec2i *lhs, const t_vec2i *rhs);
-t_vec2f				*cross_vec2f(const t_vec2f *lhs, const t_vec2f *rhs);
-t_vec2d				*cross_vec2d(const t_vec2d *lhs, const t_vec2d *rhs);
-
-t_vec2				*crossf_vec2(t_vec2 **lhs, t_vec2 **rhs);
-t_vec2				*crossf1_vec2(t_vec2 **lhs, const t_vec2 *rhs);
-t_vec2				*crossf2_vec2(const t_vec2 *lhs, t_vec2 **rhs);
 
 t_vec2				*normalize_vec2(const t_vec2 *vec);
 t_vec2i				*normalize_vec2i(const t_vec2i *vec);

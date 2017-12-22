@@ -6,7 +6,7 @@
 /*   By: yguaye <yguaye@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/21 11:53:26 by yguaye            #+#    #+#             */
-/*   Updated: 2017/12/22 10:39:10 by yguaye           ###   ########.fr       */
+/*   Updated: 2017/12/22 14:24:52 by yguaye           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -109,15 +109,6 @@ t_vec4d				*div_vec4d(const t_vec4d *lhs, const double rhs);
 t_vec4				*divf_vec4(t_vec4 **lhs, void **rhs);
 t_vec4				*divf1_vec4(t_vec4 **lhs, const void *rhs);
 t_vec4				*divf2_vec4(const t_vec4 *lhs, void **rhs);
-
-t_vec4				*cross_vec4(const t_vec4 *lhs, const t_vec4 *rhs);
-t_vec4i				*cross_vec4i(const t_vec4i *lhs, const t_vec4i *rhs);
-t_vec4f				*cross_vec4f(const t_vec4f *lhs, const t_vec4f *rhs);
-t_vec4d				*cross_vec4d(const t_vec4d *lhs, const t_vec4d *rhs);
-
-t_vec4				*crossf_vec4(t_vec4 **lhs, t_vec4 **rhs);
-t_vec4				*crossf1_vec4(t_vec4 **lhs, const t_vec4 *rhs);
-t_vec4				*crossf2_vec4(const t_vec4 *lhs, t_vec4 **rhs);
 
 t_vec4				*normalize_vec4(const t_vec4 *vec);
 t_vec4i				*normalize_vec4i(const t_vec4i *vec);
