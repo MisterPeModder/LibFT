@@ -44,8 +44,8 @@ all: $(NAME)
 $(NAME): $(OBJS)
 ifeq ($(VERBOSE), 1)
 	@tput dl; tput cub 100; printf "\033[90mCreating object files: \033[32mdone!"
-	@printf "\n\033[90mCompiling \033[0m$(NAME)\033[90m: \033[0m"
 endif
+	@printf "\n\033[90mCompiling \033[0m$(NAME)\033[90m: \033[0m"
 	@$(LC) $(NAME) $(OBJS)
 	@printf "\033[32mdone!\n"
 
