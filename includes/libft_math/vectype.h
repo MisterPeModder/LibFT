@@ -6,7 +6,7 @@
 /*   By: yguaye <yguaye@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/21 10:46:04 by yguaye            #+#    #+#             */
-/*   Updated: 2017/12/22 14:59:23 by yguaye           ###   ########.fr       */
+/*   Updated: 2017/12/22 16:25:07 by yguaye           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,5 +39,7 @@ void				*addf2_vecnum(t_vectype type, void *lhs, void **rhs);
 void				*subf2_vecnum(t_vectype type, void *lhs, void **rhs);
 void				*mulf2_vecnum(t_vectype type, void *lhs, void **rhs);
 void				*divf2_vecnum(t_vectype type, void *lhs, void **rhs);
+
+void				*sqrt_vecnum(t_vectype type, const void *num);
 
 #endif
