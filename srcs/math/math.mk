@@ -26,6 +26,7 @@ MATH_SRC_NAMES :=	add_vec2.c		\
 					opf1_vecnum.c	\
 					opf2_vecnum.c	\
 					opf_vecnum.c	\
+					sqrt_vecnum.c	\
 					sub_vec2.c		\
 					sub_vec3.c		\
 					sub_vec4.c		\
