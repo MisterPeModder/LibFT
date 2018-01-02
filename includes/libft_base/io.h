@@ -6,7 +6,7 @@
 /*   By: yguaye <yguaye@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/21 14:40:27 by yguaye            #+#    #+#             */
-/*   Updated: 2017/12/21 14:52:42 by yguaye           ###   ########.fr       */
+/*   Updated: 2017/12/22 11:58:06 by yguaye           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,5 @@ void				ft_putnbr_fd(int n, int fd);
 void				ft_putstr(char const *s);
 
 void				ft_putstr_fd(char const *s, int fd);
-
 
 #endif
