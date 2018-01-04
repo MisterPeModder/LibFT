@@ -1,27 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   libft.h                                            :+:      :+:    :+:   */
+/*   ft_btreeleaf.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yguaye <yguaye@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/12/10 12:32:46 by yguaye            #+#    #+#             */
-/*   Updated: 2018/01/04 10:42:25 by yguaye           ###   ########.fr       */
+/*   Created: 2018/01/04 15:04:41 by yguaye            #+#    #+#             */
+/*   Updated: 2018/01/04 15:11:59 by yguaye           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef LIBFT_H
-# define LIBFT_H
+#include "libft_base/btree.h"
 
-# include "libft_base/base.h"
-# include "libft_base/btree.h"
-# include "libft_math/vectors.h"
-# include "libft_base/character.h"
-# include "libft_base/io.h"
-# include "libft_base/list.h"
-# include "libft_base/memory.h"
-# include "libft_base/stringft.h"
+t_btree				*ft_btreeleaf(t_btree *leaf)
+{
+	static t_btree	*val;
 
-# include "get_next_line.h"
-
-#endif
+	if (!leaf)
+		return (val);
+	val = leaf;
+	val->parent = NULL;
+	val->left = NULL;
+	val->right = NULL;
+	val->color = BT_BLACK;
+	val->content = NULL;
+	val->content_size = 0;
+	return (val);
+}

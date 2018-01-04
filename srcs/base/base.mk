@@ -5,3 +5,4 @@ MODULES += base
 			srcs/base/list/list.mk \
 			srcs/base/memory/memory.mk \
 			srcs/base/string/string.mk \
+			srcs/base/btree/btree.mk \
