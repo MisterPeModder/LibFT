@@ -6,7 +6,7 @@
 /*   By: yguaye <yguaye@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/21 13:37:09 by yguaye            #+#    #+#             */
-/*   Updated: 2017/12/22 09:54:45 by yguaye           ###   ########.fr       */
+/*   Updated: 2018/01/03 18:38:12 by yguaye           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ t_vec4			*new_vec4(t_vectype type, const void **xyzw, size_t size)
 	vecx->y = ft_memdup(xyzw[1], size);
 	vecx->z = ft_memdup(xyzw[2], size);
 	vecx->w = ft_memdup(xyzw[3], size);
-	return (vecx->x && vecx->y && vecx->z && vecx-> w ? vec : NULL);
+	return (vecx->x && vecx->y && vecx->z && vecx->w ? vec : NULL);
 }
 
 t_vec4i			*new_vec4i(int x, int y, int z, int w)
