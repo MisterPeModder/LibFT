@@ -29,6 +29,7 @@ MODULES =
 -include srcs/base/base.mk
 -include srcs/gnl/gnl.mk
 -include srcs/math/math.mk
+-include srcs/args/args.mk
 
 LC = ar rcs
 CC = gcc
