@@ -6,7 +6,7 @@
 /*   By: yguaye <yguaye@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/22 15:27:51 by yguaye            #+#    #+#             */
-/*   Updated: 2017/12/22 15:33:41 by yguaye           ###   ########.fr       */
+/*   Updated: 2018/01/03 18:37:03 by yguaye           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ t_vec3				*crossf_vec3(t_vec3 **lhs, t_vec3 **rhs)
 	return (res);
 }
 
-t_vec3				*crossf1_vec3( t_vec3 **lhs, const t_vec3 *rhs)
+t_vec3				*crossf1_vec3(t_vec3 **lhs, const t_vec3 *rhs)
 {
 	t_vec3			*res;
 

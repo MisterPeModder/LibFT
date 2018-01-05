@@ -1,29 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   libft.h                                            :+:      :+:    :+:   */
+/*   ft_btreeadd.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yguaye <yguaye@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/12/10 12:32:46 by yguaye            #+#    #+#             */
-/*   Updated: 2018/01/05 09:07:26 by yguaye           ###   ########.fr       */
+/*   Created: 2018/01/04 10:18:01 by yguaye            #+#    #+#             */
+/*   Updated: 2018/01/04 11:19:40 by yguaye           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef LIBFT_H
-# define LIBFT_H
+#include "libft_base/btree.h"
 
-# include "libft_base/base.h"
-# include "libft_base/btree.h"
-# include "libft_math/vectors.h"
-# include "libft_base/character.h"
-# include "libft_base/io.h"
-# include "libft_base/list.h"
-# include "libft_base/memory.h"
-# include "libft_base/stringft.h"
+void				ft_btreeadd(t_btree **root, const void *content,
+		size_t content_size, int (*cmp)(t_btree *, t_btree *))
+{
+	t_btree			*node;
 
-# include "get_next_line.h"
-
-# include "libft_args/args.h"
-
-#endif
+	if (!(node = ft_btreenew(content, content_size)))
+		return ;
+	ft_btreeinsert(root, node, cmp);
+}
