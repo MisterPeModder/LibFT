@@ -6,11 +6,10 @@
 /*   By: yguaye <yguaye@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/04 09:10:16 by yguaye            #+#    #+#             */
-/*   Updated: 2018/01/04 17:43:19 by yguaye           ###   ########.fr       */
+/*   Updated: 2018/01/05 08:36:29 by yguaye           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
 #include "libft_base/btree.h"
 
 static void				ft_btreeins_r(t_btree *root, t_btree *node,
@@ -84,6 +83,8 @@ void					ft_btreeinsert(t_btree **root, t_btree *node,
 	{
 		ft_btreeins_r(*root, node, cmp);
 		ft_btree_repair(node);
+		while ((*root)->parent)
+			*root = (*root)->parent;
 	}
 	return ;
 }

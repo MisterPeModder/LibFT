@@ -6,11 +6,10 @@
 /*   By: yguaye <yguaye@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/04 09:59:01 by yguaye            #+#    #+#             */
-/*   Updated: 2018/01/04 17:49:23 by yguaye           ###   ########.fr       */
+/*   Updated: 2018/01/05 08:36:19 by yguaye           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
 #include "libft_base/btree.h"
 
 static void			ft_btree_rotate_l(t_btree *n)
@@ -43,8 +42,6 @@ void				ft_btree_tryrotate(t_btree *n)
 	p = n->parent;
 	if (!p || !(g = p->parent))
 		return ;
-	printf("try rotate\n");
-	fflush(stdout);
 	if (n == g->left->right) {
 		ft_btree_rotate_l(p);
 		n = n->left;
