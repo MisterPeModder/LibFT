@@ -8,6 +8,7 @@ BASE_BTREE_SRC_NAMES :=	ft_btreeadd.c		\
 						ft_btreeiter.c		\
 						ft_btreeleaf.c		\
 						ft_btreenew.c		\
+						ft_btreesearch.c	\
 
 BASE_BTREE_OBJ_NAMES = $(BASE_BTREE_SRC_NAMES:.c=.o)
 

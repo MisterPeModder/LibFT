@@ -6,7 +6,7 @@
 /*   By: yguaye <yguaye@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/04 08:43:27 by yguaye            #+#    #+#             */
-/*   Updated: 2018/01/04 17:14:58 by yguaye           ###   ########.fr       */
+/*   Updated: 2018/01/05 10:28:49 by yguaye           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,6 +54,9 @@ t_btree				*ft_btreeleaf(t_btree *leaf);
 t_btree				*ft_btreenew(const void *content, size_t content_size);
 
 t_btree				*ft_btreenew2(void *content, size_t content_size);
+
+t_btree				*ft_btreesearch(t_btree *root, void *ref,
+		int (*cmp)(t_btree *, void *));
 
 void				ft_btree_tryrotate(t_btree *n);
 
