@@ -6,7 +6,7 @@
 /*   By: yguaye <yguaye@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/04 08:43:27 by yguaye            #+#    #+#             */
-/*   Updated: 2018/01/05 10:28:49 by yguaye           ###   ########.fr       */
+/*   Updated: 2018/01/07 17:36:52 by yguaye           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 
 # define IS_LEAF(node) (node && node == ft_btreeleaf(NULL))
 
-enum				u_btcolor
+enum				e_btcolor
 {
 	BT_BLACK = 0,
 	BT_RED,
