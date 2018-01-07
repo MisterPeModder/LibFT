@@ -6,7 +6,7 @@
 /*   By: yguaye <yguaye@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/12 21:26:50 by yguaye            #+#    #+#             */
-/*   Updated: 2017/11/12 22:12:00 by yguaye           ###   ########.fr       */
+/*   Updated: 2018/01/07 16:57:16 by yguaye           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@ static char	*create_str(int n)
 		n /= 10;
 		++len;
 	}
+	++len;
 	return (ft_strnew(len));
 }
 
