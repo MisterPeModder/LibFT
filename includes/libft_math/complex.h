@@ -1,28 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   libft.h                                            :+:      :+:    :+:   */
+/*   complex.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yguaye <yguaye@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/12/10 12:32:46 by yguaye            #+#    #+#             */
-/*   Updated: 2018/01/17 16:50:11 by yguaye           ###   ########.fr       */
+/*   Created: 2018/01/17 13:25:56 by yguaye            #+#    #+#             */
+/*   Updated: 2018/01/17 13:54:06 by yguaye           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef LIBFT_H
-# define LIBFT_H
+#ifndef COMPLEX_H
+# define COMPLEX_H
 
-# include "libft_base/base.h"
-# include "libft_base/btree.h"
-# include "libft_math/complex.h"
-# include "libft_math/vectors.h"
-# include "libft_base/character.h"
-# include "libft_base/io.h"
-# include "libft_base/list.h"
-# include "libft_base/memory.h"
-# include "libft_base/stringft.h"
+typedef struct		s_cpx
+{
+	double			re;
+	double			im;
+}					t_cpx;
 
-# include "get_next_line.h"
+t_cpx				*new_cpx(double real_part, double imaginary_part);
+
+t_cpx				*add_cpx(t_cpx *lhs, t_cpx *rhs);
+
+t_cpx				*conjugate_cpx(t_cpx *op);
+
+t_cpx				*div_cpx(t_cpx *lhs, t_cpx *rhs);
+
+double				modulus_cpx(t_cpx *op);
+
+t_cpx				*mul_cpx(t_cpx *lhs, t_cpx *rhs);
+
+t_cpx				*sub_cpx(t_cpx *lhs, t_cpx *rhs);
 
 #endif
