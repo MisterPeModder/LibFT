@@ -6,7 +6,7 @@
 /*   By: yguaye <yguaye@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/07 10:55:32 by yguaye            #+#    #+#             */
-/*   Updated: 2018/02/07 15:21:20 by yguaye           ###   ########.fr       */
+/*   Updated: 2018/02/07 15:42:13 by yguaye           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,18 +26,18 @@
 #  define TRACE_VAL(N, F, X) (X + TRACEN(N) + printf(" ## value="F"\n", X) * 0)
 
 #  define TRACE_INT(NAME, X) TRACE_VAL(NAME, "%d", X)
-#  define TRACE_UIN(NAME, X) TRACE_VAL(NAME, "%u", X)
-#  define TRACE_LNG(NAME, X) TRACE_VAL(NAME, "%ld", X)
-#  define TRACE_ULN(NAME, X) TRACE_VAL(NAME, "%lu", X)
+#  define TRACE_UIN(NAME, X) TRACE_VAL(NAME, "%u", (unsigned int)X)
+#  define TRACE_LNG(NAME, X) TRACE_VAL(NAME, "%ld", (long)X)
+#  define TRACE_ULN(NAME, X) TRACE_VAL(NAME, "%lu", (unsigned long)X)
 #  define TRACE_DBL(NAME, X) TRACE_VAL(NAME, "%f", X)
-#  define TRACE_SZT(NAME, X) TRACE_VAL(NAME, "%zu", X)
+#  define TRACE_SZT(NAME, X) TRACE_VAL(NAME, "%zu", (size_t)X)
 
 #  define TRACE_INT2(X) TRACE_VAL("\b", "%d", X)
-#  define TRACE_UIN2(X) TRACE_VAL("\b", "%u", X)
-#  define TRACE_LNG2(X) TRACE_VAL("\b", "%ld", X)
-#  define TRACE_ULN2(X) TRACE_VAL("\b", "%lu", X)
+#  define TRACE_UIN2(X) TRACE_VAL("\b", "%u", (unsigned int)X)
+#  define TRACE_LNG2(X) TRACE_VAL("\b", "%ld", (long)X)
+#  define TRACE_ULN2(X) TRACE_VAL("\b", "%lu", (unsigned long)X)
 #  define TRACE_DBL2(X) TRACE_VAL("\b", "%f", X)
-#  define TRACE_SZT2(X) TRACE_VAL("\b", "%zu", X)
+#  define TRACE_SZT2(X) TRACE_VAL("\b", "%zu", (size_t)X)
 
 # else
 
@@ -46,20 +46,18 @@
 #  define TRACE_CLL(NAME, ...) NAME(__VA_ARGS__)
 
 #  define TRACE_INT(NAME, X) X
-#  define TRACE_UIN(NAME, X) X
-#  define TRACE_LNG(NAME, X) X
-#  define TRACE_ULN(NAME, X) X
+#  define TRACE_UIN(NAME, X) (unsigned int)X
+#  define TRACE_LNG(NAME, X) (long)X
+#  define TRACE_ULN(NAME, X) (unsigned long)X
 #  define TRACE_DBL(NAME, X) X
-#  define TRACE_SZT(NAME, X) X
-#  define TRACE_STR(NAME, X) X
+#  define TRACE_SZT(NAME, X) (size_t)X
 
 #  define TRACE_INT2(X) X
-#  define TRACE_UIN2(X) X
-#  define TRACE_LNG2(X) X
-#  define TRACE_ULN2(X) X
+#  define TRACE_UIN2(X) (unsigned int)X
+#  define TRACE_LNG2(X) (long)X
+#  define TRACE_ULN2(X) (unsigned long)X
 #  define TRACE_DBL2(X) X
-#  define TRACE_SZT2(X) X
-#  define TRACE_STR2(X) X
+#  define TRACE_SZT2(X) (size_t)X
 
 # endif
 #endif
