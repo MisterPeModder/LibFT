@@ -6,7 +6,7 @@
 /*   By: yguaye <yguaye@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/07 10:55:32 by yguaye            #+#    #+#             */
-/*   Updated: 2018/02/07 15:42:13 by yguaye           ###   ########.fr       */
+/*   Updated: 2018/02/07 16:23:24 by yguaye           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@
 #  define DB_IF __FILE__ , __func__ , __LINE__
 #  define DB_VA __VA_ARGS__
 
+#  define PTRACE printf("## %s:%s@%d\n", DB_IF)
 #  define TRACE(N) (printf("## %s (%s:%s@%d)\n", N, DB_IF) * 0)
 #  define TRACEN(N) (printf("## %s (%s:%s@%d)", N, DB_IF) * 0)
 
@@ -31,6 +32,7 @@
 #  define TRACE_ULN(NAME, X) TRACE_VAL(NAME, "%lu", (unsigned long)X)
 #  define TRACE_DBL(NAME, X) TRACE_VAL(NAME, "%f", X)
 #  define TRACE_SZT(NAME, X) TRACE_VAL(NAME, "%zu", (size_t)X)
+#  define TRACE_PTR(NAME, X) TRACE_VAL(NAME, "%p", (void *)X)
 
 #  define TRACE_INT2(X) TRACE_VAL("\b", "%d", X)
 #  define TRACE_UIN2(X) TRACE_VAL("\b", "%u", (unsigned int)X)
@@ -38,9 +40,11 @@
 #  define TRACE_ULN2(X) TRACE_VAL("\b", "%lu", (unsigned long)X)
 #  define TRACE_DBL2(X) TRACE_VAL("\b", "%f", X)
 #  define TRACE_SZT2(X) TRACE_VAL("\b", "%zu", (size_t)X)
+#  define TRACE_PTR2(X) TRACE_VAL("\b", "%p", (void *)X)
 
 # else
 
+#  define PTRACE ;
 #  define TRACE(N) 0
 
 #  define TRACE_CLL(NAME, ...) NAME(__VA_ARGS__)
@@ -51,6 +55,7 @@
 #  define TRACE_ULN(NAME, X) (unsigned long)X
 #  define TRACE_DBL(NAME, X) X
 #  define TRACE_SZT(NAME, X) (size_t)X
+#  define TRACE_PTR(NAME, X) (void *)X
 
 #  define TRACE_INT2(X) X
 #  define TRACE_UIN2(X) (unsigned int)X
@@ -58,6 +63,7 @@
 #  define TRACE_ULN2(X) (unsigned long)X
 #  define TRACE_DBL2(X) X
 #  define TRACE_SZT2(X) (size_t)X
+#  define TRACE_PTR2(X) (void *)X
 
 # endif
 #endif
