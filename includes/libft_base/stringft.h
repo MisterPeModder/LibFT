@@ -6,7 +6,7 @@
 /*   By: yguaye <yguaye@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/21 14:35:39 by yguaye            #+#    #+#             */
-/*   Updated: 2017/12/21 15:09:35 by yguaye           ###   ########.fr       */
+/*   Updated: 2018/02/23 12:33:11 by yguaye           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,8 @@ void				ft_strclr(char *s);
 int					ft_strcmp(const char *s1, const char *s2);
 
 char				*ft_strcpy(char *dst, const char *src);
+
+char				*ft_strconcat(char *s1, char *s2, int free_args);
 
 void				ft_strdel(char **as);
 
@@ -82,7 +84,7 @@ char				*ft_strsub(char const *s, unsigned int start, size_t len);
 
 void				ft_strtabdel(char ***tab);
 
-size_t				ft_strtablen(char **tab);
+size_t				ft_strtablen(const char **tab);
 
 char				*ft_strtrim(char const *s);
 

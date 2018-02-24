@@ -6,7 +6,7 @@
 /*   By: yguaye <yguaye@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/04 09:59:01 by yguaye            #+#    #+#             */
-/*   Updated: 2018/01/05 08:36:19 by yguaye           ###   ########.fr       */
+/*   Updated: 2018/01/07 17:38:16 by yguaye           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,17 +36,19 @@ static void			ft_btree_rotate_r(t_btree *n)
 
 void				ft_btree_tryrotate(t_btree *n)
 {
-	t_btree			 *p;
-	t_btree			 *g;
+	t_btree			*p;
+	t_btree			*g;
 
 	p = n->parent;
 	if (!p || !(g = p->parent))
 		return ;
-	if (n == g->left->right) {
+	if (n == g->left->right)
+	{
 		ft_btree_rotate_l(p);
 		n = n->left;
 	}
-	else if (n == g->right->left) {
+	else if (n == g->right->left)
+	{
 		ft_btree_rotate_r(p);
 		n = n->right;
 	}

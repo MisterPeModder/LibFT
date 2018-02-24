@@ -1,30 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   libft.h                                            :+:      :+:    :+:   */
+/*   new_cpx.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yguaye <yguaye@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/12/10 12:32:46 by yguaye            #+#    #+#             */
-/*   Updated: 2018/02/24 14:14:41 by yguaye           ###   ########.fr       */
+/*   Created: 2018/01/17 13:50:25 by yguaye            #+#    #+#             */
+/*   Updated: 2018/01/17 13:52:24 by yguaye           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef LIBFT_H
-# define LIBFT_H
+#include <stdlib.h>
+#include "libft_math/complex.h"
 
-# include "libft_base/base.h"
-# include "libft_base/btree.h"
-# include "libft_math/complex.h"
-# include "libft_math/vectors.h"
-# include "libft_base/character.h"
-# include "libft_base/io.h"
-# include "libft_base/list.h"
-# include "libft_base/memory.h"
-# include "libft_base/stringft.h"
+t_cpx				*new_cpx(double real_part, double imaginary_part)
+{
+	t_cpx			*res;
 
-# include "get_next_line.h"
-
-# include "libft_args/args.h"
-
-#endif
+	if (!(res = (t_cpx *)malloc(sizeof(t_cpx))))
+		return (NULL);
+	res->re = real_part;
+	res->im = imaginary_part;
+	return (res);
+}

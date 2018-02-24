@@ -1,30 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   libft.h                                            :+:      :+:    :+:   */
+/*   mul_cpx.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yguaye <yguaye@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/12/10 12:32:46 by yguaye            #+#    #+#             */
-/*   Updated: 2018/02/24 14:14:41 by yguaye           ###   ########.fr       */
+/*   Created: 2018/01/17 13:58:29 by yguaye            #+#    #+#             */
+/*   Updated: 2018/01/17 16:29:27 by yguaye           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef LIBFT_H
-# define LIBFT_H
+#include "libft_math/complex.h"
 
-# include "libft_base/base.h"
-# include "libft_base/btree.h"
-# include "libft_math/complex.h"
-# include "libft_math/vectors.h"
-# include "libft_base/character.h"
-# include "libft_base/io.h"
-# include "libft_base/list.h"
-# include "libft_base/memory.h"
-# include "libft_base/stringft.h"
-
-# include "get_next_line.h"
-
-# include "libft_args/args.h"
-
-#endif
+t_cpx				*mul_cpx(t_cpx *lhs, t_cpx *rhs)
+{
+	return (new_cpx(lhs->re * rhs->re - lhs->im * rhs->im,
+				lhs->im * rhs->re + lhs->re * rhs->im));
+}

@@ -3,6 +3,7 @@ MODULES += base/string
 BASE_STR_SRC_NAMES :=	ft_atoi.c			\
 						ft_itoa.c			\
 						ft_strcat.c			\
+						ft_strconcat.c		\
 						ft_strchr.c			\
 						ft_strclr.c			\
 						ft_strcmp.c			\
