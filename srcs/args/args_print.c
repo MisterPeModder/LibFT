@@ -6,7 +6,7 @@
 /*   By: yguaye <yguaye@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/10 16:52:13 by yguaye            #+#    #+#             */
-/*   Updated: 2018/02/24 14:20:17 by yguaye           ###   ########.fr       */
+/*   Updated: 2018/02/27 11:40:22 by yguaye           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,7 +64,8 @@ void				put_arg_error(const char *prefix, const t_args *args)
 	if (!args)
 	{
 		ft_putstr_fd(prefix, STDERR_FILENO);
-		ft_putstr_fd(": failed to allocate arguments!", STDERR_FILENO);
+		ft_putendl_fd(": failed to allocate arguments!", STDERR_FILENO);
+		return ;
 	}
 	if (args->errcode == ARG_VALID)
 		return ;

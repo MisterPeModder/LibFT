@@ -6,7 +6,7 @@
 /*   By: yguaye <yguaye@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/13 14:26:27 by yguaye            #+#    #+#             */
-/*   Updated: 2018/02/24 14:16:43 by yguaye           ###   ########.fr       */
+/*   Updated: 2018/02/27 13:57:56 by yguaye           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,6 @@
 */
 
 # define AERR "\033[1;31merror: \033[0m"
-# define GTYPE(X) (X == OPTION ? "OPTION" : (X == PARAMETER ? "PARAMETER" : "DEFAULT"))
 
 int					parse_option(t_arglst *arg, const char *curr);
 int					parse_param(t_arglst *arg, char **av, int ac, int *i);
