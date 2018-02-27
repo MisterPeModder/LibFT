@@ -6,10 +6,11 @@
 /*   By: yguaye <yguaye@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/13 17:31:11 by yguaye            #+#    #+#             */
-/*   Updated: 2018/02/24 14:12:11 by yguaye           ###   ########.fr       */
+/*   Updated: 2018/02/27 15:09:02 by yguaye           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "libft_base/io.h"
 #include "libft_base/stringft.h"
 #include "libft_args/args.h"
 
@@ -28,7 +29,7 @@ int					set_arg_error(t_args *args, t_arg_error errcode,
 
 int					has_arg_errors(const t_args *args, int mask)
 {
-	return (!args || (args->errcode & mask) != ARG_VALID);
+	return (!args || (args->errcode ^ mask) != ARG_VALID);
 }
 
 int					clear_arg_errors(t_args *args)

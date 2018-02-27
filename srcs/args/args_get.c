@@ -6,7 +6,7 @@
 /*   By: yguaye <yguaye@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/11 10:59:17 by yguaye            #+#    #+#             */
-/*   Updated: 2018/02/24 14:12:27 by yguaye           ###   ########.fr       */
+/*   Updated: 2018/02/27 14:33:36 by yguaye           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,4 +71,12 @@ t_arglst			*get_arg(t_args *args, t_argtype type, const char *name)
 		curr = curr->next;
 	}
 	return (NULL);
+}
+
+t_argv_plst			*get_pargv(t_args *args, const char *name)
+{
+	t_arglst		*res;
+
+	res = get_arg(args, PARAMETER, name);
+	return (res && res->argv.l.defined ? &res->argv.l : NULL);
 }

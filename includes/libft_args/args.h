@@ -6,7 +6,7 @@
 /*   By: yguaye <yguaye@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/10 14:10:36 by yguaye            #+#    #+#             */
-/*   Updated: 2018/02/22 16:51:05 by yguaye           ###   ########.fr       */
+/*   Updated: 2018/02/27 14:37:17 by yguaye           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -153,5 +153,16 @@ int					has_arg(const t_args *args, char *name,
 */
 int					is_arg_listed(const t_args *args, const char *name,
 		t_argtype type);
+
+/*
+** get_pargv: get the value of a parameter.
+**
+** -args:   the main structure.
+** -name:   the name of the parameter.
+**
+** returns: NULL is paramter was not found and is present in the args list.
+**          Returns a pointer to the argv structure if found.
+*/
+t_argv_plst			*get_pargv(t_args *args, const char *name);
 
 #endif
