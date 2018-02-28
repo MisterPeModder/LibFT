@@ -6,7 +6,7 @@
 /*   By: yguaye <yguaye@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/14 17:13:35 by yguaye            #+#    #+#             */
-/*   Updated: 2018/02/22 16:51:35 by yguaye           ###   ########.fr       */
+/*   Updated: 2018/02/28 15:25:54 by yguaye           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -184,6 +184,8 @@ typedef struct		s_arglst
 **                           this options makes that all the options that come
 **                           after it te be treated as default arguments
 **                           regardless of how they are formated.
+** -ARG_MSINGLE_PARAMS:      cause an error to be thrown if the same parameter
+**                           is present more than once.
 */
 typedef enum		e_argmode
 {
@@ -191,7 +193,8 @@ typedef enum		e_argmode
 	ARG_MSIMPLE = 1,
 	ARG_MDISCONTINUOUS = 2,
 	ARG_MALLOW_FILES_BEFORE = 4,
-	ARG_MENABLE_SEP = 8
+	ARG_MENABLE_SEP = 8,
+	ARG_MSINGLE_PARAMS = 16
 }					t_argmode;
 
 /*

@@ -6,7 +6,7 @@
 /*   By: yguaye <yguaye@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/10 15:44:16 by yguaye            #+#    #+#             */
-/*   Updated: 2018/02/24 14:13:00 by yguaye           ###   ########.fr       */
+/*   Updated: 2018/02/28 15:39:30 by yguaye           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,9 +63,14 @@ static int			parse_args_param(t_args *args, int ac, char **av, int *i)
 	int				ret;
 
 	ret = 0;
-	if ((tmp = get_param_basename(av[*i], args->mode & ARG_MSIMPLE)) && !*tmp)
+	if (!(tmp = get_param_basename(av[*i], args->mode & ARG_MSIMPLE)) || !*tmp)
 	{
 		set_arg_error(args, ARG_UNSPECIFIED, tmp);
+		ret = -1;
+	}
+	else if (args->mode & ARG_MSINGLE_PARAMS && has_arg(args, tmp, PARAMETER))
+	{
+		set_arg_error(args, ARG_DEF_TWICE, tmp);
 		ret = -1;
 	}
 	else
