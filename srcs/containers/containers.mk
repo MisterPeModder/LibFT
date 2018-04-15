@@ -6,6 +6,7 @@ CONTAINERS_SRC_NAMES :=	hm_collisions.c	\
 						hm_length.c		\
 						hm_make.c		\
 						hm_put.c		\
+						hm_release.c	\
 
 CONTAINERS_OBJ_NAMES = $(CONTAINERS_SRC_NAMES:.c=.o)
 
