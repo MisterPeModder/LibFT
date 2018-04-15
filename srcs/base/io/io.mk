@@ -14,5 +14,5 @@ BASE_IO_OBJ_NAMES = $(BASE_IO_SRC_NAMES:.c=.o)
 SRCS += $(addprefix $(SRC_PATH)/base/io/,$(BASE_IO_SRC_NAMES))
 OBJS += $(addprefix $(OBJ_PATH)/base/io/,$(BASE_IO_OBJ_NAMES))
 
-$(OBJ_PATH)/base/io/%.o: $(SRC_PATH)/base/io/%.c
+$(OBJ_PATH)/base/io/%.o: $(SRC_PATH)/base/io/%.c $(INCS_FULL)
 	$(compile_objs_cc)

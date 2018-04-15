@@ -18,5 +18,5 @@ BASE_LST_OBJ_NAMES = $(BASE_LST_SRC_NAMES:.c=.o)
 SRCS += $(addprefix $(SRC_PATH)/base/list/,$(BASE_LST_SRC_NAMES))
 OBJS += $(addprefix $(OBJ_PATH)/base/list/,$(BASE_LST_OBJ_NAMES))
 
-$(OBJ_PATH)/base/list/%.o: $(SRC_PATH)/base/list/%.c
+$(OBJ_PATH)/base/list/%.o: $(SRC_PATH)/base/list/%.c $(INCS_FULL)
 	$(compile_objs_cc)

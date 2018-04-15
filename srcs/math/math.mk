@@ -47,5 +47,5 @@ MATH_OBJ_NAMES = $(MATH_SRC_NAMES:.c=.o)
 SRCS += $(addprefix $(SRC_PATH)/math/,$(MATH_SRC_NAMES))
 OBJS += $(addprefix $(OBJ_PATH)/math/,$(MATH_OBJ_NAMES))
 
-$(OBJ_PATH)/math/%.o: $(SRC_PATH)/math/%.c
+$(OBJ_PATH)/math/%.o: $(SRC_PATH)/math/%.c $(INCS_FULL)
 	$(compile_objs_cc)

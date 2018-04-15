@@ -7,6 +7,28 @@ INC_PATH := includes
 SRCS =
 OBJS =
 
+INCS :=	debug.h						\
+		get_next_line.h				\
+		libft.h						\
+		libft_args/args.h			\
+		libft_args/args_defs.h		\
+		libft_args/args_internal.h	\
+		libft_base/base.h			\
+		libft_base/character.h		\
+		libft_base/io.h				\
+		libft_base/list.h			\
+		libft_base/memory.h			\
+		libft_base/stringft.h		\
+		libft_containers/hashmap.h	\
+		libft_math/complex.h		\
+		libft_math/vec2.h			\
+		libft_math/vec3.h			\
+		libft_math/vec4.h			\
+		libft_math/vectors.h		\
+		libft_math/vectype.h
+
+INCS_FULL = $(addprefix $(INC_PATH)/, $(INCS))
+
 #verbose mode toggle
 VERBOSE = 1
 
@@ -43,6 +65,9 @@ NORM_FILES =
 
 all: $(NAME)
 
+dump:
+	@echo $(INCS_FULL)
+
 $(NAME): $(OBJS)
 ifeq ($(VERBOSE), 1)
 	@tput dl; tput cub 100; printf "\033[90mCreating object files: \033[32mdone!"
@@ -64,6 +89,7 @@ fclean: clean
 	@printf "\033[33mRemoved \033[93m$(NAME) library!\033[0m\n\n"
 
 re: fclean all
+	@echo $(INCS)
 
 norm:
 	@printf "\033[90mChecking \033[0mThe Norm\033[90m...\033[0m\n"

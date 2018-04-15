@@ -11,7 +11,6 @@ ARGS_SRC_NAMES :=	args_add.c			\
 					args_parse_param.c	\
 					args_print.c		\
 
-
 ARGS_OBJ_NAMES = $(ARGS_SRC_NAMES:.c=.o)
 
 SRCS += $(addprefix $(SRC_PATH)/args/,$(ARGS_SRC_NAMES))

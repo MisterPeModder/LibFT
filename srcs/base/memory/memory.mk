@@ -16,5 +16,5 @@ BASE_MEM_OBJ_NAMES = $(BASE_MEM_SRC_NAMES:.c=.o)
 SRCS += $(addprefix $(SRC_PATH)/base/memory/,$(BASE_MEM_SRC_NAMES))
 OBJS += $(addprefix $(OBJ_PATH)/base/memory/,$(BASE_MEM_OBJ_NAMES))
 
-$(OBJ_PATH)/base/memory/%.o: $(SRC_PATH)/base/memory/%.c
+$(OBJ_PATH)/base/memory/%.o: $(SRC_PATH)/base/memory/%.c $(INCS_FULL)
 	$(compile_objs_cc)

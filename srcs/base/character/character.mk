@@ -14,5 +14,5 @@ BASE_CHR_OBJ_NAMES = $(BASE_CHR_SRC_NAMES:.c=.o)
 SRCS += $(addprefix $(SRC_PATH)/base/character/,$(BASE_CHR_SRC_NAMES))
 OBJS += $(addprefix $(OBJ_PATH)/base/character/,$(BASE_CHR_OBJ_NAMES))
 
-$(OBJ_PATH)/base/character/%.o: $(SRC_PATH)/base/character/%.c
+$(OBJ_PATH)/base/character/%.o: $(SRC_PATH)/base/character/%.c $(INCS_FULL)
 	$(compile_objs_cc)
