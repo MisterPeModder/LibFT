@@ -30,6 +30,7 @@ MODULES =
 -include srcs/gnl/gnl.mk
 -include srcs/math/math.mk
 -include srcs/args/args.mk
+-include srcs/containers/containers.mk
 
 LC = ar rcs
 CC = gcc

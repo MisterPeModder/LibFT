@@ -1,31 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   libft.h                                            :+:      :+:    :+:   */
+/*   hm_length.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yguaye <yguaye@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/12/10 12:32:46 by yguaye            #+#    #+#             */
-/*   Updated: 2018/04/15 10:30:18 by yguaye           ###   ########.fr       */
+/*   Created: 2018/04/13 19:49:48 by yguaye            #+#    #+#             */
+/*   Updated: 2018/04/15 09:59:30 by yguaye           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef LIBFT_H
-# define LIBFT_H
+#include "libft_containers/hashmap.h"
 
-# include "libft_base/base.h"
-# include "libft_math/complex.h"
-# include "libft_math/vectors.h"
-# include "libft_base/character.h"
-# include "libft_base/io.h"
-# include "libft_base/list.h"
-# include "libft_base/memory.h"
-# include "libft_base/stringft.h"
+size_t					hm_bucket_size(t_hmnode *node)
+{
+	size_t				len;
 
-# include "get_next_line.h"
+	len = 0;
+	while (node)
+	{
+		node = node->next;
+		++len;
+	}
+	return (len);
+}
 
-# include "libft_args/args.h"
+size_t					hm_length(t_hashmap *map)
+{
+	size_t				i;
+	size_t				len;
 
-# include "libft_containers/hashmap.h"
-
-#endif
+	i = 0;
+	len = 0;
+	while (i < map->length)
+	{
+		len += hm_bucket_size(map->buckets[i]);
+		++i;
+	}
+	return (len);
+}

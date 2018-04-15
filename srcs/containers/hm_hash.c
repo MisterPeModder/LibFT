@@ -1,31 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   libft.h                                            :+:      :+:    :+:   */
+/*   hm_hash.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yguaye <yguaye@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/12/10 12:32:46 by yguaye            #+#    #+#             */
-/*   Updated: 2018/04/15 10:30:18 by yguaye           ###   ########.fr       */
+/*   Created: 2018/04/13 16:35:11 by yguaye            #+#    #+#             */
+/*   Updated: 2018/04/15 10:14:33 by yguaye           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef LIBFT_H
-# define LIBFT_H
+#include "libft_containers/hashmap.h"
 
-# include "libft_base/base.h"
-# include "libft_math/complex.h"
-# include "libft_math/vectors.h"
-# include "libft_base/character.h"
-# include "libft_base/io.h"
-# include "libft_base/list.h"
-# include "libft_base/memory.h"
-# include "libft_base/stringft.h"
+long					hm_hash(const char *str)
+{
+	long			hash;
+	int				c;
 
-# include "get_next_line.h"
-
-# include "libft_args/args.h"
-
-# include "libft_containers/hashmap.h"
-
-#endif
+	if (!str)
+		return (0);
+	hash = 5381;
+	while ((c = *str++))
+		hash = ((hash << 5) + hash) + c;
+	return (hash);
+}
