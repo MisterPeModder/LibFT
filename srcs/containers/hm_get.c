@@ -6,7 +6,7 @@
 /*   By: yguaye <yguaye@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/13 18:36:17 by yguaye            #+#    #+#             */
-/*   Updated: 2018/04/15 10:19:56 by yguaye           ###   ########.fr       */
+/*   Updated: 2018/04/15 13:55:20 by yguaye           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,28 +29,28 @@ void					*hm_get(t_hashmap *map, const char *key)
 	return (NULL);
 }
 
-void					hm_del(t_hashmap *map, const char *key)
+void					hm_del(t_hashmap *map, const char *k, void (*d)(void *))
 {
 	size_t			i;
 	t_hmnode		*prev;
 	t_hmnode		*curr;
 
-	i = hm_hash(key) & (map->length - 1);
+	i = hm_hash(k) & (map->length - 1);
 	prev = NULL;
 	curr = map->buckets[i];
 	while (curr)
 	{
-		if (ft_strcmp(curr->key, key) == 0)
+		if (ft_strcmp(curr->key, k) == 0)
 		{
 			if (prev)
 				prev->next = curr->next;
 			if (!prev && !curr->next)
 			{
-				hm_release_node(curr);
+				hm_release_node(curr, d);
 				map->buckets[i] = NULL;
 			}
 			else
-				hm_release_node(curr);
+				hm_release_node(curr, d);
 			return ;
 		}
 		prev = curr;

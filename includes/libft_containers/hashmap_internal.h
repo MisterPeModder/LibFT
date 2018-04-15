@@ -6,7 +6,7 @@
 /*   By: yguaye <yguaye@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/15 12:34:43 by yguaye            #+#    #+#             */
-/*   Updated: 2018/04/15 12:48:29 by yguaye           ###   ########.fr       */
+/*   Updated: 2018/04/15 13:51:19 by yguaye           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ typedef struct			s_hashmap
 */
 long					hm_hash(const char *str);
 
-void					hm_release_node(t_hmnode *n);
+void					hm_release_node(t_hmnode *n, void (*d)(void *));
 
 size_t					hm_bucket_size(t_hmnode *node);
 

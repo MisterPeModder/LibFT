@@ -6,7 +6,7 @@
 /*   By: yguaye <yguaye@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/13 15:59:22 by yguaye            #+#    #+#             */
-/*   Updated: 2018/04/15 12:58:03 by yguaye           ###   ########.fr       */
+/*   Updated: 2018/04/15 13:54:13 by yguaye           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,8 +32,16 @@ t_hashmap				*hm_make(size_t power);
 
 /*
 ** hm_release: Frees the passed hashmap and sets the pointer to NULL.
+**
+** -d: A destructor function that will be called each time before a node is
+**     freed. It takes the 'value' pointer as a parameter, this allows
+**     the user to change how the memory is freed.
+**     If NULL, d is set to &free.
+**
+**     NOTE: This function does NOT free the value of the key-value pairs,
+**     you have to free it yourself using the d function pointer!
 */
-void					hm_release(t_hashmap **map);
+void					hm_release(t_hashmap **map, void (*d)(void *));
 
 /*
 ** hm_put: Puts/updates a key-value pair in the passed hashmap.
@@ -50,7 +58,7 @@ void					hm_put_cpy(t_hashmap *map, const char *key,
 		const void *val, size_t size);
 
 /*
-** hm_get: Searches the passed hashmap instance for the given key.
+** hm_get: Searches the passed hashmap instance for the given key k.
 **
 ** returns: The value corresponding to the key if found, NULL otherwise.
 */
@@ -58,8 +66,10 @@ void					*hm_get(t_hashmap *map, const char *key);
 
 /*
 ** hm_del: Deletes a key-value pair in the passed hashmap and frees it.
+**
+** -d: The same function pointer you would give to hm_relase(). (see above)
 */
-void					hm_del(t_hashmap *map, const char *key);
+void					hm_del(t_hashmap *m, const char *k, void (*d)(void *));
 
 /*
 ** hm_collisions: Counts the number of elements that collides with each other.
