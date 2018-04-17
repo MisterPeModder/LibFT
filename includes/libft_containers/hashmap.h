@@ -6,7 +6,7 @@
 /*   By: yguaye <yguaye@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/13 15:59:22 by yguaye            #+#    #+#             */
-/*   Updated: 2018/04/17 04:51:23 by yguaye           ###   ########.fr       */
+/*   Updated: 2018/04/17 17:22:10 by yguaye           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,13 @@
 **
 **         A bigger number of buckets means better perfomance at the
 **         cost of memory.
+**
+** -load_factor: used to determine the capacity of the map using this formula:
+**               capacity = bucket_number * load_factor
+**               when the number of elements reaches capacity, the map will
+**               double its number of buckets, causing a rehash.
+**               If 0 is given, then load_factor is
+**               set to HM_DEFAULT_LOAD_FACTOR.
 **
 ** returns: The hashmap instance.
 */
