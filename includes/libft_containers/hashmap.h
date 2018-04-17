@@ -6,7 +6,7 @@
 /*   By: yguaye <yguaye@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/13 15:59:22 by yguaye            #+#    #+#             */
-/*   Updated: 2018/04/15 13:54:13 by yguaye           ###   ########.fr       */
+/*   Updated: 2018/04/17 04:51:23 by yguaye           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@
 **
 ** returns: The hashmap instance.
 */
-t_hashmap				*hm_make(size_t power);
+t_hashmap				*hm_make(size_t power, float load_factor);
 
 /*
 ** hm_release: Frees the passed hashmap and sets the pointer to NULL.

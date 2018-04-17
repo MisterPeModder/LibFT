@@ -6,7 +6,7 @@
 /*   By: yguaye <yguaye@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/15 13:46:00 by yguaye            #+#    #+#             */
-/*   Updated: 2018/04/15 13:54:17 by yguaye           ###   ########.fr       */
+/*   Updated: 2018/04/17 06:04:24 by yguaye           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,8 @@ void					hm_release(t_hashmap **map, void (*d)(void *))
 
 	if (!map || !*map)
 		return ;
+	if (!d)
+		d = &free;
 	i = 0;
 	while (i < (*map)->length)
 	{

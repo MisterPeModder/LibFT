@@ -7,24 +7,25 @@ INC_PATH := includes
 SRCS =
 OBJS =
 
-INCS :=	debug.h						\
-		get_next_line.h				\
-		libft.h						\
-		libft_args/args.h			\
-		libft_args/args_defs.h		\
-		libft_args/args_internal.h	\
-		libft_base/base.h			\
-		libft_base/character.h		\
-		libft_base/io.h				\
-		libft_base/list.h			\
-		libft_base/memory.h			\
-		libft_base/stringft.h		\
-		libft_containers/hashmap.h	\
-		libft_math/complex.h		\
-		libft_math/vec2.h			\
-		libft_math/vec3.h			\
-		libft_math/vec4.h			\
-		libft_math/vectors.h		\
+INCS :=	debug.h								\
+		get_next_line.h						\
+		libft.h								\
+		libft_args/args.h					\
+		libft_args/args_defs.h				\
+		libft_args/args_internal.h			\
+		libft_base/base.h					\
+		libft_base/character.h				\
+		libft_base/io.h						\
+		libft_base/list.h					\
+		libft_base/memory.h					\
+		libft_base/stringft.h				\
+		libft_containers/hashmap.h			\
+		libft_containers/hashmap_internal.h	\
+		libft_math/complex.h				\
+		libft_math/vec2.h					\
+		libft_math/vec3.h					\
+		libft_math/vec4.h					\
+		libft_math/vectors.h				\
 		libft_math/vectype.h
 
 INCS_FULL = $(addprefix $(INC_PATH)/, $(INCS))
@@ -56,7 +57,7 @@ MODULES =
 
 LC = ar rcs
 CC = gcc
-CFLAGS = -Wall -Werror -Wextra
+CFLAGS = -Wall -Werror -Wextra -g
 CPPFLAGS = -iquote$(INC_PATH)
 RM = rm -f
 

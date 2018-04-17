@@ -6,7 +6,7 @@
 /*   By: yguaye <yguaye@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/13 17:53:11 by yguaye            #+#    #+#             */
-/*   Updated: 2018/04/15 10:19:35 by yguaye           ###   ########.fr       */
+/*   Updated: 2018/04/17 06:11:58 by yguaye           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,21 +17,11 @@
 static t_hmnode			*hm_make_node(const char *key, void *value)
 {
 	t_hmnode		*node;
-	char			*i;
 
 	if (!(node = (t_hmnode *)malloc(sizeof(t_hmnode))))
 		return (NULL);
 	if (key)
-	{
-		if (!(node->key = (char *)malloc(sizeof(char *))))
-		{
-			free(node);
-			return (NULL);
-		}
-		i = node->key;
-		while ((*i++ = *key++))
-			;
-	}
+		node->key = ft_strdup(key);
 	else
 		node->key = NULL;
 	node->value = value;
@@ -64,6 +54,8 @@ void					hm_put(t_hashmap *map, const char *key, void *value)
 	t_hmnode		*curr;
 	t_hmnode		*tmp;
 
+	if (map->size + 1 >= (size_t)(map->length * map->load_factor))
+		hm_grow(map);
 	if (!value)
 		return ;
 	i = hm_hash(key) & (map->length - 1);
@@ -78,6 +70,7 @@ void					hm_put(t_hashmap *map, const char *key, void *value)
 		map->buckets[i] = curr;
 		curr->next = tmp;
 	}
+	++map->size;
 }
 
 void					hm_put_cpy(t_hashmap *map, const char *key,

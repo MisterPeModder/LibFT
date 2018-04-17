@@ -6,13 +6,13 @@
 /*   By: yguaye <yguaye@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/13 16:36:14 by yguaye            #+#    #+#             */
-/*   Updated: 2018/04/15 13:48:33 by yguaye           ###   ########.fr       */
+/*   Updated: 2018/04/17 05:15:45 by yguaye           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft_containers/hashmap.h"
 
-t_hashmap				*hm_make(size_t power)
+t_hashmap				*hm_make(size_t power, float load_factor)
 {
 	t_hashmap		*map;
 	size_t			i;
@@ -30,5 +30,7 @@ t_hashmap				*hm_make(size_t power)
 	i = 0;
 	while (i < map->length)
 		map->buckets[i++] = NULL;
+	map->load_factor = load_factor ? load_factor : HM_DEFAULT_LOAD_FACTOR;
+	map->size = 0;
 	return (map);
 }
