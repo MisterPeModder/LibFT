@@ -6,7 +6,7 @@
 /*   By: yguaye <yguaye@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/15 12:34:43 by yguaye            #+#    #+#             */
-/*   Updated: 2018/04/17 05:28:57 by yguaye           ###   ########.fr       */
+/*   Updated: 2018/04/17 18:39:07 by yguaye           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,15 @@ typedef struct			s_hashmap
 	float				load_factor;
 	size_t				size;
 }						t_hashmap;
+
+typedef struct			s_hmiterator
+{
+	t_hashmap			*map;
+	size_t				i;
+	t_hmnode			*curr;
+	char				*key;
+	void				*value;
+}						t_hmiterator;
 
 /*
 ** djb2 hash algorithm

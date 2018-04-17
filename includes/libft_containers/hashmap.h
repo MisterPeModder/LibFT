@@ -6,7 +6,7 @@
 /*   By: yguaye <yguaye@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/13 15:59:22 by yguaye            #+#    #+#             */
-/*   Updated: 2018/04/17 17:22:10 by yguaye           ###   ########.fr       */
+/*   Updated: 2018/04/17 18:46:22 by yguaye           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,5 +89,21 @@ size_t					hm_collisions(t_hashmap *map);
 ** hm_length: Returns the number of elements stored in the passed hashmap.
 */
 size_t					hm_length(t_hashmap *map);
+
+/*
+** hm_iter_init: Inializes the passed iterator.
+**
+** -it: A pointer to a t_hmiterator (preferably a stack address)
+*/
+void					hm_iter_init(t_hashmap *map, t_hmiterator *it);
+
+/*
+** hm_iter_next: Iterates through the map.
+**
+** returns: 1 if a value was found, 0 if the end of the map was reached.
+**          If found use it.key to retrieve the key and it.value for the value.
+**          (in this case the iterator named "it" is local)
+*/
+int						hm_iter_next(t_hmiterator *it);
 
 #endif

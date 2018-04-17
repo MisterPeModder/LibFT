@@ -4,6 +4,7 @@ CONTAINERS_SRC_NAMES :=	hm_collisions.c	\
 						hm_get.c		\
 						hm_grow.c		\
 						hm_hash.c		\
+						hm_iter.c		\
 						hm_length.c		\
 						hm_make.c		\
 						hm_put.c		\
