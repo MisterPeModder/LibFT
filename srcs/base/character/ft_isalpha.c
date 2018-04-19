@@ -6,9 +6,11 @@
 /*   By: yguaye <yguaye@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/12 11:55:05 by yguaye            #+#    #+#             */
-/*   Updated: 2018/04/15 12:04:22 by yguaye           ###   ########.fr       */
+/*   Updated: 2018/04/19 10:16:36 by yguaye           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "libft_base/character.h"
 
 int		ft_isalpha(int c)
 {

@@ -57,7 +57,7 @@ MODULES =
 
 LC = ar rcs
 CC = gcc
-CFLAGS = -Wall -Werror -Wextra -g
+CFLAGS = -Wall -Wmissing-prototypes -Wsign-conversion -Werror -Wextra -g
 CPPFLAGS = -iquote$(INC_PATH)
 RM = rm -f
 

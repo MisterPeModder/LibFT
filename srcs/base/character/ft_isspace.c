@@ -6,9 +6,11 @@
 /*   By: yguaye <yguaye@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/12 12:04:46 by yguaye            #+#    #+#             */
-/*   Updated: 2017/11/12 12:20:56 by yguaye           ###   ########.fr       */
+/*   Updated: 2018/04/19 10:19:41 by yguaye           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "libft_base/character.h"
 
 int		ft_isspace(int c)
 {

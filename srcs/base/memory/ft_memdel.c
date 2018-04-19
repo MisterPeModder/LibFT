@@ -6,11 +6,12 @@
 /*   By: yguaye <yguaye@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/12 13:54:32 by yguaye            #+#    #+#             */
-/*   Updated: 2017/11/13 14:35:37 by yguaye           ###   ########.fr       */
+/*   Updated: 2018/04/19 10:44:46 by yguaye           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
+#include "libft_base/memory.h"
 
 void	ft_memdel(void **ap)
 {

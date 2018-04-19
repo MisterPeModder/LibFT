@@ -6,9 +6,11 @@
 /*   By: yguaye <yguaye@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/12 12:02:14 by yguaye            #+#    #+#             */
-/*   Updated: 2017/11/12 12:13:36 by yguaye           ###   ########.fr       */
+/*   Updated: 2018/04/19 10:19:22 by yguaye           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "libft_base/character.h"
 
 int		ft_isdigit(int c)
 {

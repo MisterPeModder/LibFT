@@ -6,7 +6,7 @@
 /*   By: yguaye <yguaye@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/30 14:46:00 by yguaye            #+#    #+#             */
-/*   Updated: 2017/12/09 14:41:30 by yguaye           ###   ########.fr       */
+/*   Updated: 2018/04/19 11:22:04 by yguaye           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,8 @@ static char		*get_reminder(char **a, t_buff *gnl)
 		i++;
 	}
 	gnl->i += i;
-	rem = ft_strsub(gnl->buf, gnl->i - i, i - gnl->nl);
+	rem = ft_strsub(gnl->buf, (unsigned int)(gnl->i - i),
+			(size_t)(i - gnl->nl));
 	tmp = ft_strjoin(*a, rem);
 	ft_strdel(a);
 	ft_strdel(&rem);

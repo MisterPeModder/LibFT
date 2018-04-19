@@ -6,11 +6,12 @@
 /*   By: yguaye <yguaye@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/09 11:22:41 by yguaye            #+#    #+#             */
-/*   Updated: 2017/12/11 19:17:14 by yguaye           ###   ########.fr       */
+/*   Updated: 2018/04/19 10:21:22 by yguaye           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
+#include "libft_base/io.h"
 
 void	ft_putchar_fd(char c, int fd)
 {

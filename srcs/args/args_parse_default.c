@@ -6,7 +6,7 @@
 /*   By: yguaye <yguaye@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/18 14:40:34 by yguaye            #+#    #+#             */
-/*   Updated: 2018/02/24 14:18:47 by yguaye           ###   ########.fr       */
+/*   Updated: 2018/04/19 11:28:06 by yguaye           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 #include "libft_base/stringft.h"
 #include "libft_args/args.h"
 
-char			**dargs_lst2array(t_list *lst)
+static char		**dargs_lst2array(t_list *lst)
 {
 	char		**tab;
 	int			i;

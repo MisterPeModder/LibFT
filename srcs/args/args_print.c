@@ -6,7 +6,7 @@
 /*   By: yguaye <yguaye@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/10 16:52:13 by yguaye            #+#    #+#             */
-/*   Updated: 2018/02/27 11:40:22 by yguaye           ###   ########.fr       */
+/*   Updated: 2018/04/19 11:29:29 by yguaye           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ char				*get_default_arg_err(int error, const char *detail)
 
 	if (error == ARG_VALID)
 		return (NULL);
-	if ((err = gda_err_helper(error, (char *)detail)))
+	if ((err = gda_err_helper((t_arg_error)error, (char *)detail)))
 		return (err);
 	else if (error & ARG_UNSPECIFIED)
 		err = ft_strdup(AERR "unspecified argument.");

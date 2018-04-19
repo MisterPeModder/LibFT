@@ -6,11 +6,11 @@
 /*   By: yguaye <yguaye@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/12 12:44:46 by yguaye            #+#    #+#             */
-/*   Updated: 2017/11/13 10:32:58 by yguaye           ###   ########.fr       */
+/*   Updated: 2018/04/19 10:19:53 by yguaye           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft_base/base.h"
+#include "libft_base/character.h"
 
 int		ft_tolower(int c)
 {
