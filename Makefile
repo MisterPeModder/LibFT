@@ -66,9 +66,6 @@ NORM_FILES =
 
 all: $(NAME)
 
-dump:
-	@echo $(INCS_FULL)
-
 $(NAME): $(OBJS)
 ifeq ($(VERBOSE), 1)
 	@tput dl; tput cub 100; printf "\033[90mCreating object files: \033[32mdone!"
@@ -90,7 +87,6 @@ fclean: clean
 	@printf "\033[33mRemoved \033[93m$(NAME) library!\033[0m\n\n"
 
 re: fclean all
-	@echo $(INCS)
 
 norm:
 	@printf "\033[90mChecking \033[0mThe Norm\033[90m...\033[0m\n"
