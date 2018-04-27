@@ -4,7 +4,7 @@ NAME := libft.a
 # Basic definitions
 MODULES_PATH := modules
 SRC_PATH := srcs
-OBJ_PATH := bin
+OBJ_PATH := .bin
 INC_PATH := includes
 
 # Compiler flags
@@ -93,7 +93,7 @@ endif
 $(OBJS_DIRS):
 	@$(MKDIR) $@
 
-bin/%.o: srcs/%.c $(INCS)
+$(OBJ_PATH)/%.o: $(SRC_PATH)/%.c $(INCS)
 ifeq ($(DETAILED), 1)
 	@tput dl; tput el1; tput cub 100; $(PRINT) "$(GREY)Creating object files: $(RESET)$(notdir $@)"
 endif
