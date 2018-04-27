@@ -1,5 +1,7 @@
 MODULE_NAME :=	args
 
+MODULE_DEPS :=	base
+
 MODULE_SRCS :=	args_add.c			\
 				args_del.c			\
 				args_error.c		\

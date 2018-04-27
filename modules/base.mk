@@ -1,5 +1,7 @@
 MODULE_NAME :=	base
 
+MODULE_DEPS :=
+
 PARENT_NAME :=	base
 SUBMODULES :=	character	\
 				io			\

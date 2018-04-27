@@ -1,5 +1,7 @@
 MODULE_NAME =	math
 
+MODULE_DEPS :=	base
+
 MODULE_SRCS =	add_cpx.c		\
 				add_vec2.c		\
 				add_vec3.c		\

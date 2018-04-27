@@ -1,5 +1,7 @@
 MODULE_NAME =	containers
 
+MODULE_DEPS :=	base
+
 MODULE_SRCS =	hm_collisions.c	\
 				hm_get.c		\
 				hm_grow.c		\

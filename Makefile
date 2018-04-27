@@ -30,18 +30,24 @@ SRCS :=
 INCS :=
 OBJS :=
 
-# Try include the modules file.
--include $(MODULES_PATH)/modules.mk
+# Default modules if MODULES is not set.
+DEFAULT_MODULES :=	args		\
+					base		\
+					containers	\
+					gnl			\
+					math		\
 
-# Throw error if not found and/or MODULES variable is not set.
+DEPS :=
+
 ifndef MODULES
-$(error MODULES is not set! You must create the $(MODULES_PATH)/modules.mk file that defines the MODULES variable.)
+	MODULES := $(DEFAULT_MODULES)
 endif
 
 define addmodule
 	$(eval SRCS += $(addprefix $(SRC_PATH)/$(MODULE_NAME)/,$(MODULE_SRCS)));
 	$(eval INCS += $(addprefix $(INC_PATH)/,$(MODULE_INCS)));
 	$(eval OBJS += $(addprefix $(OBJ_PATH)/$(MODULE_NAME)/,$(MODULE_SRCS:.c=.o)));
+	$(eval -include $(addprefix $(MODULES_PATH)/, $(addsuffix .mk, $(MODULE_DEPS))));
 endef
 
 # Add the sources of each module.
