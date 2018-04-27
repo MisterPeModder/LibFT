@@ -84,11 +84,11 @@ all: $(NAME)
 
 $(NAME): $(OBJS_DIRS) $(OBJS)
 ifeq ($(DETAILED), 1)
-	@tput dl; tput el1; tput cub 100; $(PRINT) "$(GREY)Creating object files: $(GREEN)done!"
+	@tput dl; tput el1; tput cub 100; $(PRINT) "$(GREY)Creating object files: $(GREEN)done!$(RESET)"
 endif
 	@$(PRINT) "\n$(GREY)Compiling $(RESET)$(NAME)$(GREY): $(RESET)"
 	@$(LC) $(NAME) $(OBJS)
-	@$(PRINT) "$(GREEN)done!\n"
+	@$(PRINT) "$(GREEN)done!$(RESET)\n"
 
 $(OBJS_DIRS):
 	@$(MKDIR) $@
