@@ -48,4 +48,11 @@ MODULE_SRCS =	add_cpx.c		\
 				subf_vec3.c		\
 				subf_vec4.c		\
 
+MODULE_INCS +=	libft_math/complex.h	\
+				libft_math/vec2.h		\
+				libft_math/vec3.h		\
+				libft_math/vec4.h		\
+				libft_math/vectors.h	\
+				libft_math/vectype.h	\
+
 $(call addmodule) ## DO NOT EDIT THIS LINE

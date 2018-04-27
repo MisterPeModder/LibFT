@@ -11,4 +11,6 @@ MODULE_SRCS :=	ft_bzero.c		\
 				ft_memmove.c	\
 				ft_memset.c		\
 
+MODULE_INCS :=	libft_base/memory.h
+
 $(call addmodule) ## DO NOT EDIT THIS LINE

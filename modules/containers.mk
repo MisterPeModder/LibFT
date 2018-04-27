@@ -10,4 +10,7 @@ MODULE_SRCS =	hm_collisions.c	\
 				hm_put.c		\
 				hm_release.c	\
 
+MODULE_INCS :=	libft_containers/hashmap.h			\
+				libft_containers/hashmap_internal.h	\
+
 $(call addmodule) ## DO NOT EDIT THIS LINE

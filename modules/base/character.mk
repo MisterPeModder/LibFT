@@ -9,4 +9,6 @@ MODULE_SRCS :=	ft_isalnum.c	\
 				ft_tolower.c	\
 				ft_toupper.c	\
 
+MODULE_INCS :=	libft_base/character.h
+
 $(call addmodule) ## DO NOT EDIT THIS LINE

@@ -39,12 +39,16 @@ endif
 
 define addmodule
 	$(eval SRCS += $(addprefix $(SRC_PATH)/$(MODULE_NAME)/,$(MODULE_SRCS)));
-	$(eval INCS += $(addprefix $(SRC_PATH)/$(MODULE_NAME)/,$(MODULE_SRCS)));
+	$(eval INCS += $(addprefix $(INC_PATH)/,$(MODULE_INCS)));
 	$(eval OBJS += $(addprefix $(OBJ_PATH)/$(MODULE_NAME)/,$(MODULE_SRCS:.c=.o)));
 endef
 
 # Add the sources of each module.
 -include $(addprefix $(MODULES_PATH)/, $(addsuffix .mk, $(MODULES)))
+
+INCS := $(sort $(INCS))
+SRCS := $(sort $(SRCS))
+OBJS := $(sort $(OBJS))
 
 # Adding all modules to vpath.
 COLON := :
@@ -65,8 +69,8 @@ $(NAME): $(OBJS_DIRS) $(OBJS)
 $(OBJS_DIRS):
 	$(MKDIR) $@
 
-bin/%.o: srcs/%.c
-	$(CC) $(CPPFLAGS) $(CFLAGS) -c $^ -o $@
+bin/%.o: srcs/%.c $(INCS)
+	$(CC) $(CPPFLAGS) $(CFLAGS) -c $< -o $@
 
 clean:
 	@$(RM) $(OBJS) 2> /dev/null || true
@@ -80,9 +84,6 @@ fclean: clean
 re: fclean all
 
 debug:
-	@echo vpath = $(VPATH)
-	@echo objs dirs = $(OBJS_DIRS)
-	@echo srcs = $(addprefix "\n", $(SRCS))
-	@echo objs = $(addprefix "\n", $(OBJS))
+	@echo includes = $(addprefix "\n", $(INCS))
 
 .PHONY: all clean fclean re debug

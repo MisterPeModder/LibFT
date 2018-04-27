@@ -11,4 +11,8 @@ MODULE_SRCS :=	args_add.c			\
 				args_parse_param.c	\
 				args_print.c		\
 
+MODULE_INCS :=	libft_args/args.h			\
+				libft_args/args_defs.h		\
+				libft_args/args_internal.h	\
+
 $(call addmodule) ## DO NOT EDIT THIS LINE

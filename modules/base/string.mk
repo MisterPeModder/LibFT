@@ -34,4 +34,6 @@ MODULE_SRCS :=	ft_atoi.c		\
 				ft_strtrim.c	\
 				ft_strupcase.c	\
 
+MODULE_INCS :=	libft_base/stringft.h
+
 $(call addmodule) ## DO NOT EDIT THIS LINE

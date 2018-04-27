@@ -13,4 +13,6 @@ MODULE_SRCS :=	ft_array_to_lst.c	\
 				ft_lstnew.c			\
 				ft_lstrem.c			\
 
+MODULE_INCS :=	libft_base/list.h
+
 $(call addmodule) ## DO NOT EDIT THIS LINE

@@ -9,4 +9,6 @@ MODULE_SRCS :=	ft_putchar.c	\
 				ft_putstr.c		\
 				ft_putstr_fd.c	\
 
+MODULE_INCS :=	libft_base/io.h
+
 $(call addmodule) ## DO NOT EDIT THIS LINE
