@@ -1,101 +1,88 @@
+# Project settings
 NAME := libft.a
 
+# Basic definitions
+MODULES_PATH := modules
 SRC_PATH := srcs
 OBJ_PATH := bin
 INC_PATH := includes
 
-SRCS =
-OBJS =
+# Compiler flags
+CPPFLAGS = -iquote$(INC_PATH)
+CLAGS := -Wall -Wextra -Werror -std=c89 -pedantic -Wmissing-prototypes -Wsign-conversion
 
-INCS :=	debug.h								\
-		get_next_line.h						\
-		libft.h								\
-		libft_args/args.h					\
-		libft_args/args_defs.h				\
-		libft_args/args_internal.h			\
-		libft_base/base.h					\
-		libft_base/character.h				\
-		libft_base/io.h						\
-		libft_base/list.h					\
-		libft_base/memory.h					\
-		libft_base/stringft.h				\
-		libft_containers/hashmap.h			\
-		libft_containers/hashmap_internal.h	\
-		libft_math/complex.h				\
-		libft_math/vec2.h					\
-		libft_math/vec3.h					\
-		libft_math/vec4.h					\
-		libft_math/vectors.h				\
-		libft_math/vectype.h
+# Commands
+CC := gcc
+LC = ar rcs
+RM := rm -f
+RMDIR := rmdir -p
+MKDIR := mkdir -p
 
-INCS_FULL = $(addprefix $(INC_PATH)/, $(INCS))
 
-#verbose mode toggle
-VERBOSE = 1
+###############################################################
+#                                                             #
+#                 /!\  DO NOT EDIT BELOW  /!\                 #
+#                                                             #
+###############################################################
 
-ifeq ($(VERBOSE), 1)
-define compile_objs_cc
-	@mkdir $(OBJ_PATH) $(addprefix $(OBJ_PATH)/, $(MODULES)) 2> /dev/null || true
-	@tput dl; tput cub 100; printf "\033[90mCreating object files: \033[0m$(notdir $@)"
-	@$(CC) $(CFLAGS) $(CPPFLAGS) -c $< -o $@
-endef
-else
-define compile_objs_cc
-	@mkdir $(OBJ_PATH) $(addprefix $(OBJ_PATH)/, $(MODULES)) 2> /dev/null || true
-	@$(CC) $(CFLAGS) $(CPPFLAGS) -c $< -o $@
-endef
+SRCS :=
+INCS :=
+OBJS :=
+
+# Try include the modules file.
+-include $(MODULES_PATH)/modules.mk
+
+# Throw error if not found and/or MODULES variable is not set.
+ifndef MODULES
+$(error MODULES is not set! You must create the $(MODULES_PATH)/modules.mk file that defines the MODULES variable.)
 endif
 
-MODULES =
+define addmodule
+	$(eval SRCS += $(addprefix $(SRC_PATH)/$(MODULE_NAME)/,$(MODULE_SRCS)));
+	$(eval INCS += $(addprefix $(SRC_PATH)/$(MODULE_NAME)/,$(MODULE_SRCS)));
+	$(eval OBJS += $(addprefix $(OBJ_PATH)/$(MODULE_NAME)/,$(MODULE_SRCS:.c=.o)));
+endef
 
-#include subdirs here
--include srcs/base/base.mk
--include srcs/gnl/gnl.mk
--include srcs/math/math.mk
--include srcs/args/args.mk
--include srcs/containers/containers.mk
+# Add the sources of each module.
+-include $(addprefix $(MODULES_PATH)/, $(addsuffix .mk, $(MODULES)))
 
-LC = ar rcs
-CC = gcc
-CFLAGS = -Wall -Wmissing-prototypes -Wsign-conversion -Werror -Wextra -g
-CPPFLAGS = -iquote$(INC_PATH)
-RM = rm -f
+# Adding all modules to vpath.
+COLON := :
+EMPTY :=
+SPACE := $(EMPTY) $(EMPTY)
+VPATH = $(subst $(SPACE),$(COLON),$(addprefix $(SRC_PATH)/,$(strip $(MODULES))))
 
-NORM_LOG = norm.log
-NORM_FILES =
+OBJS_DIRS := $(sort $(dir $(OBJS)))
+
+# The rules are simple, you laugh, YOU LOOSE!
 
 all: $(NAME)
 
-$(NAME): $(OBJS)
-ifeq ($(VERBOSE), 1)
-	@tput dl; tput cub 100; printf "\033[90mCreating object files: \033[32mdone!"
-endif
-	@printf "\n\033[90mCompiling \033[0m$(NAME)\033[90m: \033[0m"
+$(NAME): $(OBJS_DIRS) $(OBJS)
 	@$(LC) $(NAME) $(OBJS)
-	@printf "\033[32mdone!\n"
+	@echo $(NAME) succesfuly compiled!
+
+$(OBJS_DIRS):
+	$(MKDIR) $@
+
+bin/%.o: srcs/%.c
+	$(CC) $(CPPFLAGS) $(CFLAGS) -c $^ -o $@
 
 clean:
-	@$(RM) $(NORM_LOG)
-	@$(RM) $(OBJS)
-	@$(RM) -r *.dSYM
-	@rmdir $(addprefix $(OBJ_PATH)/, $(MODULES)) $(OBJ_PATH) 2> /dev/null || true
-	@rmdir $(addprefix $(OBJ_PATH)/, $(MODULES)) $(OBJ_PATH) 2> /dev/null || true
-	@printf "\033[33mRemoved \033[93mobject files!\033[0m\n"
+	@$(RM) $(OBJS) 2> /dev/null || true
+	@$(RMDIR) $(OBJS_DIRS) 2> /dev/null || true
+	@echo removed all objects!
 
 fclean: clean
-	@$(RM) $(NAME)
-	@printf "\033[33mRemoved \033[93m$(NAME) library!\033[0m\n\n"
+	@$(RM) $(NAME) 2> /dev/null || true
+	@echo removed $(NAME)!
 
 re: fclean all
 
-norm:
-	@printf "\033[90mChecking \033[0mThe Norm\033[90m...\033[0m\n"
-	$(eval NORM_FILES = $(SRCS) $(shell find includes -type f -name "*.h"))
-	@printf "Found \033[32m%s\033[0m files!\n" $(words $(NORM_FILES))
-	@$(RM) $(NORM_LOG)
-	@norminette $(NORM_FILES) >> $(NORM_LOG)
-	@printf "Norm Errors: "
-	@cat $(NORM_LOG) | grep Error | wc -l | bc
-	@printf "See \033[4m$(NORM_LOG)\033[0m for details.\n"
+debug:
+	@echo vpath = $(VPATH)
+	@echo objs dirs = $(OBJS_DIRS)
+	@echo srcs = $(addprefix "\n", $(SRCS))
+	@echo objs = $(addprefix "\n", $(OBJS))
 
-.PHONY: all premsg clean fclean re norm
+.PHONY: all clean fclean re debug
