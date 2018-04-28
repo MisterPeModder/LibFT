@@ -1,19 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   mul_cpx.c                                          :+:      :+:    :+:   */
+/*   vec2_mul.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yguaye <yguaye@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/01/17 13:58:29 by yguaye            #+#    #+#             */
-/*   Updated: 2018/01/17 16:29:27 by yguaye           ###   ########.fr       */
+/*   Created: 2018/04/27 21:57:33 by yguaye            #+#    #+#             */
+/*   Updated: 2018/04/27 22:16:11 by yguaye           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft_math/complex.h"
+#include "libft_math/vec2.h"
 
-t_cpx				*mul_cpx(t_cpx *lhs, t_cpx *rhs)
+t_vec2i			*vec2i_mul(const t_vec2i *l, int r, t_vec2i *d)
 {
-	return (new_cpx(lhs->re * rhs->re - lhs->im * rhs->im,
-				lhs->im * rhs->re + lhs->re * rhs->im));
+	d->x = l->x * r;
+	d->y = l->y * r;
+	return (d);
+}
+
+t_vec2f			*vec2f_mul(const t_vec2f *l, float r, t_vec2f *d)
+{
+	d->x = l->x * r;
+	d->y = l->y * r;
+	return (d);
+}
+
+t_vec2d			*vec2d_mul(const t_vec2d *l, double r, t_vec2d *d)
+{
+	d->x = l->x * r;
+	d->y = l->y * r;
+	return (d);
 }

@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: yguaye <yguaye@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/12/21 10:25:31 by yguaye            #+#    #+#             */
-/*   Updated: 2017/12/21 13:15:09 by yguaye           ###   ########.fr       */
+/*   Created: 2018/04/27 22:00:55 by yguaye            #+#    #+#             */
+/*   Updated: 2018/04/27 22:01:03 by yguaye           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,5 @@
 # define VECTORS_H
 
 # include "vec2.h"
-# include "vec3.h"
-# include "vec4.h"
 
 #endif

@@ -5,108 +5,130 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: yguaye <yguaye@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/12/21 10:30:22 by yguaye            #+#    #+#             */
-/*   Updated: 2017/12/22 14:24:35 by yguaye           ###   ########.fr       */
+/*   Created: 2018/04/27 00:01:04 by yguaye            #+#    #+#             */
+/*   Updated: 2018/04/28 02:39:14 by yguaye           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef VEC2_H
-# define VEC2_H
+#ifndef NVEC2_H
+# define NVEC2_H
 
-# include <stdlib.h>
-# include "vectype.h"
-
-typedef struct		s_vec2i
+typedef struct	s_vec2i
 {
-	t_vectype		type;
-	int				*x;
-	int				*y;
-}					t_vec2i;
+	int			x;
+	int			y;
+}				t_vec2i;
 
-typedef struct		s_vec2f
+typedef struct	s_vec2f
 {
-	t_vectype		type;
-	float			*x;
-	float			*y;
-}					t_vec2f;
+	float		x;
+	float		y;
+}				t_vec2f;
 
-typedef struct		s_vec2d
+typedef struct	s_vec2d
 {
-	t_vectype		type;
-	double			*x;
-	double			*y;
-}					t_vec2d;
+	double		x;
+	double		y;
+}				t_vec2d;
 
-typedef struct		s_vec2x
-{
-	t_vectype		type;
-	void			*x;
-	void			*y;
-}					t_vec2x;
+/*
+** vec2*_fill: fills the 'dst' vector with the passed coordinates.
+**
+** returns: the 'dst' vector to allow chaining.
+*/
+t_vec2i			*vec2i_fill(t_vec2i *dst, int x, int y);
+t_vec2f			*vec2f_fill(t_vec2f *dst, float x, float y);
+t_vec2d			*vec2d_fill(t_vec2d *dst, double x, double y);
 
-typedef union		u_vec2
-{
-	t_vec2i			vec2i;
-	t_vec2f			vec2f;
-	t_vec2d			vec2d;
-	t_vec2x			vec2x;
-}					t_vec2;
+/*
+** vec2*_cpy: copies the contents of 2d vector 'src' into 'dst'.
+**
+** returns: the 'dst' vector to allow chaining.
+*/
+t_vec2i			*vec2i_cpy(const t_vec2i *src, t_vec2i *dst);
+t_vec2f			*vec2f_cpy(const t_vec2f *src, t_vec2f *dst);
+t_vec2d			*vec2d_cpy(const t_vec2d *src, t_vec2d *dst);
 
-t_vec2				*new_vec2(t_vectype type, const void **xy, size_t size);
-t_vec2i				*new_vec2i(int x, int y);
-t_vec2f				*new_vec2f(float x, float y);
-t_vec2d				*new_vec2d(double x, double y);
+/*
+** vec2*_*to*: casts the vector 'src' into the vector 'dst'.
+**
+** returns: the casted 'dst' vector to allow chaining.
+*/
+t_vec2f			*vec2_itof(const t_vec2i *src, t_vec2f *dst);
+t_vec2d			*vec2_itod(const t_vec2i *src, t_vec2d *dst);
+t_vec2i			*vec2_ftoi(const t_vec2f *src, t_vec2i *dst);
+t_vec2d			*vec2_ftod(const t_vec2f *src, t_vec2d *dst);
+t_vec2i			*vec2_dtoi(const t_vec2d *src, t_vec2i *dst);
+t_vec2f			*vec2_dtof(const t_vec2d *src, t_vec2f *dst);
 
-void				del_vec2(t_vec2 **vec2);
+/*
+** vec2*_neg: stores the opposite of the vector 'src' into 'dst'.
+**
+** returns: the 'dst' vector to allow chaining.
+*/
+t_vec2i			*vec2i_neg(const t_vec2i *src, t_vec2i *dst);
+t_vec2f			*vec2f_neg(const t_vec2f *src, t_vec2f *dst);
+t_vec2d			*vec2d_neg(const t_vec2d *src, t_vec2d *dst);
 
-t_vec2				*neg_vec2(const t_vec2 *vec);
-t_vec2i				*neg_vec2i(const t_vec2i *vec);
-t_vec2f				*neg_vec2f(const t_vec2f *vec);
-t_vec2d				*neg_vec2d(const t_vec2d *vec);
+/*
+** vec2*_add: adds the vectors 'l' and 'r' then stores the result in 'd'.
+**
+** returns: the 'd' vector to allow chaining.
+*/
+t_vec2i			*vec2i_add(const t_vec2i *l, const t_vec2i *r, t_vec2i *d);
+t_vec2f			*vec2f_add(const t_vec2f *l, const t_vec2f *r, t_vec2f *d);
+t_vec2d			*vec2d_add(const t_vec2d *l, const t_vec2d *r, t_vec2d *d);
 
-t_vec2				*negf_vec2(t_vec2 **vec);
+/*
+** vec2*_sub: substracts the vector 'r' to 'l' then stores the result in 'd'.
+**
+** returns: the 'd' vector to allow chaining.
+*/
+t_vec2i			*vec2i_sub(const t_vec2i *l, const t_vec2i *r, t_vec2i *d);
+t_vec2f			*vec2f_sub(const t_vec2f *l, const t_vec2f *r, t_vec2f *d);
+t_vec2d			*vec2d_sub(const t_vec2d *l, const t_vec2d *r, t_vec2d *d);
 
-t_vec2				*add_vec2(const t_vec2 *lhs, const t_vec2 *rhs);
-t_vec2i				*add_vec2i(const t_vec2i *lhs, const t_vec2i *rhs);
-t_vec2f				*add_vec2f(const t_vec2f *lhs, const t_vec2f *rhs);
-t_vec2d				*add_vec2d(const t_vec2d *lhs, const t_vec2d *rhs);
+/*
+** vec2*_mul: multiplies the vectors 'l' and 'r' then stores the result in 'd'.
+**
+** returns: the 'd' vector to allow chaining.
+*/
+t_vec2i			*vec2i_mul(const t_vec2i *l, int r, t_vec2i *d);
+t_vec2f			*vec2f_mul(const t_vec2f *l, float r, t_vec2f *d);
+t_vec2d			*vec2d_mul(const t_vec2d *l, double r, t_vec2d *d);
 
-t_vec2				*addf_vec2(t_vec2 **lhs, t_vec2 **rhs);
-t_vec2				*addf1_vec2(t_vec2 **lhs, const t_vec2 *rhs);
-t_vec2				*addf2_vec2(const t_vec2 *lhs, t_vec2 **rhs);
+/*
+** vec2*_div: divides the vector 'l' with 'r' then stores the result in 'd'.
+**
+** returns: the 'd' vector to allow chaining.
+*/
+t_vec2i			*vec2i_div(const t_vec2i *l, int r, t_vec2i *d);
+t_vec2f			*vec2f_div(const t_vec2f *l, float r, t_vec2f *d);
+t_vec2d			*vec2d_div(const t_vec2d *l, double r, t_vec2d *d);
 
-t_vec2				*sub_vec2(const t_vec2 *lhs, const t_vec2 *rhs);
-t_vec2i				*sub_vec2i(const t_vec2i *lhs, const t_vec2i *rhs);
-t_vec2f				*sub_vec2f(const t_vec2f *lhs, const t_vec2f *rhs);
-t_vec2d				*sub_vec2d(const t_vec2d *lhs, const t_vec2d *rhs);
+/*
+** vec2*_norm: calculates the norm (length) of a given vector.
+*/
+float			vec2i_norm(const t_vec2i *vec);
+float			vec2f_norm(const t_vec2f *vec);
+double			vec2d_norm(const t_vec2d *vec);
 
-t_vec2				*subf_vec2(t_vec2 **lhs, t_vec2 **rhs);
-t_vec2				*subf1_vec2(t_vec2 **lhs, const t_vec2 *rhs);
-t_vec2				*subf2_vec2(const t_vec2 *lhs, t_vec2 **rhs);
+/*
+** vec2*_normalize: normalizes the vector 'src' and stores the result into dst.
+**
+** The vec2i version will store its result into a vec2f instead of a vec2i.
+**
+** returns: the 'd' vector to allow chaining.
+*/
+t_vec2f			*vec2i_normalize(const t_vec2i *src, t_vec2f *dst);
+t_vec2f			*vec2f_normalize(const t_vec2f *src, t_vec2f *dst);
+t_vec2d			*vec2d_normalize(const t_vec2d *src, t_vec2d *dst);
 
-t_vec2				*mul_vec2(const t_vec2 *lhs, const void *rhs);
-t_vec2i				*mul_vec2i(const t_vec2i *lhs, const int rhs);
-t_vec2f				*mul_vec2f(const t_vec2f *lhs, const float rhs);
-t_vec2d				*mul_vec2d(const t_vec2d *lhs, const double rhs);
-
-t_vec2				*mulf_vec2(t_vec2 **lhs, void **rhs);
-t_vec2				*mulf1_vec2(t_vec2 **lhs, const void *rhs);
-t_vec2				*mulf2_vec2(const t_vec2 *lhs, void **rhs);
-
-t_vec2				*div_vec2(const t_vec2 *lhs, const void *rhs);
-t_vec2i				*div_vec2i(const t_vec2i *lhs, const int rhs);
-t_vec2f				*div_vec2f(const t_vec2f *lhs, const float rhs);
-t_vec2d				*div_vec2d(const t_vec2d *lhs, const double rhs);
-
-t_vec2				*divf_vec2(t_vec2 **lhs, void **rhs);
-t_vec2				*divf1_vec2(t_vec2 **lhs, const void *rhs);
-t_vec2				*divf2_vec2(const t_vec2 *lhs, void **rhs);
-
-t_vec2				*normalize_vec2(const t_vec2 *vec);
-t_vec2i				*normalize_vec2i(const t_vec2i *vec);
-t_vec2f				*normalize_vec2f(const t_vec2f *vec);
-t_vec2d				*normalize_vec2d(const t_vec2d *vec);
-
-t_vec2				*normalizef_vec2(t_vec2 **vec);
+/*
+** vec2*_dot_product: calculates the dot product of the vectors r and l.
+*/
+float			vec2i_dot_product(const t_vec2i *r, const t_vec2i *l);
+float			vec2f_dot_product(const t_vec2f *r, const t_vec2f *l);
+double			vec2d_dot_product(const t_vec2d *r, const t_vec2d *l);
 
 #endif

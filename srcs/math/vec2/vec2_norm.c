@@ -1,25 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   new_cpx.c                                          :+:      :+:    :+:   */
+/*   vec2_norm.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yguaye <yguaye@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/01/17 13:50:25 by yguaye            #+#    #+#             */
-/*   Updated: 2018/01/17 13:52:24 by yguaye           ###   ########.fr       */
+/*   Created: 2018/04/27 23:03:54 by yguaye            #+#    #+#             */
+/*   Updated: 2018/04/28 01:02:32 by yguaye           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
-#include "libft_math/complex.h"
+#include "libft_math/vec2.h"
+#include "libft_math/calc.h"
 
-t_cpx				*new_cpx(double real_part, double imaginary_part)
+float			vec2i_norm(const t_vec2i *vec)
 {
-	t_cpx			*res;
+	return (ft_fsqrt(vec->x * vec->x + vec->y * vec->y));
+}
 
-	if (!(res = (t_cpx *)malloc(sizeof(t_cpx))))
-		return (NULL);
-	res->re = real_part;
-	res->im = imaginary_part;
-	return (res);
+float			vec2f_norm(const t_vec2f *vec)
+{
+	return (ft_fsqrt(vec->x * vec->x + vec->y * vec->y));
+}
+
+double			vec2d_norm(const t_vec2d *vec)
+{
+	return (ft_sqrt(vec->x * vec->x + vec->y * vec->y));
 }

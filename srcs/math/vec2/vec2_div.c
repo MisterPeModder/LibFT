@@ -1,42 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   divf_vec2.c                                        :+:      :+:    :+:   */
+/*   vec2_div.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yguaye <yguaye@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/12/22 13:38:29 by yguaye            #+#    #+#             */
-/*   Updated: 2017/12/22 13:38:39 by yguaye           ###   ########.fr       */
+/*   Created: 2018/04/27 21:58:44 by yguaye            #+#    #+#             */
+/*   Updated: 2018/04/27 22:17:01 by yguaye           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft_math/vec2.h"
-#include "libft_base/memory.h"
 
-t_vec2				*divf_vec2(t_vec2 **lhs, void **rhs)
+t_vec2i			*vec2i_div(const t_vec2i *l, int r, t_vec2i *d)
 {
-	t_vec2			*res;
-
-	res = div_vec2(*lhs, *rhs);
-	del_vec2(lhs);
-	ft_memdel(rhs);
-	return (res);
+	d->x = l->x / r;
+	d->y = l->y / r;
+	return (d);
 }
 
-t_vec2				*divf1_vec2(t_vec2 **lhs, const void *rhs)
+t_vec2f			*vec2f_div(const t_vec2f *l, float r, t_vec2f *d)
 {
-	t_vec2			*res;
-
-	res = div_vec2(*lhs, rhs);
-	del_vec2(lhs);
-	return (res);
+	d->x = l->x / r;
+	d->y = l->y / r;
+	return (d);
 }
 
-t_vec2				*divf2_vec2(const t_vec2 *lhs, void **rhs)
+t_vec2d			*vec2d_div(const t_vec2d *l, double r, t_vec2d *d)
 {
-	t_vec2			*res;
-
-	res = div_vec2(lhs, *rhs);
-	ft_memdel(rhs);
-	return (res);
+	d->x = l->x / r;
+	d->y = l->y / r;
+	return (d);
 }

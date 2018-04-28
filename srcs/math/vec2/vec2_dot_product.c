@@ -1,18 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   sub_cpx.c                                          :+:      :+:    :+:   */
+/*   vec2_dot_product.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yguaye <yguaye@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/01/17 13:56:41 by yguaye            #+#    #+#             */
-/*   Updated: 2018/01/17 13:58:06 by yguaye           ###   ########.fr       */
+/*   Created: 2018/04/28 02:39:31 by yguaye            #+#    #+#             */
+/*   Updated: 2018/04/28 02:41:21 by yguaye           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft_math/complex.h"
+#include "libft_math/vec2.h"
 
-t_cpx				*sub_cpx(t_cpx *lhs, t_cpx *rhs)
+float			vec2i_dot_product(const t_vec2i *r, const t_vec2i *l)
 {
-	return (new_cpx(lhs->re - rhs->re, lhs->im - rhs->im));
+	return (r->x * l->x + r->y * l->y);
 }
+
+float			vec2f_dot_product(const t_vec2f *r, const t_vec2f *l)
+{
+	return (r->x * l->x + r->y * l->y);
+}
+
+double			vec2d_dot_product(const t_vec2d *r, const t_vec2d *l)
+{
+	return (r->x * l->x + r->y * l->y);
+}
+

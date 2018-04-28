@@ -1,42 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   mulf_vec2.c                                        :+:      :+:    :+:   */
+/*   vec2_sub.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yguaye <yguaye@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/12/22 11:03:57 by yguaye            #+#    #+#             */
-/*   Updated: 2017/12/22 11:06:02 by yguaye           ###   ########.fr       */
+/*   Created: 2018/04/27 21:54:43 by yguaye            #+#    #+#             */
+/*   Updated: 2018/04/27 21:56:37 by yguaye           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft_math/vec2.h"
-#include "libft_base/memory.h"
 
-t_vec2				*mulf_vec2(t_vec2 **lhs, void **rhs)
+t_vec2i			*vec2i_sub(const t_vec2i *l, const t_vec2i *r, t_vec2i *d)
 {
-	t_vec2			*res;
-
-	res = mul_vec2(*lhs, *rhs);
-	del_vec2(lhs);
-	ft_memdel(rhs);
-	return (res);
+	d->x = l->x - r->x;
+	d->y = l->y - r->y;
+	return (d);
 }
 
-t_vec2				*mulf1_vec2(t_vec2 **lhs, const void *rhs)
+t_vec2f			*vec2f_sub(const t_vec2f *l, const t_vec2f *r, t_vec2f *d)
 {
-	t_vec2			*res;
-
-	res = mul_vec2(*lhs, rhs);
-	del_vec2(lhs);
-	return (res);
+	d->x = l->x - r->x;
+	d->y = l->y - r->y;
+	return (d);
 }
 
-t_vec2				*mulf2_vec2(const t_vec2 *lhs, void **rhs)
+t_vec2d			*vec2d_sub(const t_vec2d *l, const t_vec2d *r, t_vec2d *d)
 {
-	t_vec2			*res;
-
-	res = mul_vec2(lhs, *rhs);
-	ft_memdel(rhs);
-	return (res);
+	d->x = l->x - r->x;
+	d->y = l->y - r->y;
+	return (d);
 }

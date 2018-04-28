@@ -1,18 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   add_cpx.c                                          :+:      :+:    :+:   */
+/*   calc.h                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yguaye <yguaye@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/01/17 13:52:48 by yguaye            #+#    #+#             */
-/*   Updated: 2018/01/17 13:56:23 by yguaye           ###   ########.fr       */
+/*   Created: 2018/04/27 22:29:14 by yguaye            #+#    #+#             */
+/*   Updated: 2018/04/27 23:30:02 by yguaye           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft_math/complex.h"
+#ifndef CALC_H
+# define CALC_H
 
-t_cpx				*add_cpx(t_cpx *lhs, t_cpx *rhs)
-{
-	return (new_cpx(lhs->re + rhs->re, lhs->im + rhs->im));
-}
+float			ft_fsqrt(float num);
+double			ft_sqrt(double num);
+
+#endif
