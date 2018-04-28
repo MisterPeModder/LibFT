@@ -6,7 +6,7 @@
 /*   By: yguaye <yguaye@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/17 04:52:44 by yguaye            #+#    #+#             */
-/*   Updated: 2018/04/17 06:10:16 by yguaye           ###   ########.fr       */
+/*   Updated: 2018/04/28 18:46:14 by yguaye           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,25 +27,36 @@ static t_hmnode			**hm_make_new_buckets(t_hashmap *map)
 	return (nbuckets);
 }
 
+static void				hm_reassign(t_hmnode **nb, size_t nlen, t_hmnode *curr)
+{
+	t_hmnode			*tmp;
+	size_t				pos;
+
+	while (curr)
+	{
+		tmp = curr->next;
+		pos = hm_hash(curr->key) & nlen;
+		if (nb[pos])
+			curr->next = nb[pos];
+		else
+			curr->next = NULL;
+		nb[pos] = curr;
+		curr = tmp;
+	}
+}
+
 void					hm_grow(t_hashmap *map)
 {
 	t_hmnode			**nbuckets;
 	size_t				i;
-	t_hmnode			*curr;
+	size_t				nlen;
 
 	if (!(nbuckets = hm_make_new_buckets(map)))
 		return ;
 	i = 0;
+	nlen = (map->length << 1) - 1;
 	while (i < map->length)
-	{
-		curr = map->buckets[i];
-		while (curr)
-		{
-			nbuckets[hm_hash(curr->key) & ((map->length << 1) - 1)] = curr;
-			curr = curr->next;
-		}
-		++i;
-	}
+		hm_reassign(nbuckets, nlen, map->buckets[i++]);
 	free(map->buckets);
 	map->buckets = nbuckets;
 	map->length <<= 1;
