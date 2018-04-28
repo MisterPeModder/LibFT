@@ -1,8 +1,6 @@
 MODULE_NAME :=	$(PARENT_NAME)/list
 
-MODULE_SRCS :=	ft_array_to_lst.c	\
-				ft_lst_pushback.c	\
-				ft_lst_to_array.c	\
+MODULE_SRCS :=	ft_lst_pushback.c	\
 				ft_lstadd.c			\
 				ft_lstdel.c			\
 				ft_lstdelone.c		\

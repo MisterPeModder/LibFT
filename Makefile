@@ -9,7 +9,7 @@ INC_PATH := includes
 
 # Compiler flags
 CPPFLAGS = -iquote$(INC_PATH)
-CLAGS := -Wall -Wextra -Werror -std=c89 -pedantic -Wmissing-prototypes -Wsign-conversion
+CFLAGS := -Wall -Wextra -Werror -std=c89 -pedantic -Wmissing-prototypes -Wsign-conversion
 
 # Commands
 CC := gcc

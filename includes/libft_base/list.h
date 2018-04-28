@@ -6,7 +6,7 @@
 /*   By: yguaye <yguaye@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/21 14:43:27 by yguaye            #+#    #+#             */
-/*   Updated: 2017/12/21 14:49:29 by yguaye           ###   ########.fr       */
+/*   Updated: 2018/04/28 17:57:22 by yguaye           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,10 +42,5 @@ t_list				*ft_lstnew(void const *content, size_t content_size);
 void				ft_lstrem(t_list **beg, t_list *lst);
 
 void				ft_lst_pushback(t_list *begin_list, t_list *nl);
-
-t_list				*ft_array_to_lst(void *array, size_t len,
-		size_t (*get_size)(void *));
-
-void				*ft_lst_to_array(t_list *lst);
 
 #endif
