@@ -1,34 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   character.h                                        :+:      :+:    :+:   */
+/*   ft_istoken.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yguaye <yguaye@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/12/21 14:42:13 by yguaye            #+#    #+#             */
-/*   Updated: 2018/04/28 15:46:48 by yguaye           ###   ########.fr       */
+/*   Created: 2018/04/28 15:41:38 by yguaye            #+#    #+#             */
+/*   Updated: 2018/04/28 16:48:11 by yguaye           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CHARACTER_H
-# define CHARACTER_H
+#include "libft_base/character.h"
 
-int					ft_isalpha(int c);
-
-int					ft_isalnum(int c);
-
-int					ft_isascii(int c);
-
-int					ft_isdigit(int c);
-
-int					ft_isprint(int c);
-
-int					ft_isspace(int c);
-
-int					ft_istoken(int c);
-
-int					ft_tolower(int c);
-
-int					ft_toupper(int c);
-
-#endif
+int		ft_istoken(int c)
+{
+	return (
+			(c >= 'a' && c <= 'z') ||
+			(c >= 'A' && c <= 'Z') ||
+			(c >= '0' && c <= '9') ||
+			c == '.' || c == '-' || c == '+');
+}
