@@ -1,31 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   libft.h                                            :+:      :+:    :+:   */
+/*   vec3_fill.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yguaye <yguaye@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/12/10 12:32:46 by yguaye            #+#    #+#             */
-/*   Updated: 2018/04/28 03:25:18 by yguaye           ###   ########.fr       */
+/*   Created: 2018/04/28 03:16:50 by yguaye            #+#    #+#             */
+/*   Updated: 2018/04/28 03:17:51 by yguaye           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef LIBFT_H
-# define LIBFT_H
+#include "libft_math/vec3.h"
 
-# include "libft_base/base.h"
-# include "libft_base/character.h"
-# include "libft_base/io.h"
-# include "libft_base/list.h"
-# include "libft_base/memory.h"
-# include "libft_base/stringft.h"
+t_vec3i			*vec3i_fill(t_vec3i *dst, int x, int y, int z)
+{
+	dst->x = x;
+	dst->y = y;
+	dst->z = z;
+	return (dst);
+}
 
-# include "get_next_line.h"
+t_vec3f			*vec3f_fill(t_vec3f *dst, float x, float y, float z)
+{
+	dst->x = x;
+	dst->y = y;
+	dst->z = z;
+	return (dst);
+}
 
-# include "libft_args/args.h"
-
-# include "libft_containers/hashmap.h"
-
-# include "libft_math/math.h"
-
-#endif
+t_vec3d			*vec3d_fill(t_vec3d *dst, double x, double y, double z)
+{
+	dst->x = x;
+	dst->y = y;
+	dst->z = z;
+	return (dst);
+}

@@ -6,12 +6,12 @@
 /*   By: yguaye <yguaye@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/27 00:01:04 by yguaye            #+#    #+#             */
-/*   Updated: 2018/04/28 02:39:14 by yguaye           ###   ########.fr       */
+/*   Updated: 2018/04/28 02:58:45 by yguaye           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef NVEC2_H
-# define NVEC2_H
+#ifndef VEC2_H
+# define VEC2_H
 
 typedef struct	s_vec2i
 {

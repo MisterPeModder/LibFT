@@ -1,31 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   libft.h                                            :+:      :+:    :+:   */
+/*   vec3_dot_product.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yguaye <yguaye@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/12/10 12:32:46 by yguaye            #+#    #+#             */
-/*   Updated: 2018/04/28 03:25:18 by yguaye           ###   ########.fr       */
+/*   Created: 2018/04/28 03:15:35 by yguaye            #+#    #+#             */
+/*   Updated: 2018/04/28 03:16:16 by yguaye           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef LIBFT_H
-# define LIBFT_H
+#include "libft_math/vec3.h"
 
-# include "libft_base/base.h"
-# include "libft_base/character.h"
-# include "libft_base/io.h"
-# include "libft_base/list.h"
-# include "libft_base/memory.h"
-# include "libft_base/stringft.h"
+float			vec3i_dot_product(const t_vec3i *r, const t_vec3i *l)
+{
+	return (r->x * l->x + r->y * l->y + l->z * r->z);
+}
 
-# include "get_next_line.h"
+float			vec3f_dot_product(const t_vec3f *r, const t_vec3f *l)
+{
+	return (r->x * l->x + r->y * l->y + l->z * r->z);
+}
 
-# include "libft_args/args.h"
+double			vec3d_dot_product(const t_vec3d *r, const t_vec3d *l)
+{
+	return (r->x * l->x + r->y * l->y + l->z * r->z);
+}
 
-# include "libft_containers/hashmap.h"
-
-# include "libft_math/math.h"
-
-#endif

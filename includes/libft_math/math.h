@@ -1,31 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   libft.h                                            :+:      :+:    :+:   */
+/*   math.h                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yguaye <yguaye@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/12/10 12:32:46 by yguaye            #+#    #+#             */
-/*   Updated: 2018/04/28 03:25:18 by yguaye           ###   ########.fr       */
+/*   Created: 2018/04/28 03:24:36 by yguaye            #+#    #+#             */
+/*   Updated: 2018/04/28 03:25:01 by yguaye           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef LIBFT_H
-# define LIBFT_H
+#ifndef MATH_H
+# define MATH_H
 
-# include "libft_base/base.h"
-# include "libft_base/character.h"
-# include "libft_base/io.h"
-# include "libft_base/list.h"
-# include "libft_base/memory.h"
-# include "libft_base/stringft.h"
-
-# include "get_next_line.h"
-
-# include "libft_args/args.h"
-
-# include "libft_containers/hashmap.h"
-
-# include "libft_math/math.h"
+# include "calc.h"
+# include "vec2.h"
+# include "vec3.h"
 
 #endif
