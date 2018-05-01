@@ -6,7 +6,7 @@
 /*   By: yguaye <yguaye@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/27 21:51:37 by yguaye            #+#    #+#             */
-/*   Updated: 2018/04/27 22:22:08 by yguaye           ###   ########.fr       */
+/*   Updated: 2018/05/01 14:24:51 by yguaye           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,4 +32,3 @@ t_vec2d			*vec2d_add(const t_vec2d *l, const t_vec2d *r, t_vec2d *d)
 	d->y = l->y + r->y;
 	return (d);
 }
-

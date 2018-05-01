@@ -6,7 +6,7 @@
 /*   By: yguaye <yguaye@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/28 02:39:31 by yguaye            #+#    #+#             */
-/*   Updated: 2018/04/28 02:41:21 by yguaye           ###   ########.fr       */
+/*   Updated: 2018/05/01 14:26:16 by yguaye           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,4 +26,3 @@ double			vec2d_dot_product(const t_vec2d *r, const t_vec2d *l)
 {
 	return (r->x * l->x + r->y * l->y);
 }
-

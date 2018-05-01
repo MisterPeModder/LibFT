@@ -6,7 +6,7 @@
 /*   By: yguaye <yguaye@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/28 03:08:40 by yguaye            #+#    #+#             */
-/*   Updated: 2018/04/28 03:10:00 by yguaye           ###   ########.fr       */
+/*   Updated: 2018/05/01 14:26:36 by yguaye           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,4 +35,3 @@ t_vec3d			*vec3d_add(const t_vec3d *l, const t_vec3d *r, t_vec3d *d)
 	d->z = l->z + r->z;
 	return (d);
 }
-
