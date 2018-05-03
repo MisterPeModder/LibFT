@@ -1,32 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   libft.h                                            :+:      :+:    :+:   */
+/*   dynstr_del.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yguaye <yguaye@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/12/10 12:32:46 by yguaye            #+#    #+#             */
-/*   Updated: 2018/05/03 14:59:14 by yguaye           ###   ########.fr       */
+/*   Created: 2018/05/03 14:54:33 by yguaye            #+#    #+#             */
+/*   Updated: 2018/05/03 15:00:56 by yguaye           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef LIBFT_H
-# define LIBFT_H
+#include "libft_containers/dyn_str.h"
 
-# include "libft_base/base.h"
-# include "libft_base/character.h"
-# include "libft_base/io.h"
-# include "libft_base/list.h"
-# include "libft_base/memory.h"
-# include "libft_base/stringft.h"
+void				dynstr_del(t_dynstr **str)
+{
+	if (!str || !*str)
+		return ;
+	if ((*str)->str)
+		free((*str)->str);
+	free(*str);
+	*str = NULL;
+}
 
-# include "get_next_line.h"
-
-# include "libft_args/args.h"
-
-# include "libft_containers/dyn_str.h"
-# include "libft_containers/hashmap.h"
-
-# include "libft_math/math.h"
-
-#endif
+void				dynstr_deinit(t_dynstr *str)
+{
+	if (str && str->str)
+	{
+		free(str->str);
+		str->str = NULL;
+	}
+}
