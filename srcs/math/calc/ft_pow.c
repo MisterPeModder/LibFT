@@ -1,20 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   calc.h                                             :+:      :+:    :+:   */
+/*   ft_pow.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yguaye <yguaye@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/04/27 22:29:14 by yguaye            #+#    #+#             */
-/*   Updated: 2018/05/04 23:26:05 by yguaye           ###   ########.fr       */
+/*   Created: 2018/05/04 23:06:14 by yguaye            #+#    #+#             */
+/*   Updated: 2018/05/04 23:28:39 by yguaye           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CALC_H
-# define CALC_H
+#include "libft_math/calc.h"
 
-float			ft_fsqrt(float num);
-double			ft_sqrt(double num);
-double			ft_pow(double num, int power);
+double					ft_pow(double nb, int power)
+{
+	double				value;
 
-#endif
+	value = nb;
+	if (power > 0)
+		while (power-- > 1)
+			value *= nb;
+	else
+		value = power ? 0 : 1;
+	return (value);
+}
