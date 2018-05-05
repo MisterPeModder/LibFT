@@ -1,28 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_pow.c                                           :+:      :+:    :+:   */
+/*   ft_atol.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yguaye <yguaye@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/05/04 23:06:14 by yguaye            #+#    #+#             */
-/*   Updated: 2018/05/05 05:40:12 by yguaye           ###   ########.fr       */
+/*   Created: 2018/05/05 00:16:10 by yguaye            #+#    #+#             */
+/*   Updated: 2018/05/05 00:17:14 by yguaye           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft_math/calc.h"
+#include "libft_base/base.h"
 
-double					ft_pow(double nb, int power)
+long			ft_atol(const char *str)
 {
-	int					p;
-	double				value;
+	int			i;
+	long		sign;
+	long		num;
 
-	value = nb;
-	p = power < 0 ? -power : power;
-	if (p > 0)
-		while (p-- > 1)
-			value *= nb;
-	else
-		value = power ? 0 : 1;
-	return (power < 0 ? 1 / value : value);
+	i = 0;
+	while (str[i] && ft_isspace((int)str[i]))
+		++i;
+	sign = 1;
+	if (str[i] == '-' || str[i] == '+')
+	{
+		sign = str[i] == '-' ? -1 : 1;
+		++i;
+	}
+	num = 0;
+	while (ft_isdigit((int)str[i]))
+	{
+		num *= 10;
+		num += str[i] - '0';
+		++i;
+	}
+	return (sign * num);
 }

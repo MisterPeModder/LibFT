@@ -1,7 +1,10 @@
 MODULE_NAME :=	$(PARENT_NAME)/string
 
 MODULE_SRCS :=	ft_atoi.c		\
+				ft_atol.c		\
 				ft_itoa.c		\
+				ft_dtoa.c		\
+				ft_ltoa.c		\
 				ft_strcat.c		\
 				ft_strclr.c		\
 				ft_strcmp.c		\

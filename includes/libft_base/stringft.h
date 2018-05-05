@@ -6,7 +6,7 @@
 /*   By: yguaye <yguaye@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/21 14:35:39 by yguaye            #+#    #+#             */
-/*   Updated: 2018/02/23 12:33:11 by yguaye           ###   ########.fr       */
+/*   Updated: 2018/05/05 04:23:20 by yguaye           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,13 @@
 
 int					ft_atoi(const char *str);
 
+long				ft_atol(const char *str);
+
 char				*ft_itoa(int n);
+
+char				*ft_dtoa(double n, unsigned int prec);
+
+char				*ft_ltoa(long n);
 
 char				*ft_strcat(char *dest, const char *src);
 

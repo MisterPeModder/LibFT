@@ -6,7 +6,7 @@
 /*   By: yguaye <yguaye@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/03 14:37:05 by yguaye            #+#    #+#             */
-/*   Updated: 2018/05/03 15:12:37 by yguaye           ###   ########.fr       */
+/*   Updated: 2018/05/05 06:20:59 by yguaye           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,7 @@ void				dynstr_push(t_dynstr *str, const char *c)
 
 	if (!str)
 		return ;
-	len = ft_strlen(c);
-	if (len + str->length > str->capacity)
+	if ((len = ft_strlen(c)) + str->length > str->capacity)
 	{
 		nlen = str->capacity + str->increment;
 		while (nlen < len + str->length)
