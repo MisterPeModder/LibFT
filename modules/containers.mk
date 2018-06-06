@@ -14,9 +14,15 @@ MODULE_SRCS =	dynstr_del.c	\
 				hm_make.c		\
 				hm_put.c		\
 				hm_release.c	\
+				slst_add.c		\
+				slst_iter.c		\
+				slst_len.c		\
+				slst_new.c		\
+				slst_release.c	\
 
 MODULE_INCS :=	libft_containers/dyn_str.h			\
 				libft_containers/hashmap.h			\
 				libft_containers/hashmap_internal.h	\
+				libft_containers/slist.h			\
 
 $(call addmodule) ## DO NOT EDIT THIS LINE

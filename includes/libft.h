@@ -6,7 +6,7 @@
 /*   By: yguaye <yguaye@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/10 12:32:46 by yguaye            #+#    #+#             */
-/*   Updated: 2018/05/03 14:59:14 by yguaye           ###   ########.fr       */
+/*   Updated: 2018/06/06 09:30:23 by yguaye           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@
 
 # include "libft_containers/dyn_str.h"
 # include "libft_containers/hashmap.h"
+# include "libft_containers/slist.h"
 
 # include "libft_math/math.h"
 
