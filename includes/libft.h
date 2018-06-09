@@ -6,7 +6,7 @@
 /*   By: yguaye <yguaye@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/10 12:32:46 by yguaye            #+#    #+#             */
-/*   Updated: 2018/06/06 09:30:23 by yguaye           ###   ########.fr       */
+/*   Updated: 2018/06/09 14:29:20 by yguaye           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@
 
 # include "libft_args/args.h"
 
+# include "libft_containers/array_list.h"
 # include "libft_containers/dyn_str.h"
 # include "libft_containers/hashmap.h"
 # include "libft_containers/slist.h"

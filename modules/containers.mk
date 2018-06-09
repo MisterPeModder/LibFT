@@ -2,7 +2,8 @@ MODULE_NAME =	containers
 
 MODULE_DEPS :=	base
 
-MODULE_SRCS =	dynstr_del.c	\
+MODULE_SRCS =	arrlst.c		\
+				dynstr_del.c	\
 				dynstr_make.c	\
 				dynstr_push.c	\
 				hm_collisions.c	\
