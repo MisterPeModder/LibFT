@@ -6,7 +6,7 @@
 /*   By: yguaye <yguaye@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/06/09 18:23:35 by yguaye            #+#    #+#             */
-/*   Updated: 2018/06/09 19:30:17 by yguaye           ###   ########.fr       */
+/*   Updated: 2018/06/10 17:34:53 by yguaye           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,6 +59,7 @@ void				add_unit_test(void **lst, const char *name,
 	}
 	u->test = test;
 	u->next = *((t_utest **)lst);
+	u->pid = 0;
 	(*lst) = (void *)u;
 	if (!(u->name = my_strdup(name)))
 	{

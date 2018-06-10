@@ -6,65 +6,61 @@
 /*   By: yguaye <yguaye@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/06/09 17:05:49 by yguaye            #+#    #+#             */
-/*   Updated: 2018/06/09 20:06:25 by yguaye           ###   ########.fr       */
+/*   Updated: 2018/06/10 19:28:29 by yguaye           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <signal.h>
-#include <sys/wait.h>
-#include <unistd.h>
 #include <stdio.h>
 #include <ctype.h>
+#include <signal.h>
+#include <unistd.h>
 #include <stdlib.h>
+#include <sys/wait.h>
 #include "test.h"
 
-void				handle_signals(pid_t pid, int status)
+static void			handle_signals(int status, int is_timeout)
 {
 	const char		*sig;
 
-	if (pid == -1)
-		perror("wait() failed");
+	fputs(BOLD, stdout);
+	if (is_timeout)
+		fputs(BLUE "[TIMEOUT", stdout);
 	else if (WIFSIGNALED(status))
 	{
-		putc('[', stdout);
+		fputs(RED "[", stdout);
 		sig = sys_signame[WTERMSIG(status)];
 		while (*sig)
 		{
-			putchar(toupper(*sig));
+			putc(toupper(*sig), stdout);
 			++sig;
 		}
 	}
-	else if (WIFSTOPPED(status))
-		fputs("[STOP", stdout);
 	else if (WEXITSTATUS(status) == EXIT_SUCCESS)
-		printf("[OK", stdout);
+		fputs(GREEN "[OK", stdout);
 	else
-		printf("[KO", stdout);
-	printf("]\n");
+		fputs(YELLOW "[KO", stdout);
+	puts("]" RESET);
 }
 
 static int			split(t_utest *lst)
 {
 	t_utest			*curr;
-	pid_t			pid;
 	int				status;
+	int				ret;
 
 	curr = lst;
 	while (curr)
 	{
-		if ((pid = fork()) == -1)
-		{
-			perror("fork() failed");
+		if (!launch_child(curr))
 			return (EXIT_FAILURE);
-		}
-		if (pid == 0)
-		{
-			exit((*curr->test)() ? EXIT_SUCCESS : EXIT_FAILURE);
-		}
+		printf("%s (" MAGENTA "%lli" RESET "): ",
+				curr->name, (long long)curr->pid);
+		fflush(stdout);
+		if (!(ret = wait_for_child(curr->pid, &status)))
+			return (EXIT_FAILURE);
+		handle_signals(status, (ret == 1 ? 0 : 1));
 		curr = curr->next;
 	}
-	while ((pid = wait(&status)) > 0)
-		handle_signals(pid, status);
 	return (EXIT_SUCCESS);
 }
 
