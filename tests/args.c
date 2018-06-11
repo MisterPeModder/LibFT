@@ -6,7 +6,7 @@
 /*   By: yguaye <yguaye@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/06/11 07:27:50 by yguaye            #+#    #+#             */
-/*   Updated: 2018/06/11 08:21:56 by yguaye           ###   ########.fr       */
+/*   Updated: 2018/06/11 08:38:39 by yguaye           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,12 +70,8 @@ int					get_args(int ac, char **av, struct s_core *core)
 			return (0);
 		else if (ret == 3)
 			return (3);
-		else if (ret == 2)
-		{
-			if (!try_load_test(av[i], core))
-				return (0);
-			break ;
-		}
+		else if (ret == 2 && !try_load_test(av[i], core))
+			return (0);
 	}
 	core->use_colors = core->use_colors ? isatty(fileno(stdout)) : 0;
 	return (1);
