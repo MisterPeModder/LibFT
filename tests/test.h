@@ -6,7 +6,7 @@
 /*   By: yguaye <yguaye@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/06/09 18:09:53 by yguaye            #+#    #+#             */
-/*   Updated: 2018/06/11 07:39:15 by yguaye           ###   ########.fr       */
+/*   Updated: 2018/06/11 14:17:43 by yguaye           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ int					wait_for_child(pid_t pid, int *status, int use_color);
 
 int					get_args(int ac, char **av, struct s_core *core);
 
-enum				u_color
+enum				e_color
 {
 	RESET,
 	BOLD,
@@ -60,7 +60,7 @@ enum				u_color
 	INVALID
 };
 
-const char			*color(enum u_color color, int use_color);
+const char			*color(enum e_color color, int use_color);
 
 # define TIMEOUT_DELAY 5
 

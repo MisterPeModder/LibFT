@@ -10,8 +10,9 @@ RMDIR := rmdir -p
 MKDIR := mkdir -p
 
 # Compiler flags
-CPPFLAGS = -iquote.
+CPPFLAGS = -iquote. -I../includes
 CFLAGS := -Wall -Wextra -Werror -Wsign-conversion
+LDFLAGS := -L.. -lft
 
 
 ## Sources and includes
@@ -28,6 +29,7 @@ INCLUDES := launchers.h
 ## INCLUDE LAUNCHERS HERE ##
 
 -include launchers/basic.mk
+-include launchers/libft_string.mk
 
 ## END ##
 
@@ -45,7 +47,7 @@ test:
 	@echo "objs dirs: $(OBJS_DIRS)"
 
 $(NAME): $(OBJS_DIRS) $(OBJS)
-	@$(CC) $(OBJS) -o $(NAME)
+	@$(CC) $(OBJS) -o $(NAME) $(LDFLAGS)
 
 $(OBJS_DIRS):
 	@$(MKDIR) $@

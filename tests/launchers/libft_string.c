@@ -1,32 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   colors.c                                           :+:      :+:    :+:   */
+/*   libft_string.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yguaye <yguaye@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/06/10 19:39:17 by yguaye            #+#    #+#             */
-/*   Updated: 2018/06/11 14:17:55 by yguaye           ###   ########.fr       */
+/*   Created: 2018/06/11 13:46:43 by yguaye            #+#    #+#             */
+/*   Updated: 2018/06/11 14:14:41 by yguaye           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "test.h"
+#include <stdlib.h>
+#include "launchers.h"
+#include "tests/libft_string/tests.h"
 
-static const char *g_colors[] =
+void				*launcher_libft_string(void)
 {
-	"\033[0m",
-	"\033[1m",
-	"\033[31m",
-	"\033[32m",
-	"\033[33m",
-	"\033[34m",
-	"\033[35m",
-	""
-};
+	void			*lst;
 
-const char			*color(enum e_color color, int use_color)
-{
-	if (use_color)
-		return (g_colors[color > INVALID ? INVALID : color]);
-	return (g_colors[INVALID]);
+	lst = NULL;
+	add_unit_test(&lst, "ft_strlen (simple)", &ft_strlen_simple);
+	add_unit_test(&lst, "ft_strlen (empty)", &ft_strlen_empty);
+	add_unit_test(&lst, "ft_strlen (big)", &ft_strlen_big);
+	return (lst);
 }

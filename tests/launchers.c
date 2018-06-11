@@ -6,7 +6,7 @@
 /*   By: yguaye <yguaye@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/06/09 19:00:59 by yguaye            #+#    #+#             */
-/*   Updated: 2018/06/11 08:59:03 by yguaye           ###   ########.fr       */
+/*   Updated: 2018/06/11 13:49:23 by yguaye           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@
 static const struct s_launcher launchers[] =
 {
 	{"basic", &launcher_basic},
+	{"libft_string", &launcher_libft_string},
 	{NULL, NULL}
 };
 
