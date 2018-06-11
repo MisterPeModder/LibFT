@@ -6,7 +6,7 @@
 /*   By: yguaye <yguaye@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/06/09 18:09:53 by yguaye            #+#    #+#             */
-/*   Updated: 2018/06/10 19:30:51 by yguaye           ###   ########.fr       */
+/*   Updated: 2018/06/11 07:39:15 by yguaye           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,12 @@ struct				s_launcher
 	void			*(*f)(void);
 };
 
+struct				s_core
+{
+	t_utest			*tests;
+	int				use_colors;
+};
+
 void				add_unit_test(void **lst, const char *name,
 		int (*test)(void));
 
@@ -38,25 +44,23 @@ int					load_tests(const char *name, t_utest **test_loc);
 
 int					launch_child(t_utest *unit);
 
-int					wait_for_child(pid_t pid, int *status);
+int					wait_for_child(pid_t pid, int *status, int use_color);
 
-# ifdef NO_COLORS
-#  define RESET ""
-#  define BOLD ""
-#  define RED ""
-#  define GREEN ""
-#  define YELLOW ""
-#  define BLUE ""
-#  define MAGENTA ""
-# else
-#  define RESET "\033[0m"
-#  define BOLD "\033[1m"
-#  define RED "\033[31m"
-#  define GREEN "\033[32m"
-#  define YELLOW "\033[33m"
-#  define BLUE "\033[34m"
-#  define MAGENTA "\033[35m"
-# endif
+int					get_args(int ac, char **av, struct s_core *core);
+
+enum				u_color
+{
+	RESET,
+	BOLD,
+	RED,
+	GREEN,
+	YELLOW,
+	BLUE,
+	MAGENTA,
+	INVALID
+};
+
+const char			*color(enum u_color color, int use_color);
 
 # define TIMEOUT_DELAY 5
 

@@ -6,7 +6,7 @@
 /*   By: yguaye <yguaye@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/06/09 19:00:59 by yguaye            #+#    #+#             */
-/*   Updated: 2018/06/09 19:54:51 by yguaye           ###   ########.fr       */
+/*   Updated: 2018/06/10 19:47:48 by yguaye           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 #include "test.h"
 #include "launchers.h"
 
-const struct s_launcher launchers[] =
+static const struct s_launcher launchers[] =
 {
 	{"basic", &launcher_basic},
 	{NULL, NULL}

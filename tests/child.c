@@ -6,7 +6,7 @@
 /*   By: yguaye <yguaye@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/06/10 17:59:48 by yguaye            #+#    #+#             */
-/*   Updated: 2018/06/10 19:25:17 by yguaye           ###   ########.fr       */
+/*   Updated: 2018/06/11 07:19:12 by yguaye           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include <unistd.h>
+#include <signal.h>
 #include "test.h"
 
 int					launch_child(t_utest *unit)
@@ -30,41 +31,50 @@ int					launch_child(t_utest *unit)
 
 static inline void	chars_setback(int count)
 {
-	while (--count > 0)
-		putc('\b', stdout);
+	if (isatty(fileno(stdout)))
+		while (--count > 0)
+			putc('\b', stdout);
 }
 
-static void			chars_erase(int count)
+static inline void	chars_erase(int count)
 {
-	while (--count > 0)
-		putc(' ', stdout);
+	if (isatty(fileno(stdout)))
+		while (--count > 0)
+			putc(' ', stdout);
 }
 
-int					wait_for_child(pid_t pid, int *status)
+static inline void	chars_reset(int char_count)
+{
+	chars_setback(char_count);
+	chars_erase(char_count);
+	chars_setback(char_count + 1);
+}
+
+int					wait_for_child(pid_t pid, int *status, int uc)
 {
 	int				time;
 	int				char_count;
 	pid_t			ret;
 
-	time = TIMEOUT_DELAY;
 	char_count = 0;
 	usleep(1000);
+	time = TIMEOUT_DELAY;
 	while (time > 0)
 	{
-		chars_setback(char_count);
-		chars_erase(char_count);
-		chars_setback(char_count + 1);
+		chars_reset(char_count);
 		if ((ret = waitpid(pid, status, WNOHANG)) == -1)
 			return (0);
 		else if (ret > 0)
 			return (1);
-		fputs(BLUE, stdout);
-		char_count = (time == TIMEOUT_DELAY ? 0 : printf("(time: %d)", time));
-		fputs(RESET, stdout);
+		fputs(color(BLUE, uc), stdout);
+		char_count = (time == TIMEOUT_DELAY || !uc ?
+				0 : printf("(time: %d)", time));
+		fputs(color(RESET, uc), stdout);
 		fflush(stdout);
 		sleep(1);
 		--time;
 	}
 	chars_setback(char_count + 1);
+	kill(pid, SIGKILL);
 	return (2);
 }
