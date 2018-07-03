@@ -10,6 +10,7 @@ MODULE_SRCS :=	ft_bzero.c		\
 				ft_memdup.c		\
 				ft_memmove.c	\
 				ft_memset.c		\
+				ft_realloc.c	\
 
 MODULE_INCS :=	libft_base/memory.h
 

@@ -6,7 +6,7 @@
 /*   By: yguaye <yguaye@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/21 14:39:41 by yguaye            #+#    #+#             */
-/*   Updated: 2017/12/21 14:50:36 by yguaye           ###   ########.fr       */
+/*   Updated: 2018/07/03 06:53:03 by yguaye           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,5 +34,7 @@ void				*ft_memdup(const void *src, size_t size);
 void				*ft_memmove(void *d, const void *s, size_t n);
 
 void				*ft_memset(void *b, int c, size_t len);
+
+int					ft_realloc(void **mem, size_t old_size, size_t new_size);
 
 #endif

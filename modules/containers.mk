@@ -21,7 +21,8 @@ MODULE_SRCS =	arrlst.c		\
 				slst_new.c		\
 				slst_release.c	\
 
-MODULE_INCS :=	libft_containers/dyn_str.h			\
+MODULE_INCS :=	libft_containers/array_list.h		\
+				libft_containers/dyn_str.h			\
 				libft_containers/hashmap.h			\
 				libft_containers/hashmap_internal.h	\
 				libft_containers/slist.h			\
