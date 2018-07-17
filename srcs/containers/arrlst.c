@@ -6,7 +6,7 @@
 /*   By: yguaye <yguaye@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/06/09 14:04:57 by yguaye            #+#    #+#             */
-/*   Updated: 2018/07/03 07:06:56 by yguaye           ###   ########.fr       */
+/*   Updated: 2018/07/17 19:03:32 by yguaye           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,7 @@ void				arrlst_del(t_arrlst **lst, void *user,
 		void (*d)(void *, void *))
 {
 	size_t			i;
+
 	if (!lst || !*lst)
 		return ;
 	if (d)
