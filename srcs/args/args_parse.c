@@ -6,7 +6,7 @@
 /*   By: yguaye <yguaye@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/10 15:44:16 by yguaye            #+#    #+#             */
-/*   Updated: 2018/02/28 15:39:30 by yguaye           ###   ########.fr       */
+/*   Updated: 2018/08/20 01:27:37 by yguaye           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,10 +25,10 @@ static int			validate_args(t_args *args)
 	while (curr)
 	{
 		i = -1;
-		while (curr->type == OPTION && curr->argv.o.options_v &&
-				curr->argv.o.options_v[++i])
-			if (curr->argv.o.options_v[i] != '-' &&
-					!is_arg_listed(args, curr->argv.o.options_v + i, OPTION))
+		while (curr->type == OPTION && curr->argv.o.options_v
+				&& curr->argv.o.options_v[++i])
+			if (curr->argv.o.options_v[i] != '-'
+					&& !is_arg_listed(args, curr->argv.o.options_v + i, OPTION))
 			{
 				option[0] = curr->argv.o.options_v[i];
 				return (set_arg_error(args, ARG_UNKNOWN_OPTION, option));
@@ -107,8 +107,8 @@ int					parse_args(t_args *args, int ac, char **av)
 	{
 		str = av[i];
 		ret = 0;
-		if (!simple && str[0] == '-' && (str[1] != '-' ||
-					(args->mode & ARG_MENABLE_SEP && str[1] == '-' && !str[2])))
+		if (!simple && str[0] == '-' && (str[1] != '-' || (args->mode
+						& ARG_MENABLE_SEP && str[1] == '-' && !str[2])))
 			ret = parse_option(get_arg(args, OPTION, NULL), str);
 		else if (str[0] == '-' && (simple || str[1] == '-'))
 			ret = parse_args_param(args, ac, av, &i);

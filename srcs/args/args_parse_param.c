@@ -6,7 +6,7 @@
 /*   By: yguaye <yguaye@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/11 14:51:14 by yguaye            #+#    #+#             */
-/*   Updated: 2018/02/28 15:39:52 by yguaye           ###   ########.fr       */
+/*   Updated: 2018/08/20 01:28:02 by yguaye           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,8 @@ static int			copy_param_args(t_arglst *arg, char **av, int *i, int len)
 	j = 0;
 	while (j < len)
 	{
-		if (!(arg->argv.l.values[j] = (char *)malloc(sizeof(char *) *
-						ft_strlen(av[*i + 1]))))
+		if (!(arg->argv.l.values[j] = (char *)malloc(sizeof(char *)
+						* ft_strlen(av[*i + 1]))))
 		{
 			while (--j >= 0)
 				free(arg->argv.l.values[j]);
@@ -46,15 +46,15 @@ int					parse_param(t_arglst *arg, char **av, int ac, int *i)
 		++len;
 	if (len > arg->argv.l.size)
 		len = arg->argv.l.policy == SIZEP_MIN ? len : arg->argv.l.size;
-	if ((arg->argv.l.policy == SIZEP_MIN && arg->argv.l.size > len) ||
-			(arg->argv.l.policy == SIZEP_FORCE && arg->argv.l.size != len) ||
-			(arg->argv.l.policy == SIZEP_MAX && arg->argv.l.size < len))
+	if ((arg->argv.l.policy == SIZEP_MIN && arg->argv.l.size > len)
+			|| (arg->argv.l.policy == SIZEP_FORCE && arg->argv.l.size != len)
+			|| (arg->argv.l.policy == SIZEP_MAX && arg->argv.l.size < len))
 		return (set_arg_error(arg->args, ARG_INVALID_SIZE, av[*i]));
 	arg->argv.l.defined = 1;
 	if (len == 0)
 		return (clear_arg_errors(arg->args));
-	if (!(arg->argv.l.values = (char **)ft_memalloc(sizeof(char *) *
-					(len + 1))))
+	if (!(arg->argv.l.values = (char **)ft_memalloc(sizeof(char *)
+					* (len + 1))))
 		return (set_arg_error(arg->args, ARG_MEM_ERROR, NULL));
 	return (copy_param_args(arg, av, i, (int)len));
 }

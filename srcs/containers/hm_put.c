@@ -6,7 +6,7 @@
 /*   By: yguaye <yguaye@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/13 17:53:11 by yguaye            #+#    #+#             */
-/*   Updated: 2018/04/28 18:46:26 by yguaye           ###   ########.fr       */
+/*   Updated: 2018/08/20 01:28:12 by yguaye           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,8 +63,8 @@ void					hm_put(t_hashmap *map, const char *key, void *value)
 		map->buckets[i] = hm_make_node(key, value);
 	else
 	{
-		if (hm_try_update(map, key, value, i) ||
-				!(curr = hm_make_node(key, value)))
+		if (hm_try_update(map, key, value, i)
+				|| !(curr = hm_make_node(key, value)))
 			return ;
 		tmp = map->buckets[i];
 		map->buckets[i] = curr;
