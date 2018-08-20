@@ -6,7 +6,7 @@
 /*   By: yguaye <yguaye@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/21 14:35:39 by yguaye            #+#    #+#             */
-/*   Updated: 2018/05/05 04:23:20 by yguaye           ###   ########.fr       */
+/*   Updated: 2018/08/20 05:48:28 by yguaye           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,8 @@
 # define STRINGFT_H
 
 # include <string.h>
+
+double				ft_atod(const char *str);
 
 int					ft_atoi(const char *str);
 
@@ -52,6 +54,8 @@ char				*ft_strlowcase(char *str);
 void				ft_striter(char *s, void (*f)(char *));
 
 void				ft_striteri(char *s, void (*f)(unsigned int, char *));
+
+int					ft_strisdouble(const char *str);
 
 int					ft_strisnumber(char *str);
 
