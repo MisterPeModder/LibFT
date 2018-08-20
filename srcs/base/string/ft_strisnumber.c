@@ -6,13 +6,13 @@
 /*   By: yguaye <yguaye@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/18 01:10:30 by yguaye            #+#    #+#             */
-/*   Updated: 2017/12/18 01:13:57 by yguaye           ###   ########.fr       */
+/*   Updated: 2018/08/20 13:09:07 by yguaye           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft_base/base.h"
 
-int			ft_strisnumber(char *str)
+int			ft_strisnumber(const char *str)
 {
 	int		i;
 
