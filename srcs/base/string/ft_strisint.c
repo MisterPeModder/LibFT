@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strisnumber.c                                   :+:      :+:    :+:   */
+/*   ft_strisint.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yguaye <yguaye@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/12/18 01:10:30 by yguaye            #+#    #+#             */
-/*   Updated: 2018/08/20 15:25:49 by yguaye           ###   ########.fr       */
+/*   Created: 2018/08/20 15:26:00 by yguaye            #+#    #+#             */
+/*   Updated: 2018/08/20 15:26:27 by yguaye           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft_base/base.h"
 
-int			ft_strisnumber(const char *str)
+int			ft_strisint(const char *str)
 {
 	int		i;
 
@@ -23,5 +23,5 @@ int			ft_strisnumber(const char *str)
 		++i;
 	while (str[i] && ft_isdigit(str[i]))
 		++i;
-	return (!str[i]);
+	return (1);
 }

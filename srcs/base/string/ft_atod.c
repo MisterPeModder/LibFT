@@ -6,7 +6,7 @@
 /*   By: yguaye <yguaye@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/20 05:07:27 by yguaye            #+#    #+#             */
-/*   Updated: 2018/08/20 05:49:54 by yguaye           ###   ########.fr       */
+/*   Updated: 2018/08/20 16:06:28 by yguaye           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,9 +30,7 @@ static int			ft_atod_validate(const char *str, int *negate)
 		++str;
 	if (!*str)
 		return (1);
-	else if (*str != '.')
-		return (0);
-	if (!ft_isdigit(*(++str)))
+	else if (*str == '.' && !ft_isdigit(*(++str)))
 		return (0);
 	return (1);
 }
@@ -43,6 +41,7 @@ double				ft_atod(const char *str)
 	double			decimal_part;
 	int				negate;
 
+	negate = 0;
 	if (!ft_atod_validate(str, &negate))
 		return (0);
 	num = (double)ft_atol(str);

@@ -14,6 +14,7 @@ MODULE_SRCS :=	ft_atod.c		\
 				ft_strdel.c		\
 				ft_strdup.c		\
 				ft_strequ.c		\
+				ft_strisint.c	\
 				ft_strisnumber.c\
 				ft_striter.c	\
 				ft_striteri.c	\

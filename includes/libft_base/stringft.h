@@ -6,7 +6,7 @@
 /*   By: yguaye <yguaye@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/21 14:35:39 by yguaye            #+#    #+#             */
-/*   Updated: 2018/08/20 13:08:49 by yguaye           ###   ########.fr       */
+/*   Updated: 2018/08/20 15:25:26 by yguaye           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,6 +57,12 @@ void				ft_striteri(char *s, void (*f)(unsigned int, char *));
 
 int					ft_strisdouble(const char *str);
 
+int					ft_strisint(const char *str);
+
+/*
+** ft_strisnumber: Same as ft_strisint but is more strict.
+**                 The integer MUST end with the last digit.
+*/
 int					ft_strisnumber(const char *str);
 
 char				*ft_strjoin(char const *s1, char const *s2);
