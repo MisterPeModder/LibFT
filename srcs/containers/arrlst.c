@@ -6,7 +6,7 @@
 /*   By: yguaye <yguaye@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/06/09 14:04:57 by yguaye            #+#    #+#             */
-/*   Updated: 2018/08/14 09:07:07 by yguaye           ###   ########.fr       */
+/*   Updated: 2018/08/22 06:45:14 by yguaye           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,8 @@ t_arrlst			*arrlst_new(size_t elem_size, size_t start_capacity)
 
 int					arrlst_reserve(t_arrlst *lst, size_t new_cap)
 {
-	if (!ft_realloc(&lst->elements, lst->capacity, new_cap))
+	if (!ft_realloc(&lst->elements, lst->capacity * lst->elem_size,
+				new_cap * lst->elem_size))
 		return (0);
 	lst->capacity = new_cap;
 	return (1);

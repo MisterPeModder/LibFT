@@ -31,6 +31,7 @@ MODULE_SRCS :=	ft_atod.c		\
 				ft_strnequ.c	\
 				ft_strnew.c		\
 				ft_strnstr.c	\
+				ft_strchr.c		\
 				ft_strrchr.c	\
 				ft_strsplit.c	\
 				ft_strsub.c		\

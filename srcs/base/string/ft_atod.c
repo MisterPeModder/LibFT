@@ -6,7 +6,7 @@
 /*   By: yguaye <yguaye@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/20 05:07:27 by yguaye            #+#    #+#             */
-/*   Updated: 2018/08/20 16:06:28 by yguaye           ###   ########.fr       */
+/*   Updated: 2018/08/21 19:34:41 by yguaye           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,8 @@ double				ft_atod(const char *str)
 	negate = 0;
 	if (!ft_atod_validate(str, &negate))
 		return (0);
-	num = (double)ft_atol(str);
+	if ((num = (double)ft_atol(str)) < 0)
+		num = -num;
 	while (*str && *str != '.')
 		++str;
 	if (*(str++) == '.')

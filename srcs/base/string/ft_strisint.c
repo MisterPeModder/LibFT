@@ -6,7 +6,7 @@
 /*   By: yguaye <yguaye@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/20 15:26:00 by yguaye            #+#    #+#             */
-/*   Updated: 2018/08/20 15:26:27 by yguaye           ###   ########.fr       */
+/*   Updated: 2018/08/21 22:03:12 by yguaye           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,5 +23,5 @@ int			ft_strisint(const char *str)
 		++i;
 	while (str[i] && ft_isdigit(str[i]))
 		++i;
-	return (1);
+	return (i > 0 && ft_isdigit(str[i - 1]));
 }
