@@ -6,139 +6,93 @@
 /*   By: yguaye <yguaye@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/30 14:46:00 by yguaye            #+#    #+#             */
-/*   Updated: 2018/04/19 11:22:04 by yguaye           ###   ########.fr       */
+/*   Updated: 2018/08/23 00:07:38 by yguaye           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-#include "get_next_line.h"
+#include <stdlib.h>
 #include <unistd.h>
+#include "get_next_line.h"
+#include "libft_base/memory.h"
+#include "libft_base/stringft.h"
 
-static t_buff	*gnl_buff(t_list **lst, int fd)
+static int	check_fd(const int fd, t_gnl **lst)
 {
-	t_buff	*gnl;
-	t_list	*temp;
+	t_gnl	*new;
+	t_gnl	*tmp;
 
-	temp = *lst;
-	while (temp)
+	tmp = *lst;
+	while (tmp != NULL)
 	{
-		gnl = (t_buff *)(temp->content);
-		if (gnl->fd == fd)
-			return (gnl);
-		temp = temp->next;
+		if (tmp->fd == fd)
+			return (0);
+		tmp = tmp->next;
 	}
-	gnl = (t_buff *)ft_memalloc(sizeof(t_buff));
-	gnl->buf = ft_strnew(BUFF_SIZE);
-	gnl->count = BUFF_SIZE;
-	gnl->i = BUFF_SIZE;
-	gnl->fd = fd;
-	gnl->nl = 1;
-	temp = ft_lstnew(gnl, sizeof(t_buff));
-	ft_memdel((void **)&gnl);
-	ft_lstadd(lst, temp);
-	return ((t_buff *)(temp->content));
-}
-
-static char		*get_reminder(char **a, t_buff *gnl)
-{
-	int		i;
-	char	*rem;
-	char	*tmp;
-
-	i = 0;
-	gnl->nl = 0;
-	while (gnl->i + i < gnl->count)
-	{
-		if (gnl->buf[gnl->i + i] == '\n')
-		{
-			gnl->nl = 1;
-			i++;
-			break ;
-		}
-		i++;
-	}
-	gnl->i += i;
-	rem = ft_strsub(gnl->buf, (unsigned int)(gnl->i - i),
-			(size_t)(i - gnl->nl));
-	tmp = ft_strjoin(*a, rem);
-	ft_strdel(a);
-	ft_strdel(&rem);
-	return (tmp);
-}
-
-static int		gnl_free(t_list **lst, int fd, char **str)
-{
-	t_buff	*gnl;
-	t_list	**temp;
-	t_list	*ptr;
-
-	temp = lst;
-	while (*temp)
-	{
-		gnl = (t_buff *)((*temp)->content);
-		if (gnl->fd == fd)
-			break ;
-		*temp = ((*temp)->next);
-	}
-	if (*temp)
-	{
-		ptr = (*temp)->next;
-		ft_strdel(&(gnl->buf));
-		ft_memdel((void **)&gnl);
-		ft_memdel((void **)temp);
-		*temp = ptr;
-	}
-	ft_strdel(str);
+	new = (t_gnl *)malloc(sizeof(t_gnl));
+	if (new == NULL)
+		return (-1);
+	new->fd = fd;
+	new->line = ft_strnew(0);
+	if (new->line == NULL)
+		return (-1);
+	new->next = *lst;
+	*lst = new;
 	return (0);
 }
 
-static int		gnl_check(t_buff *gnl, t_list **lst, char **temp, char **line)
+static int	eoleofcheck(char **line, t_gnl *ls)
 {
-	if (gnl->i == gnl->count)
+	if (*(ls->line) == '\0')
+		return (0);
+	else
 	{
-		gnl->count = read(gnl->fd, gnl->buf, BUFF_SIZE);
-		if (gnl->count == -1)
-		{
-			gnl_free(lst, gnl->fd, temp);
+		if ((*line = ft_strdup(ls->line)) == NULL)
 			return (-1);
-		}
-		gnl->i = 0;
-		if (gnl->count == 0)
-		{
-			if (gnl->nl == 0)
-			{
-				*line = *temp;
-				return (1);
-			}
-		}
+		ft_strdel(&(ls->line));
+		return (1);
 	}
-	return (0);
 }
 
-int				get_next_line(int const fd, char **line)
+static int	find_next_line(const int fd, char **line, t_gnl *ls, char *buffer)
 {
-	static t_list	*lst;
-	t_buff			*gnl;
 	char			*tmp;
+	unsigned int	el;
 	int				ret;
 
-	if (fd < 0 || line == NULL)
-		return (-1);
-	gnl = gnl_buff(&lst, fd);
-	tmp = ft_strnew(0);
-	while (gnl->count > 0)
+	if ((tmp = ft_strchr(ls->line, '\n')) != NULL)
 	{
-		if ((ret = gnl_check(gnl, &lst, &tmp, line)) != 0)
-			return (ret);
-		while (gnl->i < gnl->count)
-		{
-			tmp = get_reminder(&tmp, gnl);
-			if (gnl->nl)
-			{
-				*line = tmp;
-				return (1);
-			}
-		}
+		el = (unsigned int)(tmp - ls->line);
+		if ((*line = ft_strsub(ls->line, 0, (size_t)el++)) == NULL)
+			return (-1);
+		if ((tmp = ft_strsub(ls->line, el, (ft_strlen(ls->line) - el))) == NULL)
+			return (-1);
+		ft_strdel(&(ls->line));
+		ls->line = tmp;
+		return (1);
 	}
-	return (gnl_free(&lst, fd, &tmp));
+	ft_bzero(buffer, (BUFF_SIZE + 1));
+	if ((ret = read(fd, buffer, BUFF_SIZE)) == 0)
+		return (eoleofcheck(line, ls));
+	if (ret == -1)
+		return (-1);
+	ls->line = ft_strjoinf1(&ls->line, buffer);
+	return (find_next_line(fd, line, ls, buffer));
+}
+
+int			get_next_line(const int fd, char **line)
+{
+	static t_gnl	*begin_list;
+	t_gnl			*tmp;
+	char			buffer[BUFF_SIZE + 1];
+
+	if (line == NULL || fd < 0)
+		return (-1);
+	if (check_fd(fd, &begin_list) == -1)
+		return (-1);
+	tmp = begin_list;
+	while (tmp->fd != fd)
+		tmp = tmp->next;
+	if (tmp->line == NULL)
+		return (0);
+	return (find_next_line(fd, line, tmp, buffer));
 }
