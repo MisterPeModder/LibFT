@@ -6,7 +6,7 @@
 /*   By: yguaye <yguaye@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/06/09 14:04:57 by yguaye            #+#    #+#             */
-/*   Updated: 2018/08/22 06:45:14 by yguaye           ###   ########.fr       */
+/*   Updated: 2018/08/23 09:01:31 by yguaye           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,6 +68,6 @@ int					arrlst_add(t_arrlst *lst, const void *e)
 	if (++lst->size >= lst->capacity && !arrlst_reserve(lst, lst->capacity * 2))
 		return (0);
 	ft_memcpy((void *)((char *)lst->elements + lst->elem_size
-				* (lst->size - 1)) , e, lst->elem_size);
+				* (lst->size - 1)), e, lst->elem_size);
 	return (1);
 }
